@@ -1,0 +1,82 @@
+@import "utils/_normalize";
+@import "utils/_reset";
+@import "utils/vars";
+
+html{
+  height: 100%;
+}
+
+body{
+  background-color: $light-color;
+  height: 100%;
+}
+
+.wrapper{
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  height: 100%;
+  width: 100%;
+  max-width: 1000px;
+  background-color: $light-color;
+  
+}
+
+.header{
+  flex: 0 0 auto;
+  height: 50px;
+  background-color: $light-color;
+}
+
+.main{
+  flex: 1 0 auto;  
+  display: flex;
+  background-color: $success-color;
+  
+  &__total-section{
+    width: 40%;    
+    background-color: $primary-color;
+  }
+
+  &__other-section{
+    width: 60%;    
+
+    &__sub-content-block{
+      height: 30%;
+      display: flex;
+
+      &__button{
+        width: 30%;
+        background-color: $primary-color;
+      }
+
+      &__galery{
+        width: 70%;
+      }
+
+    }
+  }
+}
+
+.footer{
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 20px;
+  font-weight: bold;
+  color: $success-color;
+  background-color: $primary-color;
+
+  &__logo__link__img {
+    width:50px;
+  }
+}
+
+@media (max-width: 1279px) {
+
+}
+
+@media (max-width: 767px) {
+  
+}
