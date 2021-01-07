@@ -23,34 +23,240 @@ body{
 }
 
 .header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   flex: 0 0 auto;
   height: 50px;
   background-color: $light-color;
+
+  &__hidden-title{
+    position: absolute;
+    clip: rect(1px, 1px, 1px, 1px);
+    -webkit-clip-path: inset(0px 0px 99.9% 99.9%);
+    clip-path: inset(0px 0px 99.9% 99.9%);
+    overflow: hidden;
+    height: 1px;
+    width: 1px;
+    padding: 0;
+    border: 0;
+  }
+
+  &__info-block{
+    display: flex;
+
+    &__content{
+      margin: 10px;
+      display: flex;
+      align-items: center;
+      color: $primary-color;
+
+      &__icon{
+        margin: 5px 10px;
+        padding: 5px;
+        width: 30px;
+      }
+
+      &__text{
+        margin: 5px 10px;        
+        font-style: italic;
+      }
+    }
+
+    &__content:hover{
+      color:$success-color;
+    }
+  }
 }
 
 .main{
   flex: 1 0 auto;  
   display: flex;
-  background-color: $success-color;
+  background-color: $light-color;
   
   &__total-section{
     width: 40%;    
     background-color: $primary-color;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    &__main-image-container{
+      width: 80%;
+      background-color: $light-color;
+      border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+      box-shadow: 15px 15px 50px rgba(0,0,0,0.2);
+      animation: morphing 10s infinite;
+      overflow: hidden;     
+    }
+
+    &__main-image-container:hover{      
+		  animation-play-state: paused;
+    }
+
+    &__main-title{
+      font-size: 40px;
+      color: $light-color;
+    }
   }
 
   &__other-section{
     width: 60%;    
+    display: flex;
+    flex-direction: column;
+
+    &__tabs{
+      flex: 1 0 auto;
+      display: flex;
+      flex-direction: column;
+
+      &__tab{
+        border:1px solid $primary-color;  
+        display: flex;
+        
+        &__button{
+          flex-grow: 1;
+          padding: 14px 16px;             
+          font-weight: bold;
+          transition: 0.3s;        
+        }
+
+        &__button:hover{
+          background-color:$success-color;
+          color: $light-color;           
+        }
+
+        &__button:active{
+          background-color:$success-color;                               
+        }
+
+        .tab__button-active {
+          background-color:$success-color;
+          color: $primary-color;  
+          -webkit-box-shadow: 0px 0px 7px 1px rgba(99, 104, 113, 0.3) inset;
+          -moz-box-shadow: 0px 0px 7px 1px rgba(99, 104, 113, 0.3) inset;
+          box-shadow: 0px 0px 7px 1px rgba(99, 104, 113, 0.3) inset;      
+        }
+      }
+      
+      &__tabcontent{
+        display: none;
+        padding: 6px 12px;
+        border: 1px solid #ccc;
+        border-top: none;
+      }
+
+      .tab__open{
+        display: block;
+        flex-grow: 1;
+      }
+
+      &__button-step-block{
+        display: flex;
+        justify-content: center;
+
+        &__button{
+          margin: 5px;
+          padding: 5px;
+          cursor: pointer;
+          font-weight: bold;
+          transition: 0.3s; 
+          background-color: $primary-color;
+          color:$light-color;
+        }
+
+        .button__disable{
+          cursor: auto;
+          background-color: $disabled-color;
+        }
+      }
+      
+    }
 
     &__sub-content-block{
       height: 30%;
       display: flex;
+      width: 100%;
+      align-self: flex-end;
+      background-color: $success-color;
 
-      &__button{
+      &__galery-modal{
         width: 30%;
         background-color: $primary-color;
+
+        /* The Modal (background) */
+        &__modal {
+          display: none; /* Hidden by default */
+          position: fixed; /* Stay in place */
+          z-index: 1; /* Sit on top */
+          padding-top: 100px; /* Location of the box */
+          left: 0;
+          top: 0;
+          width: 100%; /* Full width */
+          height: 100%; /* Full height */
+          overflow: auto; /* Enable scroll if needed */
+          background-color: rgb(0,0,0); /* Fallback color */
+          background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        }
+
+        /* Modal Content */
+        .modal-content {
+          position: relative;
+          background-color: #fefefe;
+          margin: auto;
+          padding: 0;
+          border: 1px solid #888;
+          width: 80%;
+          box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+          -webkit-animation-name: animatetop;
+          -webkit-animation-duration: 0.4s;
+          animation-name: animatetop;
+          animation-duration: 0.4s
+        }
+
+        /* Add Animation */
+        @-webkit-keyframes animatetop {
+          from {top:-300px; opacity:0} 
+          to {top:0; opacity:1}
+        }
+
+        @keyframes animatetop {
+          from {top:-300px; opacity:0}
+          to {top:0; opacity:1}
+        }
+
+        /* The Close Button */
+        .close {
+          color: white;
+          float: right;
+          font-size: 28px;
+          font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+          color: #000;
+          text-decoration: none;
+          cursor: pointer;
+        }
+
+        .modal-header {
+          padding: 2px 16px;
+          background-color: #5cb85c;
+          color: white;
+        }
+
+        .modal-body {padding: 2px 16px;}
+
+        .modal-footer {
+          padding: 2px 16px;
+          background-color: #5cb85c;
+          color: white;
+        }
       }
 
-      &__galery{
+      &__some{
         width: 70%;
       }
 
@@ -66,7 +272,16 @@ body{
   font-size: 20px;
   font-weight: bold;
   color: $success-color;
-  background-color: $primary-color;
+  background-color: $light-color;
+
+  &__text{
+    margin: 0 10px;
+
+    &__link{
+      margin: 0 10px;
+      color:$success-color;
+    }
+  }
 
   &__logo__link__img {
     width:50px;
@@ -79,4 +294,24 @@ body{
 
 @media (max-width: 767px) {
   
+}
+
+@keyframes morphing {
+  0% {
+    border-radius: 20% 50% 50% 20% / 20% 20% 50% 50%;
+    box-shadow: 15px 15px 50px rgba(0,0,0,0.2);
+  }
+  25% { 
+    border-radius: 58% 42% 65% 25% / 56% 46% 54% 24%;
+  }
+  50% {
+    border-radius: 50% 50% 33% 67% / 55% 27% 63% 45%;
+    box-shadow: -10px -5px 50px rgba(0,0,0,0.2);
+  }
+  75% {
+    border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%;	
+  }
+  100% {
+    border-radius: 20% 50% 50% 20% / 20% 20% 50% 50%;	
+  }
 }

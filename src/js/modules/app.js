@@ -17,7 +17,7 @@ export default class App {
   createAppStructure() {
     this.header = new HeaderBlock();
     this.main = new MainBlock();
-    this.header = new FooterBlock();
+    this.footer = new FooterBlock();
   }
 }
 

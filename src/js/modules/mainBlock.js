@@ -1,32 +1,35 @@
+import create from './create';
+import ModalGalery from './modalGallery';
+import Tabs from './tabs';
+
 export default class MainBlock {
   constructor() {
-    const WRAPPER = document.querySelector('.wrapper');
-    this.main = document.createElement('main');
-    this.main.classList.add('main');
-    WRAPPER.appendChild(this.main);
+    const wrapper = document.querySelector('.wrapper');
+    this.main = create('main', 'main', null, wrapper);
     this.totalInfoSection = null;
     this.otherInfoSection = null;
     this.addSections();
-    this.addBlockWithSubContent();
-    console.log('main');
   }
 
   addSections() {
-    this.totalInfoSection = document.createElement('section');
-    this.otherInfoSection = document.createElement('section');
-    this.totalInfoSection.classList.add('main__total-section');
-    this.otherInfoSection.classList.add('main__other-section');
-    this.main.append(this.totalInfoSection, this.otherInfoSection);
+    this.totalInfoSection = create('section', 'main__total-section', null, this.main);
+    this.otherInfoSection = create('section', 'main__other-section', null, this.main);
+    this.tabs = new Tabs();
+    this.addBlockWithMainImageAndTitle();
+    this.addBlockWithSubContent();
   }
 
   addBlockWithSubContent() {
-    const SUB_CONTENT_BLOCK = document.createElement('div');
-    const GALERY_BLOCK = document.createElement('div');
-    const BUTTON_BLOCK = document.createElement('button');
-    SUB_CONTENT_BLOCK.classList.add('main__other-section__sub-content-block');
-    GALERY_BLOCK.classList.add('main__other-section__sub-content-block__galery');
-    BUTTON_BLOCK.classList.add('main__other-section__sub-content-block__button');
-    SUB_CONTENT_BLOCK.append(GALERY_BLOCK, BUTTON_BLOCK);
-    this.otherInfoSection.append(SUB_CONTENT_BLOCK);
+    this.subContentBlock = create('div', 'main__other-section__sub-content-block', null, this.otherInfoSection);
+    this.someBlock = create('div', 'main__other-section__sub-content-block__some', null, this.subContentBlock);
+    this.galeryModalBlock = create('div', 'main__other-section__sub-content-block__galery-modal', null, this.subContentBlock);
+    this.modal = new ModalGalery();
+  }
+
+  addBlockWithMainImageAndTitle() {
+    this.figureMainImage = create('figure', 'main__total-section__main-image-container',
+      '<img class="main-image-container__img" src="assets/images/appartments/hotel.svg" alt="Our Hotel">',
+      this.totalInfoSection);
+    this.mainTitle = create('h2', 'main__total-section__main-title', 'Our Hotel', this.totalInfoSection);
   }
 }
