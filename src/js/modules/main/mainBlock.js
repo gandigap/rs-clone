@@ -1,4 +1,4 @@
-import create from './create';
+import create from '../create';
 import ModalGalery from './modalGallery';
 import Tabs from './tabs';
 

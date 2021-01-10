@@ -9,7 +9,12 @@ html{
 body{
   background-color: $light-color;
   height: 100%;
+  color:$primary-color;
 }
+
+/* .goog-te-banner-frame{
+  display: none;
+} */
 
 .wrapper{
   display: flex;
@@ -183,76 +188,174 @@ body{
 
       &__galery-modal{
         width: 30%;
-        background-color: $primary-color;
-
-        /* The Modal (background) */
-        &__modal {
-          display: none; /* Hidden by default */
-          position: fixed; /* Stay in place */
-          z-index: 1; /* Sit on top */
-          padding-top: 100px; /* Location of the box */
+        background-color: $primary-color;   
+        
+        &__modal{       
+          position: fixed;
+          z-index: 1;
           left: 0;
-          top: 0;
-          width: 100%; /* Full width */
-          height: 100%; /* Full height */
-          overflow: auto; /* Enable scroll if needed */
-          background-color: rgb(0,0,0); /* Fallback color */
-          background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+          bottom: -100%; 
+          width: 100%;
+          height: 100%;
+          overflow: auto;
+          background-color: $primary-color; 
+          background-color: rgba(0,0,0,0.8);     
+          transition: 0.3s;      
+
+          &__content { 
+            margin: 10px 10%;             
+            border: 1px solid $success-color;
+            width: 80%;
+            background-color: $light-color;            
+
+            &__header {
+              padding: 4px 16px;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              background-color: $success-color;
+              color: $default-color;
+            }
+           
+            &__body {
+              padding: 2px 16px;
+              width: 100%;      
+
+              .swiper-container {
+                width: 100%;
+                height: 100%;
+                /* min-width: 0px; */
+              }
+          
+              .swiper-slide {
+                text-align: center;
+                font-size: 18px;
+                background: #fff;
+          
+                /* Center slide text vertically */
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: -webkit-flex;
+                display: flex;
+                -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                -webkit-justify-content: center;
+                justify-content: center;
+                -webkit-box-align: center;
+                -ms-flex-align: center;
+                -webkit-align-items: center;
+                align-items: center;     
+                background-size: cover;
+                background-position: center;
+                
+                .swiper-slide__content{
+                  display: flex;
+                  width: 90%;
+                  justify-content: space-around;
+                  
+                  .swiper-slide__content__info{
+                    width:50%;
+                    padding:40px;
+                    font-size: 18px;
+                    text-align: start;
+
+                    .swiper-slide__content__info__title{
+                      padding: 20px 0;
+                      font-size:36px;
+                      font-weight: bold;
+                    }
+
+                    .swiper-slide__content__info__description{
+                      padding: 10px 0;
+                      font-style: italic;
+                      text-align: justify;
+                      text-indent: 20px;
+                    }
+
+                    .swiper-slide__content__info__facilities{
+                      padding: 10px 0;
+                      
+                      .swiper-slide__content__info__facilities__item::before{
+                        content: "◊"; 
+                        color: $success-color;
+                        font-weight: bold;
+                        display: inline-block;
+                        width: 1em;       
+                      }
+                    }
+
+                    .swiper-slide__content__info__price{
+                      padding: 10px 0;
+                    }
+                  }
+
+                  img{
+                    width: 40%;;
+                  }
+                }                
+              }
+
+              .gallery-top {
+                height: 80%;
+                width: 100%;
+              }
+          
+              .gallery-thumbs {
+                height: 20%;
+                box-sizing: border-box;
+                padding: 10px 0;
+              }
+          
+              .gallery-thumbs .swiper-slide {
+                width: 25%;
+                height: 100%;
+                opacity: 0.6;
+              }
+
+              .swiper-button-next,.swiper-button-prev{
+                color: $success-color;
+              }
+          
+              .gallery-thumbs .swiper-slide-thumb-active {
+                opacity: 1;
+              }
+
+              .swiper-scrollbar,.swiper-pagination{
+                position: initial;
+              }              
+            }
+
+            &__close {
+              color: $primary-color;
+              order: 1;            
+              font-size: 28px;
+              font-weight: bold;
+            }
+            
+            &__close:hover,
+            &__close:focus {
+              color: $light-color;
+              text-decoration: none;
+              cursor: pointer;
+            }  
+          } 
         }
 
-        /* Modal Content */
-        .modal-content {
-          position: relative;
-          background-color: #fefefe;
-          margin: auto;
-          padding: 0;
-          border: 1px solid #888;
-          width: 80%;
-          box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-          -webkit-animation-name: animatetop;
-          -webkit-animation-duration: 0.4s;
-          animation-name: animatetop;
-          animation-duration: 0.4s
+        &__button{          
+          width: 100%;
+          height: 100%;  
+          font-size: 25px;         
+          
+          transition: all 0.3s;
+          -webkit-transition: all 0.3s;
+          background: transparent;
+          cursor:pointer;
         }
 
-        /* Add Animation */
-        @-webkit-keyframes animatetop {
-          from {top:-300px; opacity:0} 
-          to {top:0; opacity:1}
-        }
-
-        @keyframes animatetop {
-          from {top:-300px; opacity:0}
-          to {top:0; opacity:1}
-        }
-
-        /* The Close Button */
-        .close {
-          color: white;
-          float: right;
-          font-size: 28px;
-          font-weight: bold;
-        }
-
-        .close:hover,
-        .close:focus {
-          color: #000;
-          text-decoration: none;
-          cursor: pointer;
-        }
-
-        .modal-header {
-          padding: 2px 16px;
-          background-color: #5cb85c;
-          color: white;
-        }
-
-        .modal-body {padding: 2px 16px;}
-
-        .modal-footer {
-          padding: 2px 16px;
-          background-color: #5cb85c;
-          color: white;
+        &__button:hover{
+          transform: scale(0.9);
+          -webkit-transform: scale(0.9);
+          border: 1px solid $success-color;          
         }
       }
 
@@ -288,6 +391,10 @@ body{
   }
 }
 
+
+
+
+
 @media (max-width: 1279px) {
 
 }
@@ -296,9 +403,14 @@ body{
   
 }
 
+
+
+
+
+
 @keyframes morphing {
   0% {
-    border-radius: 20% 50% 50% 20% / 20% 20% 50% 50%;
+    border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%;
     box-shadow: 15px 15px 50px rgba(0,0,0,0.2);
   }
   25% { 
@@ -312,6 +424,11 @@ body{
     border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%;	
   }
   100% {
-    border-radius: 20% 50% 50% 20% / 20% 20% 50% 50%;	
+    border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%;	
   }
+}
+
+@keyframes animatetop {
+  from {top: -300px; opacity: 0}
+  to {top: 0; opacity: 1}
 }

@@ -1,4 +1,4 @@
-import create from './create';
+import create from '../create';
 
 export default class Tabs {
   constructor() {
@@ -45,14 +45,13 @@ export default class Tabs {
         } else if (element.getAttribute('id') === 'button-next-step' && this.numberCurrentTab !== 2) {
           this.numberCurrentTab += 1;
         }
-        this.openTabAndChangeStep(this.numberCurrentTab);
+        this.openTabAndChangeStep();
         this.checkButtonDisable();
       });
     });
   }
 
-  openTabAndChangeStep(idTab) {
-    console.log(idTab);
+  openTabAndChangeStep() {
     const tabOpen = document.querySelector('.tab__open');
     const stepActive = document.querySelector('.tab__button-active');
     const allTabs = document.querySelectorAll('.main__other-section__tabs__tabcontent');
@@ -61,7 +60,6 @@ export default class Tabs {
     stepActive.classList.remove('tab__button-active');
     allTabs[this.numberCurrentTab].classList.add('tab__open');
     allSteps[this.numberCurrentTab].classList.add('tab__button-active');
-    console.log(this.numberCurrentTab, 'this');
   }
 
   checkButtonDisable() {

@@ -1,4 +1,4 @@
-import create from './create';
+import create from '../create';
 
 export default class HeaderBlock {
   constructor() {
@@ -25,11 +25,12 @@ export default class HeaderBlock {
   }
 
   addLanguageBlock() {
-    this.languageBlock = create('div', 'header__language-block', [
+    this.languageBlock = create('div', 'header__language-selector', null, this.header, ['id', 'google_translate_element']);
+    /* this.languageBlock = create('div', 'header__language-block', [
       create('select', 'header__language-block__list',
         `<option value="RU">RU</option>
          <option value="EN">EN</option>
          <option value="DE">DE</option>`, this.languageBlock),
-    ], this.header);
+    ], this.header); */
   }
 }
