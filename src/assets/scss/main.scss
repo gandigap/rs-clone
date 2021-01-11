@@ -148,8 +148,76 @@ body{
       &__tabcontent{
         display: none;
         padding: 6px 12px;
-        border: 1px solid #ccc;
+        border: 1px solid $primary-color;
         border-top: none;
+
+        .radio-buttons-form {
+          max-width: 250px;
+          position: relative;
+          margin: 20px auto ;
+          font-size: 15px;
+
+          &__radiobtn {
+            position: relative;
+            display: block;
+            
+            &__label {
+              display: block;
+              background: $default-color; //lighten($success-color, 30%);
+              color: $primary-color;
+              border-radius: 5px;
+              padding: 10px 20px;
+              border: 2px solid $primary-color;
+              margin-bottom: 5px;
+              cursor: pointer;
+              &:after,
+              &:before {
+                content: "";
+                position: absolute;
+                right: 11px;
+                top: 11px;
+                width: 20px;
+                height: 20px;
+                border-radius: 3px;
+                background: lighten($primary-color, 15%);
+              }
+              &:before {
+                background: transparent;
+                transition: 0.1s width cubic-bezier(0.075, 0.82, 0.165, 1) 0s,
+                  0.3s height cubic-bezier(0.075, 0.82, 0.165, 2) 0.1s;
+                z-index: 2;
+                overflow: hidden;
+                background-repeat: no-repeat;
+                background-size: 13px;
+                background-position: center;
+                width: 0;
+                height: 0;
+                background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNS4zIDEzLjIiPiAgPHBhdGggZmlsbD0iI2ZmZiIgZD0iTTE0LjcuOGwtLjQtLjRhMS43IDEuNyAwIDAgMC0yLjMuMUw1LjIgOC4yIDMgNi40YTEuNyAxLjcgMCAwIDAtMi4zLjFMLjQgN2ExLjcgMS43IDAgMCAwIC4xIDIuM2wzLjggMy41YTEuNyAxLjcgMCAwIDAgMi40LS4xTDE1IDMuMWExLjcgMS43IDAgMCAwLS4yLTIuM3oiIGRhdGEtbmFtZT0iUGZhZCA0Ii8+PC9zdmc+);
+              }
+            }
+            &__input[type="radio"] {
+              display: none;
+              position: absolute;
+              width: 100%;
+              appearance: none;
+              &:checked + label {
+                color: $default-color;
+                background: $primary-color; //lighten($success-color, 15%)
+                animation-name: blink;
+                animation-duration: 1s;
+                border-color: $success-color;
+                &:after {
+                  background: $success-color;
+                }
+                &:before {
+                  width: 20px;
+                  height: 20px;
+                }
+              }
+            }
+          }
+        }
+        
       }
 
       .tab__open{
