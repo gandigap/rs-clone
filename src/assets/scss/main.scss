@@ -202,9 +202,7 @@ body{
               appearance: none;
               &:checked + label {
                 color: $default-color;
-                background: $primary-color; //lighten($success-color, 15%)
-                animation-name: blink;
-                animation-duration: 1s;
+                background: $primary-color; //lighten($success-color, 15%)                
                 border-color: $success-color;
                 &:after {
                   background: $success-color;

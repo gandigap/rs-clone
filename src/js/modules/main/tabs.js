@@ -1,6 +1,7 @@
 import create from '../create';
 import Calendar from './calendar';
 import RadioButtonsForm from './radioButtonsForm';
+import ConfirmForm from './confirmForm';
 
 export default class Tabs {
   constructor() {
@@ -21,15 +22,16 @@ export default class Tabs {
       create('h3', 'main__other-section__tabs__h3', 'Please check room that you need'),
     ], this.tabs, ['id', 'container__rooms']);
     this.tabcontent2 = create('div', 'main__other-section__tabs__tabcontent', [
-      create('h3', 'main__other-section__tabs__h3', 'Calendar  https://demo.mobiscroll.com/javascript/range/usage-on-input-or-inline#  https://github.com/benitolopez/hotel-datepicker  https://www.cssscript.com/demo/event-calendar-date-picker/'),
+      create('h3', 'main__other-section__tabs__h3', 'Please check date'),
     ], this.tabs, ['id', 'container__date']);
     this.tabcontent3 = create('div', 'main__other-section__tabs__tabcontent', [
       create('h3', 'main__other-section__tabs__h3', 'Confirm'),
     ], this.tabs, ['id', 'container__confirm']);
     this.addBlockWithButtonsWhichChangeTabs();
 
-    this.calendar = new Calendar();
     this.radioButtonsForm = new RadioButtonsForm();
+    this.calendar = new Calendar();
+    this.confirmForm = new ConfirmForm();
   }
 
   addBlockWithButtonsWhichChangeTabs() {
