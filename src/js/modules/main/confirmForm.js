@@ -2,7 +2,6 @@ import create from '../create';
 
 export default class ConfirmForm {
   constructor() {
-<<<<<<< HEAD
     const parent = document.getElementById('container__confirm');
     this.contentForm = create('div', 'container__confirm-form',
       `<div class="container__confirm-form__error-message hidden"></div>
@@ -79,9 +78,5 @@ export default class ConfirmForm {
       form.outerHTML = '';
       form.remove();
     }, false);
-=======
-    const confirmContainer = document.getElementById('container__confirm');
-    this.contentForm = create('div', 'content__form', null, confirmContainer);
->>>>>>> ee380fa355469889649d51e50dfc7c2a0ec51a33
   }
 }

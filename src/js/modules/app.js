@@ -1,9 +1,5 @@
 import FooterBlock from './footer/footerBlock';
 import HeaderBlock from './header/headerBlock';
-<<<<<<< HEAD
-=======
-import DataRooms from './main/dataRooms';
->>>>>>> ee380fa355469889649d51e50dfc7c2a0ec51a33
 import MainBlock from './main/mainBlock';
 
 export default class App {
