@@ -5,14 +5,14 @@ import DataInfo from './dataRooms';
 
 export default class SwiperGalery {
   constructor() {
-    const swiperParent = document.querySelector('.main__other-section__sub-content-block__galery-modal__modal__content__body');
+    const parent = document.querySelector('.main__other-section__sub-content-block__galery-modal__modal__content__body');
     this.swiperContainer = create('div', 'swiper-container gallery-top',
       `<div class="swiper-wrapper"></div>
        <div class="swiper-button-next swiper-button-white"></div>
        <div class="swiper-button-prev swiper-button-white"></div>`,
-      swiperParent);
+      parent);
     this.swiperContainer2 = create('div', 'swiper-container gallery-thumbs',
-      '<div class="swiper-wrapper"></div>', swiperParent);
+      '<div class="swiper-wrapper"></div>', parent);
     this.data = DataInfo;
     this.countCard = 0;
     this.addCardsWithRooms();

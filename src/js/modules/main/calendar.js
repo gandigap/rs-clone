@@ -1,20 +1,26 @@
-/* eslint-disable no-undef */
+import DateRangePicker from '../../../../node_modules/vanillajs-datepicker/js/DateRangePicker';
 import create from '../create';
-import '../mobiscroll.javascript.min';
-import '../../../assets/css/mobiscroll.javascript.min.css';
+import '../../../../node_modules/vanillajs-datepicker/sass/datepicker.scss';
 
 export default class Calendar {
   constructor() {
-    const calendarContainer = document.getElementById('container__date');
-    this.calendar = create('div', 'calendar', '<div id="range"></div>', calendarContainer);
-    this.initMobiscroll();
+    const parent = document.getElementById('container__date');
+    this.calendar = create('div', 'input-calendar',
+      `<div id="foo">
+        <input type="text" name="start">
+        <span>to</span>
+        <input type="text" name="end">
+      </div>`,
+      parent, ['id', 'f00']);
+    this.initCalendar();
   }
 
-  initMobiscroll() {
-    console.log(this.calendar);
-    mobiscroll.datepicker('#range', {
-      select: 'range',
-      display: 'inline',
+  initCalendar() {
+    this.elem = document.getElementById('foo');
+    this.datepicker = new DateRangePicker(this.elem, {
+      title: 'asdsad',
+      datesDisabled: ['01/10/2021', '01/12/2021'],
+      language: 'ru',
     });
   }
 }

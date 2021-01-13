@@ -3,8 +3,8 @@ import create from '../create';
 
 export default class ModalGalery {
   constructor() {
-    const galeryModal = document.querySelector('.main__other-section__sub-content-block__galery-modal');
-    this.button = create('button', 'main__other-section__sub-content-block__galery-modal__button', 'ROOMS', galeryModal, ['id', 'myBtn']);
+    const parent = document.querySelector('.main__other-section__sub-content-block__galery-modal');
+    this.button = create('button', 'main__other-section__sub-content-block__galery-modal__button', 'ROOMS', parent, ['id', 'myBtn']);
     this.modal = create('div', 'main__other-section__sub-content-block__galery-modal__modal',
       `<div class="main__other-section__sub-content-block__galery-modal__modal__content">
         <div class="main__other-section__sub-content-block__galery-modal__modal__content__header">
@@ -14,7 +14,7 @@ export default class ModalGalery {
         <div class="main__other-section__sub-content-block__galery-modal__modal__content__body">
         </div>
       </div>`,
-      galeryModal, ['id', 'myModal']);
+      parent, ['id', 'myModal']);
     this.modalOpenClose();
     this.addGaleryToModal();
   }

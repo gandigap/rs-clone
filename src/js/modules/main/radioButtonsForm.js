@@ -2,8 +2,8 @@ import create from '../create';
 
 export default class RadioButtonsForm {
   constructor() {
-    const calendarContainer = document.getElementById('container__rooms');
-    this.calendar = create('form', 'radio-buttons-form', '<div id="range"></div>', calendarContainer);
+    const parent = document.getElementById('container__rooms');
+    this.calendar = create('form', 'radio-buttons-form', '<div id="range"></div>', parent);
     this.arrayTypeRooms = ['Quade room', 'Double room', 'Queen room', 'Queen city room', 'King room'];
     this.initRadioButtonsForm();
   }
