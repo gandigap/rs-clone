@@ -1,4 +1,9 @@
-import create from './create';
+import create from '../create';
+import Calendar from './calendar';
+import RadioButtonsForm from './radioButtonsForm';
+import ConfirmForm from './confirmForm';
+import Language from './language';
+import CalendarTwo from './calendarTwo';
 
 export default class Tabs {
   constructor() {
@@ -16,15 +21,21 @@ export default class Tabs {
       create('button', 'main__other-section__tabs__tab__button', 'Step3'),
     ], this.tabs);
     this.tabcontent1 = create('div', 'main__other-section__tabs__tabcontent tab__open', [
-      create('h3', 'main__other-section__tabs__h3', 'Calendar  https://demo.mobiscroll.com/javascript/range/usage-on-input-or-inline#  https://dhtmlx.com/blog/use-dhtmlx-scheduler-vue-js-framework-demo/'),
-    ], this.tabs, ['id', 'container__date']);
-    this.tabcontent2 = create('div', 'main__other-section__tabs__tabcontent', [
-      create('h3', 'main__other-section__tabs__h3', 'List rooms'),
+      create('h3', 'main__other-section__tabs__h3', 'Please check room that you need'),
     ], this.tabs, ['id', 'container__rooms']);
+    this.tabcontent2 = create('div', 'main__other-section__tabs__tabcontent', [
+      create('h3', 'main__other-section__tabs__h3', 'Please check date'),
+    ], this.tabs, ['id', 'container__date']);
     this.tabcontent3 = create('div', 'main__other-section__tabs__tabcontent', [
       create('h3', 'main__other-section__tabs__h3', 'Confirm'),
     ], this.tabs, ['id', 'container__confirm']);
     this.addBlockWithButtonsWhichChangeTabs();
+
+    this.radioButtonsForm = new RadioButtonsForm();
+    this.calendar = new Calendar();
+    this.calendarTwo = new CalendarTwo();
+    this.confirmForm = new ConfirmForm();
+    this.language = new Language();
   }
 
   addBlockWithButtonsWhichChangeTabs() {
@@ -45,14 +56,13 @@ export default class Tabs {
         } else if (element.getAttribute('id') === 'button-next-step' && this.numberCurrentTab !== 2) {
           this.numberCurrentTab += 1;
         }
-        this.openTabAndChangeStep(this.numberCurrentTab);
+        this.openTabAndChangeStep();
         this.checkButtonDisable();
       });
     });
   }
 
-  openTabAndChangeStep(idTab) {
-    console.log(idTab);
+  openTabAndChangeStep() {
     const tabOpen = document.querySelector('.tab__open');
     const stepActive = document.querySelector('.tab__button-active');
     const allTabs = document.querySelectorAll('.main__other-section__tabs__tabcontent');
@@ -61,7 +71,6 @@ export default class Tabs {
     stepActive.classList.remove('tab__button-active');
     allTabs[this.numberCurrentTab].classList.add('tab__open');
     allSteps[this.numberCurrentTab].classList.add('tab__button-active');
-    console.log(this.numberCurrentTab, 'this');
   }
 
   checkButtonDisable() {
