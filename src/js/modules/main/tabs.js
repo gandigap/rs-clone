@@ -2,8 +2,11 @@ import create from '../create';
 import Calendar from './calendar';
 import RadioButtonsForm from './radioButtonsForm';
 import ConfirmForm from './confirmForm';
+<<<<<<< HEAD:src/js/modules/main/tabs.js
 import Language from './language';
 import CalendarTwo from './calendarTwo';
+=======
+>>>>>>> ee380fa355469889649d51e50dfc7c2a0ec51a33:src/js/modules/tabs.js
 
 export default class Tabs {
   constructor() {
@@ -36,7 +39,6 @@ export default class Tabs {
     this.calendarTwo = new CalendarTwo();
     this.confirmForm = new ConfirmForm();
     this.language = new Language();
-  }
 
   addBlockWithButtonsWhichChangeTabs() {
     this.buttonStepBlock = create('div', 'main__other-section__tabs__button-step-block',

@@ -5,6 +5,7 @@ export default class ModalGalery {
   constructor() {
     const parent = document.querySelector('.main__other-section__sub-content-block__galery-modal');
     this.button = create('button', 'main__other-section__sub-content-block__galery-modal__button', 'ROOMS', parent, ['id', 'myBtn']);
+
     this.modal = create('div', 'main__other-section__sub-content-block__galery-modal__modal',
       `<div class="main__other-section__sub-content-block__galery-modal__modal__content">
         <div class="main__other-section__sub-content-block__galery-modal__modal__content__header">
