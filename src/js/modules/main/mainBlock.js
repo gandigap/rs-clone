@@ -1,5 +1,5 @@
 import create from '../create';
-import ModalGalery from './modalGallery';
+import Modal from './createModal';
 import DescriptionBlock from './descriptionBlock';
 import Tabs from './tabs';
 
@@ -23,9 +23,10 @@ export default class MainBlock {
   addBlockWithSubContent() {
     this.subContentBlock = create('div', 'main__other-section__sub-content-block', null, this.otherInfoSection);
     this.someBlock = create('div', 'main__other-section__sub-content-block__description', null, this.subContentBlock);
-    this.galeryModalBlock = create('div', 'main__other-section__sub-content-block__galery-modal', null, this.subContentBlock);
-    this.modal = new ModalGalery();
+    this.containerForButtonOpenGaleryRooms = create('div', 'main__other-section__sub-content-block__button', null, this.subContentBlock);
     this.descriptionHotel = new DescriptionBlock();
+    this.addButtonOpenGaleryRooms();
+    this.modal = new Modal();
   }
 
   addBlockWithMainImageAndTitle() {
@@ -33,5 +34,9 @@ export default class MainBlock {
     this.figureMainImage = create('figure', 'main__total-section__main-image-container',
       '<img class="main-image-container__img" src="assets/images/appartments/hotel.svg" alt="Our Hotel">',
       this.totalInfoSection);
+  }
+
+  addButtonOpenGaleryRooms() {
+    this.buttonConfirmForm = create('button', 'button-open-modal', 'ROOMS', this.containerForButtonOpenGaleryRooms, ['id', 'myBtn']);
   }
 }

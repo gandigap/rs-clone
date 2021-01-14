@@ -5,7 +5,7 @@ import DataInfo from './dataRooms';
 
 export default class SwiperGalery {
   constructor() {
-    const parent = document.querySelector('.main__other-section__sub-content-block__galery-modal__modal__content__body');
+    const parent = document.querySelector('.main__modal__content__body');
     this.swiperContainer = create('div', 'swiper-container gallery-top',
       `<div class="swiper-wrapper"></div>
        <div class="swiper-button-next swiper-button-white"></div>
@@ -40,7 +40,6 @@ export default class SwiperGalery {
   }
 
   addCardsWithRooms() {
-    console.log(this.data);
     this.data.forEach((element) => {
       this.currentCard = new CardRoom(element, this.countCard);
       this.countCard += 1;
