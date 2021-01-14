@@ -6,6 +6,7 @@ export default class HeaderBlock {
     this.header = create('header', 'header', null, wrapper);
     this.addHiddenTitleH1();
     this.addContactInfo();
+    this.addButtonOpenConfirmForm();
     this.addLanguageBlock();
   }
 
@@ -32,5 +33,9 @@ export default class HeaderBlock {
          <option value="EN">EN</option>
          <option value="DE">DE</option>`, this.languageBlock),
     ], this.header); */
+  }
+
+  addButtonOpenConfirmForm() {
+    this.buttonConfirmForm = create('button', 'button-open-modal', 'Log in', this.header, ['id', 'button-open-confirm-form']);
   }
 }

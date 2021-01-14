@@ -2,7 +2,7 @@ import create from '../create';
 
 export default class ConfirmForm {
   constructor() {
-    const parent = document.getElementById('container__confirm');
+    const parent = document.querySelector('.main__modal__content__body');
     this.contentForm = create('div', 'container__confirm-form',
       `<div class="container__confirm-form__error-message hidden"></div>
           <div class="container__confirm-form__success-message hidden">

@@ -1,7 +1,6 @@
 import create from '../create';
 import Calendar from './calendar';
 import RadioButtonsForm from './radioButtonsForm';
-import ConfirmForm from './confirmForm';
 import Language from './language';
 import CalendarTwo from './calendarTwo';
 
@@ -34,7 +33,6 @@ export default class Tabs {
     this.radioButtonsForm = new RadioButtonsForm();
     this.calendar = new Calendar();
     this.calendarTwo = new CalendarTwo();
-    this.confirmForm = new ConfirmForm();
     this.language = new Language();
   }
 
@@ -87,10 +85,5 @@ export default class Tabs {
     } else {
       buttonNext.classList.remove('button__disable');
     }
-  }
-
-  addListRoomsToTab() {
-    /* count */
-    create('div', 'main__other-section__tabs', null, this.tabcontent2);
   }
 }
