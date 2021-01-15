@@ -20,13 +20,13 @@ export default class Tabs {
       create('button', 'main__other-section__tabs__tab__button', 'Step3'),
     ], this.tabs);
     this.tabcontent1 = create('div', 'main__other-section__tabs__tabcontent tab__open', [
-      create('h3', 'main__other-section__tabs__h3', 'Please check room that you need'),
+      create('h3', 'main__other-section__tabs__tabcontent__title', 'Please check room that you need'),
     ], this.tabs, ['id', 'container__rooms']);
     this.tabcontent2 = create('div', 'main__other-section__tabs__tabcontent', [
-      create('h3', 'main__other-section__tabs__h3', 'Please check date'),
+      create('h3', 'main__other-section__tabs__tabcontent__title', 'Please check date'),
     ], this.tabs, ['id', 'container__date']);
     this.tabcontent3 = create('div', 'main__other-section__tabs__tabcontent', [
-      create('h3', 'main__other-section__tabs__h3', 'Confirm'),
+      create('h3', 'main__other-section__tabs__tabcontent__title', 'Confirm'),
     ], this.tabs, ['id', 'container__confirm']);
     this.addBlockWithButtonsWhichChangeTabs();
 

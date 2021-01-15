@@ -6,7 +6,7 @@ export default class CalendarTwo {
   constructor() {
     const parent = document.getElementById('container__date');
     this.calendar = create('input', 'new-input', null,
-      parent, ['id', 'litepicker'], ['type', 'text']);
+      parent, ['id', 'litepicker'], ['type', 'text'], ['placeholder', 'click']);
     this.initCalendar();
   }
 

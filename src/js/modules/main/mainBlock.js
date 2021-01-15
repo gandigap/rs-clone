@@ -2,6 +2,7 @@ import create from '../create';
 import Modal from './createModal';
 import DescriptionBlock from './descriptionBlock';
 import Tabs from './tabs';
+import Audio from './audio';
 
 export default class MainBlock {
   constructor() {
@@ -23,20 +24,21 @@ export default class MainBlock {
   addBlockWithSubContent() {
     this.subContentBlock = create('div', 'main__other-section__sub-content-block', null, this.otherInfoSection);
     this.someBlock = create('div', 'main__other-section__sub-content-block__description', null, this.subContentBlock);
-    this.containerForButtonOpenGaleryRooms = create('div', 'main__other-section__sub-content-block__button', null, this.subContentBlock);
+    this.containerForButtonOpenGaleryRooms = create('div', 'main__other-section__sub-content-block__button-container', null, this.subContentBlock);
     this.descriptionHotel = new DescriptionBlock();
     this.addButtonOpenGaleryRooms();
+    this.audio = new Audio();
     this.modal = new Modal();
   }
 
   addBlockWithMainImageAndTitle() {
-    this.mainTitle = create('h2', 'main__total-section__main-title', 'PARADISE', this.totalInfoSection);
-    this.figureMainImage = create('figure', 'main__total-section__main-image-container',
-      '<img class="main-image-container__img" src="assets/images/appartments/hotel.svg" alt="Our Hotel">',
+    this.mainTitle = create('h2', 'main__total-section__title', 'PARADISE', this.totalInfoSection);
+    this.figureMainImage = create('figure', 'main__total-section__image-container',
+      '<img class="main__total-section__image-container__img" src="assets/images/appartments/hotel.svg" alt="Our Hotel">',
       this.totalInfoSection);
   }
 
   addButtonOpenGaleryRooms() {
-    this.buttonConfirmForm = create('button', 'button-open-modal', 'ROOMS', this.containerForButtonOpenGaleryRooms, ['id', 'myBtn']);
+    this.buttonConfirmForm = create('button', 'button-open-modal main__other-section__sub-content-block__button-container__button', 'ROOMS', this.containerForButtonOpenGaleryRooms, ['id', 'button-open-galery']);
   }
 }

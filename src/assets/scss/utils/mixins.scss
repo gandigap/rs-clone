@@ -1,3 +1,68 @@
 @function toRem($px) {
   @return ($px / $mainFontSize) + rem;
 }
+
+@mixin button-light{
+  cursor: pointer;
+  margin:10px;
+  height: 40px;
+  width: 100px;
+  padding: 5px;
+  color:$default-color;
+  font:{
+    size:20px;
+    family:Ubuntu;
+    style:normal;
+    weight:normal;
+  }
+  background-color: $success-color;
+  border: 3px solid $primary-color;
+  border-radius: 20px;
+}
+
+@mixin button-light-hover{
+  color:$primary-color;
+}
+
+@mixin button-light-active{
+  border: 1px solid $primary-color;
+  transition: .1s;
+  transform: scale(0.9);
+}
+
+@mixin button-dark{
+  cursor: pointer;
+  margin:10px;
+  height: 40px;
+  width: 100px;
+  padding: 5px;
+  color:$default-color;
+  font:{
+    size:20px;
+    family:Ubuntu;
+    style:normal;
+    weight:normal;
+  }
+  background-color: $primary-color;
+  border: 3px solid $success-color;
+  border-radius: 20px;
+}
+
+@mixin button-dark-hover{
+  color: $success-color;
+}
+
+@mixin button-dark-active{
+  border: 1px solid $success-color;
+  transition: .1s;
+  transform: scale(0.9);
+}
+
+@mixin button-dark-disable{
+  border: 3px solid $success-color;
+  transition: .1s;
+  transform: scale(1);
+  cursor: auto;
+  color: $default-color;
+  background-color: $disabled-color;
+}

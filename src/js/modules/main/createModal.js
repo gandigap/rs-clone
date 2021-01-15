@@ -11,7 +11,7 @@ export default class Modal {
 
   addListenersForButtonsOpenModal() {
     const buttonsWhichOpenModal = document.querySelectorAll('.button-open-modal');
-    console.log(buttonsWhichOpenModal);
+    this.audio = document.querySelector('.audio');
     buttonsWhichOpenModal.forEach((button) => {
       button.onclick = () => {
         console.log(button.textContent);
@@ -33,6 +33,7 @@ export default class Modal {
           modalHeaderTitle.innerHTML = 'Confirm form';
           this.addConfirmForm();
         }
+        this.audio.play();
         this.modal.style.bottom = '0px';
       };
     });
@@ -43,11 +44,13 @@ export default class Modal {
     this.span.onclick = () => {
       this.modal.style.bottom = '-100%';
       this.modal.innerHTML = '';
+      this.audio.play();
     };
     window.onclick = (event) => {
       if (event.target === this.modal) {
         this.modal.style.bottom = '-100%';
         this.modal.innerHTML = '';
+        this.audio.play();
       }
     };
   }
