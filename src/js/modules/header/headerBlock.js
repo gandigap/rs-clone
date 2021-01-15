@@ -1,9 +1,11 @@
 import create from '../create';
+import BurgerMenu from './burgerMenu';
 
 export default class HeaderBlock {
   constructor() {
     const wrapper = document.querySelector('.wrapper');
     this.header = create('header', 'header', null, wrapper);
+    this.burgerMenu = new BurgerMenu();
     this.addHiddenTitleH1();
     this.addContactInfo();
     this.addButtonOpenConfirmForm();
@@ -11,7 +13,7 @@ export default class HeaderBlock {
   }
 
   addHiddenTitleH1() {
-    this.hiddenTitleBlock = create('div', 'header__hidden-title', 'Super Hotel', this.header);
+    this.hiddenTitleBlock = create('h1', 'header__hidden-title', 'Super Hotel', this.header);
   }
 
   addContactInfo() {
