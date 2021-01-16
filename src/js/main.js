@@ -1,6 +1,6 @@
-import Swiper from 'swiper/bundle';
-import '../../node_modules/swiper/swiper-bundle.min';
-import '../../node_modules/swiper/swiper-bundle.min.css';
+import 'swiper/bundle';
+import 'swiper/swiper-bundle.min';
+import 'swiper/swiper-bundle.min.css';
 
 class Main {
   constructor() {

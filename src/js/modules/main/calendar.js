@@ -1,26 +1,24 @@
-import DateRangePicker from '../../../../node_modules/vanillajs-datepicker/js/DateRangePicker';
+import Litepicker from 'litepicker/dist/js/main';
+/* import 'litepicker/dist/css/style.css'; */
 import create from '../create';
-import '../../../../node_modules/vanillajs-datepicker/sass/datepicker.scss';
 
-export default class Calendar {
+export default class CalendarTwo {
   constructor() {
     const parent = document.getElementById('container__date');
-    this.calendar = create('div', 'input-calendar',
-      `<div id="foo">
-        <input type="text" name="start">
-        <span>to</span>
-        <input type="text" name="end">
-      </div>`,
-      parent, ['id', 'f00']);
+    this.calendar = create('input', 'new-input', null,
+      parent, ['id', 'litepicker'], ['type', 'text'], ['placeholder', 'click']);
     this.initCalendar();
   }
 
   initCalendar() {
-    this.elem = document.getElementById('foo');
-    this.datepicker = new DateRangePicker(this.elem, {
-      title: 'asdsad',
-      datesDisabled: ['01/10/2021', '01/12/2021'],
-      language: 'ru',
+    this.picker = new Litepicker({
+      singleMode: false,
+      element: document.getElementById('litepicker'),
+      lang: 'ru-RU',
+      lockDays: ['2021-01-05', '2021-01-07'],
     });
   }
+
+  /* https://wakirin.github.io/Lightpick/#methods
+  https://www.cssscript.com/vanilla-date-range-picker/ */
 }

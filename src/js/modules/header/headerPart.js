@@ -3,8 +3,8 @@ import BurgerMenu from './burgerMenu';
 
 export default class HeaderBlock {
   constructor() {
-    const wrapper = document.querySelector('.wrapper');
-    this.header = create('header', 'header', null, wrapper);
+    const parent = document.querySelector('.wrapper');
+    this.header = create('header', 'header', null, parent);
     this.burgerMenu = new BurgerMenu();
     this.addHiddenTitleH1();
     this.addButtonOpenConfirmForm();

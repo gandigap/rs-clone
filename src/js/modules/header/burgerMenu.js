@@ -2,45 +2,55 @@ import create from '../create';
 
 export default class BurgerMenu {
   constructor() {
+    this.body = document.querySelector('body');
     const parent = document.querySelector('.header');
     this.burgerContainer = create('div', 'hamburger-menu',
-      `<input id="menu__toggle" class="menu__toggle" type="checkbox" />
-       <label class="menu__btn" for="menu__toggle">
-               <span></span>
-       </label>
-       <ul class="menu__box">
-           <li><a class="menu__item list__link_active" href="./main.html">About the shelter</a></li>
-           <li><a class="menu__item" href="../pets/pets.html">Our pets</a></li>
-           <li><a class="menu__item disabled" href="#">Help the shelter</a></li>
-           <li><a class="menu__item disabled" href="#">Contacts</a></li>
-       </ul>
-       <div id="overlay"></div>`, parent);
-    this.workWithBurger();
+      `<div class="hamburger-menu">
+      <input id="menu__toggle" type="checkbox" />
+      <label class="menu__btn" for="menu__toggle">
+        <span></span>
+      </label>
+  
+      <ul class="menu__box">    
+        <li><a class="menu__item" href="#booking">Booking</a></li>
+        <li><a class="menu__item" href="#about">About</a></li>        
+      </ul>
+      <div class="overlay__burger__menu"></div>
+    </div>`, parent);
+    this.workWithMenu();
   }
 
-  workWithBurger() {
+  workWithMenu() {
     this.burger = document.querySelector('#menu__toggle');
-    this.overlay = document.getElementById('overlay');
-    document.addEventListener('click', (e) => {
-      if (e.target.classList.contains('menu__toggle')) {
-        if (this.burger.checked) this.disableScroll();
-        else this.enableScroll();
-      }
+    this.overlay = document.querySelector('.overlay__burger__menu');
+    this.links = document.querySelectorAll('.menu__item');
+
+    this.burger.addEventListener('click', () => {
+      document.body.style.position = 'fixed';
     });
+
+    this.links.forEach((element) => {
+      element.addEventListener('click', () => {
+        if (this.burger.checked) {
+          this.burger.checked = false;
+          document.body.style.position = 'initial';
+        }
+      });
+    });
+
     this.overlay.addEventListener('click', () => {
       if (this.burger.checked) {
         this.burger.checked = false;
       }
+      document.body.style.position = 'initial';
     });
   }
 
   disableScroll() {
-    document.body.style.overflow = 'hidden';
-    this.overlay.classList.add('active');
+    this.overlay.style.overflow = 'hidden';
   }
 
   enableScroll() {
-    document.body.style.overflow = null;
-    this.overlay.classList.remove('active');
+    this.overlay.style.overflow = 'initial';
   }
 }

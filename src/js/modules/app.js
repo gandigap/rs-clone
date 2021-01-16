@@ -1,6 +1,6 @@
-import FooterBlock from './footer/footerBlock';
-import HeaderBlock from './header/headerBlock';
-import MainBlock from './main/mainBlock';
+import FooterPart from './footer/footerPart';
+import HeaderPart from './header/headerPart';
+import MainPart from './main/mainPart';
 
 export default class App {
   constructor() {
@@ -15,9 +15,9 @@ export default class App {
   }
 
   createAppStructure() {
-    this.header = new HeaderBlock();
-    this.main = new MainBlock();
-    this.footer = new FooterBlock();
+    this.header = new HeaderPart();
+    this.main = new MainPart();
+    this.footer = new FooterPart();
   }
 }
 

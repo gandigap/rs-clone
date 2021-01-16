@@ -2,12 +2,11 @@ import create from '../create';
 import Calendar from './calendar';
 import RadioButtonsForm from './radioButtonsForm';
 import Language from './language';
-import CalendarTwo from './calendarTwo';
 
 export default class Tabs {
   constructor() {
     const parent = document.querySelector('.main__other-section');
-    this.tabs = create('div', 'main__other-section__tabs', null, parent);
+    this.tabs = create('div', 'main__other-section__tabs', null, parent, ['id', 'booking']);
     this.tabButton1 = null;
     this.addTabContent();
   }
@@ -32,7 +31,6 @@ export default class Tabs {
 
     this.radioButtonsForm = new RadioButtonsForm();
     this.calendar = new Calendar();
-    this.calendarTwo = new CalendarTwo();
     this.language = new Language();
   }
 

@@ -1,10 +1,10 @@
 import create from '../create';
 import Modal from './createModal';
-import DescriptionBlock from './descriptionBlock';
+import DescriptionBlock from './descriptionPart';
 import Tabs from './tabs';
 import Audio from './audio';
 
-export default class MainBlock {
+export default class MainPart {
   constructor() {
     const parent = document.querySelector('.wrapper');
     this.main = create('main', 'main', null, parent);

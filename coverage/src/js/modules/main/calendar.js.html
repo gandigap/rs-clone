@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for src/js/modules/main/radioButtonsForm.js</title>
+    <title>Code coverage report for src/js/modules/main/calendar.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../../../prettify.css" />
     <link rel="stylesheet" href="../../../../base.css" />
@@ -19,13 +19,13 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../../../index.html">All files</a> / <a href="index.html">src/js/modules/main</a> radioButtonsForm.js</h1>
+        <h1><a href="../../../../index.html">All files</a> / <a href="index.html">src/js/modules/main</a> calendar.js</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>7/7</span>
+                <span class='fraction'>0/4</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>3/3</span>
+                <span class='fraction'>0/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>7/7</span>
+                <span class='fraction'>0/4</span>
             </div>
         
             
@@ -55,7 +55,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -76,43 +76,58 @@
 <a name='L17'></a><a href='#L17'>17</a>
 <a name='L18'></a><a href='#L18'>18</a>
 <a name='L19'></a><a href='#L19'>19</a>
-<a name='L20'></a><a href='#L20'>20</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">10x</span>
-<span class="cline-any cline-yes">10x</span>
+<a name='L20'></a><a href='#L20'>20</a>
+<a name='L21'></a><a href='#L21'>21</a>
+<a name='L22'></a><a href='#L22'>22</a>
+<a name='L23'></a><a href='#L23'>23</a>
+<a name='L24'></a><a href='#L24'>24</a>
+<a name='L25'></a><a href='#L25'>25</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import create from '../create';
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import Litepicker from 'litepicker/dist/js/main';
+/* import 'litepicker/dist/css/style.css'; */
+import create from '../create';
 &nbsp;
-export default class RadioButtonsForm {
-  constructor() {
-    const parent = document.getElementById('container__rooms');
-    this.calendar = create('form', 'radio-buttons-form', '&lt;div id="range"&gt;&lt;/div&gt;', parent);
-    this.arrayTypeRooms = ['Quade room', 'Double room', 'Queen room', 'Queen city room', 'King room'];
-    this.initRadioButtonsForm();
+export default class CalendarTwo {
+<span class="fstat-no" title="function not covered" >  co</span>nstructor() {
+    const parent = <span class="cstat-no" title="statement not covered" >document.getElementById('container__date');</span>
+<span class="cstat-no" title="statement not covered" >    this.calendar = create('input', 'new-input', null,</span>
+      parent, ['id', 'litepicker'], ['type', 'text'], ['placeholder', 'click']);
+<span class="cstat-no" title="statement not covered" >    this.initCalendar();</span>
   }
 &nbsp;
-  initRadioButtonsForm() {
-    this.arrayTypeRooms.forEach((element) =&gt; {
-      const value = element.toLowerCase().split(' ').join('_');
-      create('div', 'radio-buttons-form__radiobtn',
-        `&lt;input class="radio-buttons-form__radiobtn__input" type="radio" id="${value}" name="drone" value="${value}" checked /&gt;
-         &lt;label class="radio-buttons-form__radiobtn__label" for="${value}"&gt;${element}&lt;/label&gt;`, this.calendar);
+<span class="fstat-no" title="function not covered" >  in</span>itCalendar() {
+<span class="cstat-no" title="statement not covered" >    this.picker = new Litepicker({</span>
+      singleMode: false,
+      element: document.getElementById('litepicker'),
+      lang: 'ru-RU',
+      lockDays: ['2021-01-05', '2021-01-07'],
     });
   }
+&nbsp;
+  /* https://wakirin.github.io/Lightpick/#methods
+  https://www.cssscript.com/vanilla-date-range-picker/ */
 }
 &nbsp;</pre></td></tr></table></pre>
 

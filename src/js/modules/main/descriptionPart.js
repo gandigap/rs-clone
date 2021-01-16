@@ -12,9 +12,7 @@ export default class DescriptionBlock {
         <p class="description__content__text__info">
         The PARADISE is a luxury resort secluded on the small island, offering a pristine pool and spa. Known for its exceptional service,
         it includes a 24-hour concierge, numerous beach and pool attendants, and twice-daily housekeeping), the resort is a favorite among
-        honeymooners and has an impressive number of return clients considering its remote location -- getting there requires either a
-        small plane or a ferry ride.
-        </p>
+        honeymooners and has an impressive number of return clients considering its remote location.</p>
        </div>
        <div class="description__content__facilities">
         <div class="description__content__facilities__facility" data-name-en="Free WiFi Internet Access Included">
@@ -82,6 +80,6 @@ export default class DescriptionBlock {
           </svg>
 
         </div>
-      </div>`, this.parent);
+      </div>`, this.parent, ['id', 'about']);
   }
 }

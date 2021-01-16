@@ -20,7 +20,7 @@ export default class ConfirmForm {
             </div>
             <div class="container__confirm-form__form-field">
               <label class="container__confirm-form__form-field__label">Phone</label>
-              <input class="container__confirm-form__form-field__input" name="phone" data-validation="required phone">
+              <input class="container__confirm-form__form-field__input" placeholder="Ex +111111111111" name="phone" data-validation="required phone">
             </div>
             <div class="container__confirm-form__form-field">
               <label class="container__confirm-form__form-field__label">Email</label>

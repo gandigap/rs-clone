@@ -33,6 +33,10 @@ body{
 .hidden{display: none;}
 
 .header{
+  z-index: 10;
+  width: 100%;
+  max-width: 1000px;
+  position: fixed;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -95,6 +99,7 @@ body{
 }
 
 .main{
+  padding-top: 60px;
   flex: 1 0 auto;  
   display: flex;
   background-color: $light-color;
@@ -202,21 +207,24 @@ body{
         #litepicker::-ms-input-placeholder { color: $success-color; font-weight: normal;}
 
         .radio-buttons-form {
-          max-width: 250px;
-          position: relative;
-          margin: 20px auto ;
+          flex-wrap: wrap;
+          justify-content: center;
+          position: relative;          
           font-size: 15px;
+          display: flex;    
 
           &__radiobtn {
             position: relative;
             display: block;
+            min-width: 160px;
+            margin: 5px;
             
             &__label {
-              display: block;
+              display: flex;
               background: $default-color; //lighten($success-color, 30%);
               color: $primary-color;
               border-radius: 5px;
-              padding: 10px 20px;
+              padding: 10px;
               border: 2px solid $primary-color;
               margin-bottom: 5px;
               cursor: pointer;
@@ -273,7 +281,7 @@ body{
         /* flex-direction: column;
         justify-content: center; */
         flex-grow: 1;
-        min-height: 330px;
+        min-height: 240px;
       }
 
       &__button-step-block{
@@ -324,12 +332,14 @@ body{
             justify-content: space-around;   
             
             &__facility{
+              fill: $default-color;
               margin: 5px;
               padding: 5px;
             }
 
             &__facility:hover{
               background-color: $default-color;
+              fill: $primary-color;
               border-radius: 50%;
               transition: 0.3s;
             }
@@ -394,15 +404,14 @@ body{
 
 .main__modal{       
   position: fixed;
-  z-index: 1;
+  z-index: 20;
   left: 0;
   bottom: -100%; 
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: $primary-color; 
-  background-color: rgba(0,0,0,0.8);     
-  transition: 0.3s;      
+  background-color: $overlay-color;      
+  transition: 0.3s;   
 
   &__content { 
     margin: 10px 10%;             
@@ -456,8 +465,9 @@ body{
           justify-content: space-around;
           
           .swiper-slide__content__info{
-            width:50%;
-            padding:40px;
+            width:70%;
+            min-height: 360px;
+            padding:20px;
             font-size: 18px;
             text-align: start;
 
@@ -492,7 +502,7 @@ body{
           }
 
           img{
-            width: 40%;;
+            width: 30%;;
           }
         }                
       }
@@ -524,7 +534,67 @@ body{
 
       .swiper-scrollbar,.swiper-pagination{
         position: initial;
-      }              
+      } 
+      
+      
+      .container__confirm-form{
+        padding: 10px;
+        text-align: center;
+
+        &__form{
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          
+  
+          &-field{
+            padding: 5px 0;          
+            width:300px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            &__label{
+              font-style: italic;
+            }
+
+            &__input{
+              height: 30px;
+              border-radius: 5px;
+              text-align: center;
+              -webkit-box-shadow: inset 0px 0px 5px 1px $primary-color; 
+              box-shadow: inset 0px 0px 5px 1px $primary-color;
+            }
+
+            &__input:focus{background-color: $success-color; transition: 0.3s;}
+            &__input::placeholder { color:$success-color; font-weight: normal; }         
+            &__input:-ms-input-placeholder { color: $success-color; font-weight: normal;}      
+            &__input::-ms-input-placeholder { color: $success-color; font-weight: normal;}
+            
+          }
+        }
+
+        &__button{
+          @include button-dark;
+        }
+
+        &__button:hover{
+          @include button-dark-hover;
+        }
+
+        &__button:active{
+          @include button-dark-active;
+        }
+
+        &__error-message{
+          font-size: 20px;
+          font-weight: bold;
+          padding: 10px;
+          color:$success-color;
+          text-shadow: $primary-color 1px 1px 0, $primary-color -1px -1px 0, $primary-color -1px 1px 0, $primary-color 1px -1px 0;
+          letter-spacing: 1px;
+        }
+      }      
     }
 
     &__close {
@@ -547,7 +617,7 @@ body{
 
 
 
-.hamburger-menu {
+/* .hamburger-menu {
   display: none;
 }
 
@@ -574,8 +644,119 @@ body{
 #overlay.active {
   opacity: 1;
   pointer-events: all;
-}
+} */
 //  показываем меню
+
+
+#menu__toggle {
+  opacity: 0;
+}
+
+#menu__toggle:checked ~ .overlay__burger__menu {
+  right: 0;
+  top: 0;
+  position: fixed;      
+  width: 100%;
+  height: 100%;
+  background: $overlay-color;
+  cursor: pointer;
+}
+
+#menu__toggle:checked ~ .menu__btn > span {
+  transform: rotate(45deg);
+}
+#menu__toggle:checked ~ .menu__btn > span::before {
+  top: 0;
+  transform: rotate(0);
+}
+#menu__toggle:checked ~ .menu__btn > span::after {
+  top: 0;
+  transform: rotate(90deg);
+}
+#menu__toggle:checked ~ .menu__box {
+  z-index: 5;
+  visibility: visible;
+  right: 0;
+}
+
+.menu__btn {
+  display: none;
+  align-items: center;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+
+  width: 26px;
+  height: 26px;
+
+  cursor: pointer;
+  z-index: 10;
+}
+
+.menu__btn > span,
+.menu__btn > span::before,
+.menu__btn > span::after {
+  display: block;
+  position: absolute;
+
+  width: 100%;
+  height: 2px;
+
+  background-color: #616161;
+
+  transition-duration: .25s;
+}
+.menu__btn > span::before {
+  content: '';
+  top: -8px;
+}
+.menu__btn > span::after {
+  content: '';
+  top: 8px;
+}
+
+.menu__box {
+  display: block;
+  position: fixed;
+  visibility: hidden;
+  top: 0;
+  right: -100%;
+
+  width: 300px;
+  height: 100%;
+
+  margin: 0;
+  padding: 60px 0;
+
+  list-style: none;
+
+  background-color: #ECEFF1;
+  box-shadow: 1px 0px 6px rgba(0, 0, 0, .2);
+
+  transition-duration: .25s;
+}
+
+.menu__item {
+  display: block;
+  padding: 12px 24px;
+
+  color: #333;
+
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+
+  text-decoration: none;
+
+  transition-duration: .25s;
+}
+.menu__item:hover {
+  color: $default-color;
+  background-color: $success-color;
+}
+
+
+
 
 @media (max-width: 1279px) {
 
@@ -599,6 +780,11 @@ body{
     }
   }
 
+  .menu__btn{
+    display:flex;
+  }
+  
+
   .main{
     flex-direction: column;
 
@@ -608,127 +794,44 @@ body{
 
     &__other-section{
       width:100%;
+
+      &__tabs{
+        padding-top: 60px;
+      }
+
+      &__sub-content-block{
+        padding-top: 60px;
+      }
     }
 
     &__modal__content{
-      margin: 5px 5%;
+      margin: 5px auto;
 
-      .swiper-slide__content__info__description{
-        width:100%;
-      }
+      &__body {
+        padding: 2px 16px;
+        width: 100%;      
+  
+        .swiper-container {
+          
+        }
+    
+        .swiper-slide {
+          
+          
+          .swiper-slide__content{
+            
+            width: 100%;
+            flex-direction: column;
+            align-items: center;
+          }
 
-      .swiper-slide__content{
-        width:100%;
-        flex-direction:column;
-
-        &__info{
-          width:100%;
+          .swiper-slide__content__info, .swiper-slide__galery-top__img{
+            width: 90% !important;
+          }
         }
       }
     }
-  }
-
-
-
-
-
-
-
-  #overlay.active {
-    z-index: 1;
-  }
-  .hamburger-menu {
-      display: block;
-      z-index: 900;
-  }
-  // здесь скрывалось первоначальное меню
-  //.menu { 
-  //     display: none;
-  // }
-  /* скрываем чекбокс */
-  #menu__toggle {
-      opacity: 0;
-  }
-  /* стилизуем кнопку */
-  .menu__btn {
-      display: flex;
-      /* используем flex для центрирования содержимого */
-      align-items: center;
-      /* центрируем содержимое кнопки */
-      position: absolute;
-      top: 17px;
-      right: 43px;
-      width: 30px;
-      height: 26px;
-      cursor: pointer;
-      z-index: 3;
-  }
-  /* добавляем "гамбургер" */
-  .menu__btn>span,
-  .menu__btn>span::before,
-  .menu__btn>span::after {
-      display: block;
-      position: absolute;
-      width: 100%;
-      height: 2px;
-      background-color: $success-color;
-  }
-  .menu__btn>span::before {
-      content: "";
-      top: -10px;
-  }
-  .menu__btn>span::after {
-      content: "";
-      top: 10px;
-  }
-  /* контейнер меню */
-  .menu__box {
-      display: flex;
-      flex-direction: column;
-      position: fixed;
-      justify-content: center;
-      visibility: hidden;
-      z-index:2;
-      top: 0;
-      right: -100%;
-      width: 320px;
-      height: 100%;
-      margin: 0;
-      padding: 100px 0;
-      list-style: none;
-      text-align: center;
-      background-color: $primary-color;
-  }
-  /* элементы меню */
-  .menu__item {
-      display: block;
-      padding: 20px 0;
-      text-decoration: none;
-      color: $success-color;
-      font-size: 3.2rem;
-      line-height: 160%;
-  }
-  .menu__item:hover {
-      background-color: $light-color;
-  }
-  #menu__toggle:checked~.menu__btn>span {
-      transform: rotate(90deg);
-  }
-  #menu__toggle:checked~.menu__box {
-      visibility: visible;
-      right: 0;
-  }
-  .menu__btn>span,
-  .menu__btn>span::before,
-  .menu__btn>span::after {
-      transition-duration: 0.3s;
-  }
-  .menu__box {
-      transition-duration: 0.3s;
-  }
-  .menu__item {
-      transition-duration: 0.3s;
-  }
+  }  
 }
 
 @keyframes morphing {

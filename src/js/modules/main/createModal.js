@@ -14,7 +14,7 @@ export default class Modal {
     this.audio = document.querySelector('.audio');
     buttonsWhichOpenModal.forEach((button) => {
       button.onclick = () => {
-        console.log(button.textContent);
+        document.body.style.overflow = 'hidden';
         const param = button.textContent;
         this.modal.innerHTML = `<div class="main__modal__content">
                                     <div class="main__modal__content__header">
@@ -45,12 +45,14 @@ export default class Modal {
       this.modal.style.bottom = '-100%';
       this.modal.innerHTML = '';
       this.audio.play();
+      document.body.style.overflow = 'auto';
     };
     window.onclick = (event) => {
       if (event.target === this.modal) {
         this.modal.style.bottom = '-100%';
         this.modal.innerHTML = '';
         this.audio.play();
+        document.body.style.overflow = 'auto';
       }
     };
   }
