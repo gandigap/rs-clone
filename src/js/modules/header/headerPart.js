@@ -1,11 +1,9 @@
 import create from '../create';
-import BurgerMenu from './burgerMenu';
 
-export default class HeaderBlock {
+export default class HeaderPart {
   constructor() {
     const parent = document.querySelector('.wrapper');
     this.header = create('header', 'header', null, parent);
-    this.burgerMenu = new BurgerMenu();
     this.addHiddenTitleH1();
     this.addButtonOpenConfirmForm();
     this.addContactInfo();
@@ -28,13 +26,12 @@ export default class HeaderBlock {
   }
 
   addLanguageBlock() {
-    this.languageBlock = create('div', 'header__language-selector', null, this.header, ['id', 'google_translate_element']);
-    /* this.languageBlock = create('div', 'header__language-block', [
+    this.languageBlock = create('div', 'header__language-block', [
       create('select', 'header__language-block__list',
-        `<option value="RU">RU</option>
-         <option value="EN">EN</option>
-         <option value="DE">DE</option>`, this.languageBlock),
-    ], this.header); */
+        `<option value="EN">EN</option>
+         <option value="RU">RU</option>
+         <option value="DE">DE</option>`, this.languageBlock, ['id', 'select__language']),
+    ], this.header);
   }
 
   addButtonOpenConfirmForm() {

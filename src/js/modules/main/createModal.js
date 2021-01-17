@@ -1,9 +1,11 @@
 import ConfirmForm from './confirmForm';
 import SwiperGalery from './addGalery';
 import create from '../create';
+import languageData from '../../languageDate/languageDate.json';
 
 export default class Modal {
-  constructor() {
+  constructor(indexLanguage) {
+    this.indexLanguage = indexLanguage;
     const parent = document.querySelector('.main');
     this.modal = create('div', 'main__modal', null, parent, ['id', 'main__modal']);
     this.addListenersForButtonsOpenModal();
@@ -25,12 +27,10 @@ export default class Modal {
                                     </div>
                                   </div>`;
         this.modalClose();
-        const modalHeaderTitle = document.querySelector('.main__modal__content__header-title');
-        if (param === 'ROOMS') {
-          modalHeaderTitle.innerHTML = 'List rooms in our hotel';
+        this.modalHeaderTitle = document.querySelector('.main__modal__content__header-title');
+        if (param === languageData.galeryButton[this.indexLanguage]) {
           this.addGaleryToModal();
-        } else if (param === 'Log in') {
-          modalHeaderTitle.innerHTML = 'Confirm form';
+        } else if (param === languageData.logButton[this.indexLanguage]) {
           this.addConfirmForm();
         }
         this.audio.play();
@@ -58,10 +58,12 @@ export default class Modal {
   }
 
   addGaleryToModal() {
-    this.galery = new SwiperGalery();
+    this.modalHeaderTitle.innerHTML = `${languageData.modalTitle[0][this.indexLanguage]}`;
+    this.galery = new SwiperGalery(this.indexLanguage);
   }
 
   addConfirmForm() {
-    this.confirmForm = new ConfirmForm();
+    this.modalHeaderTitle.innerHTML = `${languageData.modalTitle[1][this.indexLanguage]}`;
+    this.confirmForm = new ConfirmForm(this.indexLanguage);
   }
 }

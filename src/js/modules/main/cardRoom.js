@@ -1,9 +1,11 @@
 import create from '../create';
+import languageData from '../../languageDate/languageDate.json';
 
 export default class CardRoom {
-  constructor(dataRoom, index) {
+  constructor(dataRoom, index, indexLanguage) {
+    this.indexLanguage = indexLanguage;
     this.index = index;
-    this.dataRoom = dataRoom;
+    this.dataRoom = languageData;
     this.src = dataRoom.srcImg;
     this.title = dataRoom.name;
     this.price = dataRoom.price;

@@ -6,7 +6,8 @@
   cursor: pointer;
   margin:10px;
   height: 40px;
-  width: 100px;
+  min-width: 100px;
+  width: 120px;
   padding: 5px;
   color:$default-color;
   font:{
@@ -34,7 +35,7 @@
   cursor: pointer;
   margin:10px;
   height: 40px;
-  width: 100px;
+  width: 120px;
   padding: 5px;
   color:$default-color;
   font:{

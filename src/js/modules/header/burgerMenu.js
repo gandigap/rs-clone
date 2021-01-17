@@ -1,8 +1,11 @@
 import create from '../create';
+import languageData from '../../languageDate/languageDate.json';
 
 export default class BurgerMenu {
-  constructor() {
+  constructor(indexLanguage) {
+    this.indexLanguage = indexLanguage;
     this.body = document.querySelector('body');
+    this.menu = languageData.burgerMenu[this.indexLanguage];
     const parent = document.querySelector('.header');
     this.burgerContainer = create('div', 'hamburger-menu',
       `<div class="hamburger-menu">
@@ -10,10 +13,10 @@ export default class BurgerMenu {
       <label class="menu__btn" for="menu__toggle">
         <span></span>
       </label>
-  
-      <ul class="menu__box">    
-        <li><a class="menu__item" href="#booking">Booking</a></li>
-        <li><a class="menu__item" href="#about">About</a></li>        
+
+      <ul class="menu__box">
+        <li><a class="menu__item" href="#booking">${this.menu[0]}</a></li>
+        <li><a class="menu__item" href="#about">${this.menu[1]}</a></li>
       </ul>
       <div class="overlay__burger__menu"></div>
     </div>`, parent);

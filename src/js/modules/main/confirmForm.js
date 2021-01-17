@@ -1,32 +1,34 @@
 import create from '../create';
+import languageData from '../../languageDate/languageDate.json';
 
 export default class ConfirmForm {
-  constructor() {
+  constructor(indexLanguage) {
+    this.indexLanguage = indexLanguage;
     const parent = document.querySelector('.main__modal__content__body');
     this.contentForm = create('div', 'container__confirm-form',
       `<div class="container__confirm-form__error-message hidden"></div>
           <div class="container__confirm-form__success-message hidden">
             <div class="header">Form Completed</div>
-            <p>All good!.</p>
+            <p>All good!</p>
           </div>
           <form id="confirm-form" class="container__confirm-form__form" novalidate>
             <div class="container__confirm-form__form-field">
-              <label class="container__confirm-form__form-field__label">Name</label>
+              <label class="container__confirm-form__form-field__label">${languageData.confirmFormField.name[this.indexLanguage]}</label>
               <input class="container__confirm-form__form-field__input" name="name" data-validation="required">
             </div>
             <div class="container__confirm-form__form-field">
-              <label class="container__confirm-form__form-field__label">Last Name</label>
+              <label class="container__confirm-form__form-field__label">${languageData.confirmFormField.lastName[this.indexLanguage]}</label>
               <input class="container__confirm-form__form-field__input" name="last name">
             </div>
             <div class="container__confirm-form__form-field">
-              <label class="container__confirm-form__form-field__label">Phone</label>
+              <label class="container__confirm-form__form-field__label">${languageData.confirmFormField.phone[this.indexLanguage]}</label>
               <input class="container__confirm-form__form-field__input" placeholder="Ex +111111111111" name="phone" data-validation="required phone">
             </div>
             <div class="container__confirm-form__form-field">
-              <label class="container__confirm-form__form-field__label">Email</label>
+              <label class="container__confirm-form__form-field__label">${languageData.confirmFormField.Email[this.indexLanguage]}</label>
               <input class="container__confirm-form__form-field__input" type="email" name="email" data-validation="required email">
             </div>
-            <button class="container__confirm-form__button" type="submit">Submit</button>
+            <button class="container__confirm-form__button" type="submit">${languageData.confirmFormField.button[this.indexLanguage]}</button>
           </form>`,
       parent);
 
@@ -63,7 +65,7 @@ export default class ConfirmForm {
             e.preventDefault();
 
             errorMessage.className = 'container__confirm-form__error-message';
-            errorMessage.innerHTML = `Invalid rule '${rules[j]}' for input '${inputsArr[i].name}'`;
+            errorMessage.innerHTML = `${languageData.confirmFormField.invalidRule[this.indexLanguage]} '${rules[j]}' ${languageData.confirmFormField.forInput[this.indexLanguage]} '${inputsArr[i].name}'`;
             parent.className = 'container__confirm-form__form-field error';
             return false;
           }

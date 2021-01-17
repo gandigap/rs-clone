@@ -1,10 +1,11 @@
 import create from '../create';
 import Calendar from './calendar';
 import RadioButtonsForm from './radioButtonsForm';
-import Language from './language';
+import languageData from '../../languageDate/languageDate.json';
 
 export default class Tabs {
-  constructor() {
+  constructor(indexLanguage) {
+    this.indexLanguage = indexLanguage;
     const parent = document.querySelector('.main__other-section');
     this.tabs = create('div', 'main__other-section__tabs', null, parent, ['id', 'booking']);
     this.tabButton1 = null;
@@ -14,30 +15,29 @@ export default class Tabs {
   addTabContent() {
     this.numberCurrentTab = 0;
     this.tab = create('div', 'main__other-section__tabs__tab', [
-      create('button', 'main__other-section__tabs__tab__button tab__button-active', 'Step1'),
-      create('button', 'main__other-section__tabs__tab__button', 'Step2'),
-      create('button', 'main__other-section__tabs__tab__button', 'Step3'),
+      create('button', 'main__other-section__tabs__tab__button tab__button-active', `${languageData.tabHeader[this.indexLanguage]} 1`),
+      create('button', 'main__other-section__tabs__tab__button', `${languageData.tabHeader[this.indexLanguage]} 2`),
+      create('button', 'main__other-section__tabs__tab__button', `${languageData.tabHeader[this.indexLanguage]} 3`),
     ], this.tabs);
     this.tabcontent1 = create('div', 'main__other-section__tabs__tabcontent tab__open', [
-      create('h3', 'main__other-section__tabs__tabcontent__title', 'Please check room that you need'),
+      create('h3', 'main__other-section__tabs__tabcontent__title', `${languageData.tabcontent1Title[this.indexLanguage]}`),
     ], this.tabs, ['id', 'container__rooms']);
     this.tabcontent2 = create('div', 'main__other-section__tabs__tabcontent', [
-      create('h3', 'main__other-section__tabs__tabcontent__title', 'Please check date'),
+      create('h3', 'main__other-section__tabs__tabcontent__title', `${languageData.tabcontent2Title[this.indexLanguage]}`),
     ], this.tabs, ['id', 'container__date']);
     this.tabcontent3 = create('div', 'main__other-section__tabs__tabcontent', [
-      create('h3', 'main__other-section__tabs__tabcontent__title', 'Confirm'),
+      create('h3', 'main__other-section__tabs__tabcontent__title', `${languageData.tabcontent3Title[this.indexLanguage]}`),
     ], this.tabs, ['id', 'container__confirm']);
     this.addBlockWithButtonsWhichChangeTabs();
 
-    this.radioButtonsForm = new RadioButtonsForm();
-    this.calendar = new Calendar();
-    this.language = new Language();
+    this.radioButtonsForm = new RadioButtonsForm(this.indexLanguage);
+    this.calendar = new Calendar(this.indexLanguage);
   }
 
   addBlockWithButtonsWhichChangeTabs() {
     this.buttonStepBlock = create('div', 'main__other-section__tabs__button-step-block',
-      `<button class="main__other-section__tabs__button-step-block__button" id="button-prev-step">Prev</button>
-       <button class="main__other-section__tabs__button-step-block__button" id="button-next-step">Next</button>`,
+      `<button class="main__other-section__tabs__button-step-block__button" id="button-prev-step">${languageData.buttonPrevStep[this.indexLanguage]}</button>
+       <button class="main__other-section__tabs__button-step-block__button" id="button-next-step">${languageData.buttonNextStep[this.indexLanguage]}</button>`,
       this.tabs);
     this.addListenerForButtonsWhichChangeTabs();
     this.checkButtonDisable();

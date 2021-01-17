@@ -1,7 +1,9 @@
 import create from '../create';
+import languageData from '../../languageDate/languageDate.json';
 
 export default class DescriptionBlock {
-  constructor() {
+  constructor(indexLanguage) {
+    this.indexLanguage = indexLanguage;
     this.parent = document.querySelector('.main__other-section__sub-content-block__description');
     this.initDescription();
   }
@@ -9,10 +11,7 @@ export default class DescriptionBlock {
   initDescription() {
     this.description = create('div', 'main__other-section__sub-content-block__description__content',
       `<div class="description__content__text">
-        <p class="description__content__text__info">
-        The PARADISE is a luxury resort secluded on the small island, offering a pristine pool and spa. Known for its exceptional service,
-        it includes a 24-hour concierge, numerous beach and pool attendants, and twice-daily housekeeping), the resort is a favorite among
-        honeymooners and has an impressive number of return clients considering its remote location.</p>
+        <p class="description__content__text__info">${languageData.description[this.indexLanguage]}</p>
        </div>
        <div class="description__content__facilities">
         <div class="description__content__facilities__facility" data-name-en="Free WiFi Internet Access Included">
