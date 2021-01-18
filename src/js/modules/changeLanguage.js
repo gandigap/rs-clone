@@ -20,6 +20,5 @@ export default function changeLanguage() {
     main = new MainPart(index);
     footer = new FooterPart();
     burgerMenu = new BurgerMenu(index);
-    console.log(index);
   });
 }
