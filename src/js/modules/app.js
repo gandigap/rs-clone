@@ -3,6 +3,7 @@ import HeaderPart from './header/headerPart';
 import MainPart from './main/mainPart';
 import FooterPart from './footer/footerPart';
 import BurgerMenu from './header/burgerMenu';
+import HotKeysListener from './hotKeysListener';
 
 export default class App {
   constructor(indexLanguage) {
@@ -22,6 +23,7 @@ export default class App {
     this.main = new MainPart(0);
     this.footer = new FooterPart();
     this.burgerMenu = new BurgerMenu(0);
+    this.hotKeysListeners = new HotKeysListener();
   }
 }
 

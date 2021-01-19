@@ -6,13 +6,14 @@
 
 html{
   height: 100%;
+  font-size: $mainFontSize;
 }
 
 body{
   background-color: $light-color;
   height: 100%;
   color:$primary-color;
-  font-family: $mainFont;
+  font-family: $mainFont;  
 }
 
 /* .goog-te-banner-frame{
@@ -48,11 +49,15 @@ body{
     height: 34px;
     padding: 5px;
     border: 0;
-    font-size: 16px;
+    font-size: 1.6rem;
     line-height: 1;
     background-color: $primary-color;
     color: $default-color;
     -webkit-appearance: none;  
+  }
+
+  &__language-block__list:focus{
+    color:$success-color;
   }
 
   &__hidden-title{
@@ -79,6 +84,11 @@ body{
     @include button-light-active;
   }
 
+  &__button-log:focus{
+    @include button-light-hover;
+  }
+  
+
   &__info-part{
     display: flex;
     min-width:180px;
@@ -98,11 +108,13 @@ body{
       &__text{
         margin: 5px 10px;        
         font-style: italic;
+        font-size:1.6rem;
       }
     }
 
-    &__content:hover{
+    &__content:hover,:focus{
       color:$success-color;
+      border-bottom:1px solid $primary-color;
     }
   }
 }
@@ -137,7 +149,7 @@ body{
 
     &__title{
       margin:40px;
-      font-size: 50px;
+      font-size: 5rem;
       color: $success-color;
       letter-spacing: 5px;
       text-shadow: $light-color 2px 2px 0, $light-color -2px -2px 0, $light-color -2px 2px 0, $light-color 2px -2px 0;
@@ -160,7 +172,7 @@ body{
         
         &__button{
           flex-grow: 1;
-          font-size: 20px;
+          font-size: 2rem;
           padding: 14px 16px;             
           font-weight: bold;
           transition: 0.3s;        
@@ -195,7 +207,7 @@ body{
           padding: 10px 5px;
           text-align: center;
           margin: 5px;
-          font-size: 20px;   
+          font-size: 2rem;   
         }
 
         #litepicker{
@@ -207,7 +219,7 @@ body{
           border-radius: 5px;
           text-align: center;
           font-weight: bold;
-          font-size: 18px;
+          font-size: 1.8rem;
         }
 
         #litepicker:focus{border: 3px solid $success-color; transition: 0.3s;}
@@ -219,7 +231,7 @@ body{
           flex-wrap: wrap;
           justify-content: center;
           position: relative;          
-          font-size: 15px;
+          font-size: 1.5rem;
           display: flex;    
 
           &__radiobtn {
@@ -280,6 +292,10 @@ body{
                 }
               }
             }
+
+            &__label:focus{
+              border-color: $success-color;
+            }
           }
         }
         
@@ -299,7 +315,7 @@ body{
           @include button-dark;
         }
 
-        &__button:hover{
+        &__button:focus,:hover{
           @include button-dark-hover;
         }
 
@@ -330,7 +346,8 @@ body{
               color: white;
               text-indent: 20px;
               text-align: justify;
-              padding: 5px 15px
+              padding: 5px 15px;
+              font-size:1.6rem;
             }
           }
 
@@ -366,7 +383,7 @@ body{
         &__button{          
           width: 100%;
           height: 100%;  
-          font-size: 25px;         
+          font-size: 2.5rem;         
           
           transition: all 0.3s;
           -webkit-transition: all 0.3s;
@@ -374,7 +391,11 @@ body{
           cursor:pointer;
         }
         
-        &__button:hover{
+        &__button:focus,:hover{
+          color:$default-color;       
+        }
+
+        &__button:active{
           transform: scale(0.9);
           -webkit-transform: scale(0.9);
           border: 1px solid $success-color;          
@@ -390,7 +411,7 @@ body{
   display: flex;
   align-items: center;
   justify-content: space-around;
-  font-size: 20px;
+  font-size: 2rem;
   font-weight: bold;
   color: $success-color;
   background-color: $light-color;
@@ -447,7 +468,7 @@ body{
   
       .swiper-slide {
         text-align: center;
-        font-size: 18px;
+        font-size: 1.8rem;
         background: #fff;
   
         /* Center slide text vertically */
@@ -475,12 +496,12 @@ body{
             width:70%;
             min-height: 360px;
             padding:20px;
-            font-size: 18px;
+            font-size: 1.8rem;
             text-align: start;
 
             .swiper-slide__content__info__title{
               padding: 20px 0;
-              font-size:36px;
+              font-size:3.6rem;
               font-weight: bold;
             }
 
@@ -594,7 +615,7 @@ body{
         }
 
         &__error-message{
-          font-size: 20px;
+          font-size: 2rem;
           font-weight: bold;
           padding: 10px;
           color:$success-color;
@@ -607,7 +628,7 @@ body{
     &__close {
       color: $primary-color;
       order: 1;            
-      font-size: 28px;
+      font-size: 2.8rem;
       font-weight: bold;
     }
     
@@ -750,7 +771,7 @@ body{
   color: #333;
 
   font-family: 'Roboto', sans-serif;
-  font-size: 20px;
+  font-size: 2rem;
   font-weight: 600;
 
   text-decoration: none;
@@ -867,3 +888,5 @@ body{
   from {top: -300px; opacity: 0}
   to {top: 0; opacity: 1}
 }
+
+

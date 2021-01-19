@@ -8,7 +8,7 @@ export default class Calendar {
     this.indexLanguage = indexLanguage;
     const parent = document.getElementById('container__date');
     this.calendar = create('input', 'new-input', null,
-      parent, ['id', 'litepicker'], ['type', 'text'], ['placeholder', 'click']);
+      parent, ['id', 'litepicker'], ['type', 'text'], ['placeholder', 'click'], ['tabindex', '10']);
     this.initCalendar();
   }
 

@@ -36,8 +36,8 @@ export default class Tabs {
 
   addBlockWithButtonsWhichChangeTabs() {
     this.buttonStepBlock = create('div', 'main__other-section__tabs__button-step-block',
-      `<button class="main__other-section__tabs__button-step-block__button" id="button-prev-step">${languageData.buttonPrevStep[this.indexLanguage]}</button>
-       <button class="main__other-section__tabs__button-step-block__button" id="button-next-step">${languageData.buttonNextStep[this.indexLanguage]}</button>`,
+      `<button class="main__other-section__tabs__button-step-block__button" id="button-prev-step" tabindex="11">${languageData.buttonPrevStep[this.indexLanguage]}</button>
+       <button class="main__other-section__tabs__button-step-block__button" id="button-next-step" tabindex="12">${languageData.buttonNextStep[this.indexLanguage]}</button>`,
       this.tabs);
     this.addListenerForButtonsWhichChangeTabs();
     this.checkButtonDisable();
