@@ -67,6 +67,7 @@
     "webpack-merge": "^4.2.2"
   },
   "dependencies": {
+    "firebase": "^8.2.2",
     "litepicker": "^1.5.7",
     "swiper": "^6.4.5"
   }
