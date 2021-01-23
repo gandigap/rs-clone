@@ -11,20 +11,20 @@ export default class ConfirmForm {
             <div class="header">Form Completed</div>
             <p>All good!</p>
           </div>
-          <form id="confirm-form" class="container__confirm-form__form" novalidate>
-            <div class="container__confirm-form__form-field">
+          <form id="confirm-form" class="container__confirm-form__form d-flex flex-column align-items-center" novalidate>
+            <div class="container__confirm-form__form-field d-flex justify-content-between align-items-center">
               <label class="container__confirm-form__form-field__label">${languageData.confirmFormField.name[this.indexLanguage]}</label>
               <input class="container__confirm-form__form-field__input" name="name" data-validation="required">
             </div>
-            <div class="container__confirm-form__form-field">
+            <div class="container__confirm-form__form-field d-flex justify-content-between align-items-center">
               <label class="container__confirm-form__form-field__label">${languageData.confirmFormField.lastName[this.indexLanguage]}</label>
               <input class="container__confirm-form__form-field__input" name="last name">
             </div>
-            <div class="container__confirm-form__form-field">
+            <div class="container__confirm-form__form-field d-flex justify-content-between align-items-center">
               <label class="container__confirm-form__form-field__label">${languageData.confirmFormField.phone[this.indexLanguage]}</label>
               <input class="container__confirm-form__form-field__input" placeholder="Ex +111111111111" name="phone" data-validation="required phone">
             </div>
-            <div class="container__confirm-form__form-field">
+            <div class="container__confirm-form__form-field d-flex justify-content-between align-items-center">
               <label class="container__confirm-form__form-field__label">${languageData.confirmFormField.Email[this.indexLanguage]}</label>
               <input class="container__confirm-form__form-field__input" type="email" name="email" data-validation="required email">
             </div>

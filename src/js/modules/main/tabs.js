@@ -7,17 +7,17 @@ export default class Tabs {
   constructor(indexLanguage) {
     this.indexLanguage = indexLanguage;
     const parent = document.querySelector('.main__other-section');
-    this.tabs = create('div', 'main__other-section__tabs', null, parent, ['id', 'booking']);
+    this.tabs = create('div', 'main__other-section__tabs d-flex flex-column', null, parent, ['id', 'booking']);
     this.tabButton1 = null;
     this.addTabContent();
   }
 
   addTabContent() {
     this.numberCurrentTab = 0;
-    this.tab = create('div', 'main__other-section__tabs__tab', [
-      create('button', 'main__other-section__tabs__tab__button tab__button-active', `${languageData.tabHeader[this.indexLanguage]} 1`),
-      create('button', 'main__other-section__tabs__tab__button', `${languageData.tabHeader[this.indexLanguage]} 2`),
-      create('button', 'main__other-section__tabs__tab__button', `${languageData.tabHeader[this.indexLanguage]} 3`),
+    this.tab = create('div', 'main__other-section__tabs__tab d-flex', [
+      create('button', 'main__other-section__tabs__tab__button flex-grow-1 tab__button-active', `${languageData.tabHeader[this.indexLanguage]} 1`),
+      create('button', 'main__other-section__tabs__tab__button flex-grow-1', `${languageData.tabHeader[this.indexLanguage]} 2`),
+      create('button', 'main__other-section__tabs__tab__button flex-grow-1', `${languageData.tabHeader[this.indexLanguage]} 3`),
     ], this.tabs);
     this.tabcontent1 = create('div', 'main__other-section__tabs__tabcontent tab__open', [
       create('h3', 'main__other-section__tabs__tabcontent__title', `${languageData.tabcontent1Title[this.indexLanguage]}`),
@@ -35,7 +35,7 @@ export default class Tabs {
   }
 
   addBlockWithButtonsWhichChangeTabs() {
-    this.buttonStepBlock = create('div', 'main__other-section__tabs__button-step-block',
+    this.buttonStepBlock = create('div', 'main__other-section__tabs__button-step-block d-flex justify-content-center',
       `<button class="main__other-section__tabs__button-step-block__button" id="button-prev-step" tabindex="11">${languageData.buttonPrevStep[this.indexLanguage]}</button>
        <button class="main__other-section__tabs__button-step-block__button" id="button-next-step" tabindex="12">${languageData.buttonNextStep[this.indexLanguage]}</button>`,
       this.tabs);

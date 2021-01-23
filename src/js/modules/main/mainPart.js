@@ -8,25 +8,25 @@ import languageData from '../../languageDate/languageDate.json';
 export default class MainPart {
   constructor(indexLanguage) {
     this.indexLanguage = indexLanguage;
-    const parent = document.querySelector('.wrapper');
-    this.main = create('main', 'main', null, parent);
+    const parent = document.querySelector('.container-xl');
+    this.main = create('main', 'main d-flex', null, parent);
     this.totalInfoSection = null;
     this.otherInfoSection = null;
     this.addSections();
   }
 
   addSections() {
-    this.totalInfoSection = create('section', 'main__total-section', null, this.main);
-    this.otherInfoSection = create('section', 'main__other-section', null, this.main);
+    this.totalInfoSection = create('section', 'main__total-section col-xl-5 d-flex flex-column align-items-center p-0', null, this.main);
+    this.otherInfoSection = create('section', 'main__other-section col-xl-7 d-flex flex-column p-0', null, this.main);
     this.tabs = new Tabs(this.indexLanguage);
     this.addBlockWithMainImageAndTitle();
     this.addBlockWithSubContent();
   }
 
   addBlockWithSubContent() {
-    this.subContentBlock = create('div', 'main__other-section__sub-content-block', null, this.otherInfoSection);
-    this.someBlock = create('div', 'main__other-section__sub-content-block__description', null, this.subContentBlock);
-    this.containerForButtonOpenGaleryRooms = create('div', 'main__other-section__sub-content-block__button-container', null, this.subContentBlock);
+    this.subContentBlock = create('div', 'main__other-section__sub-content-block row m-0', null, this.otherInfoSection); //d-flex align-self-end
+    this.someBlock = create('div', 'main__other-section__sub-content-block__description col-sm-12 col-md-9 p-0', null, this.subContentBlock);
+    this.containerForButtonOpenGaleryRooms = create('div', 'main__other-section__sub-content-block__button-container col-sm-12 col-md-3 p-0', null, this.subContentBlock);
     this.descriptionHotel = new DescriptionBlock(this.indexLanguage);
     this.addButtonOpenGaleryRooms();
     this.audio = new Audio();
@@ -41,7 +41,7 @@ export default class MainPart {
   }
 
   addButtonOpenGaleryRooms() {
-    this.buttonSearchGalery = create('button', 'button-open-modal main__other-section__sub-content-block__button-container__button',
+    this.buttonSearchGalery = create('button', 'button-open-modal main__other-section__sub-content-block__button-container__button col-md-12 p-0',
       `${languageData.galeryButton[this.indexLanguage]}`,
       this.containerForButtonOpenGaleryRooms,
       ['id', 'button-open-galery'], ['tabindex', '13']);

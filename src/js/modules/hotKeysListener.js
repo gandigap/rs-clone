@@ -1,6 +1,9 @@
+import { toggleTheme } from './utilsTheme';
+
 export default class HotKeysListener {
   constructor() {
     this.html = document.querySelector('html');
+    this.switcher = document.querySelector('.color__switcher');
     this.coef = 1;
     this.keyButtonListeners();
   }
@@ -8,6 +11,8 @@ export default class HotKeysListener {
   keyButtonListeners() {
     this.enlargeFont();
     this.reduceFont();
+    this.changeLightTheme();
+    this.changeDarkTheme();
   }
 
   enlargeFont() {
@@ -26,17 +31,27 @@ export default class HotKeysListener {
         this.html.style.fontSize = `1${this.coef}px`;
       }
     });
+  }
 
-    /* document.onkeyup = function(e) {
-      if (e.which == 77) {
-        alert("M key was pressed");
-      } else if (e.ctrlKey && e.which == 66) {
-        alert("Ctrl + B shortcut combination was pressed");
-      } else if (e.ctrlKey && e.altKey && e.which == 89) {
-        alert("Ctrl + Alt + Y shortcut combination was pressed");
-      } else if (e.ctrlKey && e.altKey && e.shiftKey && e.which == 85) {
-        alert("Ctrl + Alt + Shift + U shortcut combination was pressed");
+  changeLightTheme() {
+    document.addEventListener('keydown', (event) => {
+      if (event.code === 'KeyR' && (event.shiftKey || event.metaKey)) {
+        if (!this.switcher.checked) {
+          this.switcher.checked = true;
+          toggleTheme();
+        }
       }
-    }; */
+    });
+  }
+
+  changeDarkTheme() {
+    document.addEventListener('keydown', (event) => {
+      if (event.code === 'KeyT' && (event.shiftKey || event.metaKey)) {
+        if (this.switcher.checked) {
+          this.switcher.checked = false;
+          toggleTheme();
+        }
+      }
+    });
   }
 }

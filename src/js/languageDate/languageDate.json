@@ -77,6 +77,29 @@
     "ru-RU",
     "de-DE"
   ],
+  "hotKeysContent": [
+    [
+      "Shift + E - increase font",
+      "Shift + Q - reduce font",
+      "Shift + R - light theme",
+      "Shift + T - dark theme",
+      "Liste zimmer in unserem hotel"
+    ],
+    [
+      "Shift + E - увеличить шрифт",
+      "Shift + Q - уменьшить шрифт",
+      "Shift + R - светлая тема",
+      "Shift + T - темная тема",
+      "Liste zimmer in unserem hotel"
+    ],
+    [
+      "Shift + E - Schriftart erhöhen",
+      "Shift + Q - Schriftart reduzieren",
+      "Shift + R - Lichtthema",
+      "Shift + T - dunkles Thema",
+      "Liste zimmer in unserem hotel"
+    ]
+  ],
   "modalTitle": [
     [
       "List rooms in our hotel",
@@ -87,6 +110,11 @@
       "Confirmation form",
       "Подтверждающая форма",
       "Bestätigungs formular"
+    ],
+    [
+      "Hotkeys",
+      "Горячие клавиши",
+      "Hotkeys"
     ]
   ],
   "confirmFormField": {

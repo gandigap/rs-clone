@@ -2,8 +2,8 @@ import create from '../create';
 
 export default class FooterBlock {
   constructor() {
-    const wrapper = document.querySelector('.wrapper');
-    this.footer = create('footer', 'footer', null, wrapper);
+    const parent = document.querySelector('.container-xl');
+    this.footer = create('footer', 'footer col-md-12 d-flex justify-content-around align-items-center', null, parent);
     this.addInfoFooter();
   }
 

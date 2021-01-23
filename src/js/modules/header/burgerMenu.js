@@ -8,8 +8,7 @@ export default class BurgerMenu {
     this.menu = languageData.burgerMenu[this.indexLanguage];
     const parent = document.querySelector('.header');
     this.burgerContainer = create('div', 'hamburger-menu',
-      `<div class="hamburger-menu">
-      <input id="menu__toggle" type="checkbox" />
+      `<input id="menu__toggle" type="checkbox" />
       <label class="menu__btn" for="menu__toggle">
         <span></span>
       </label>
@@ -19,7 +18,7 @@ export default class BurgerMenu {
         <li><a class="menu__item" href="#about">${this.menu[1]}</a></li>
       </ul>
       <div class="overlay__burger__menu"></div>
-    </div>`, parent);
+    `, parent);
     this.workWithMenu();
   }
 

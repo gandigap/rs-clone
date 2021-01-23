@@ -13,7 +13,7 @@ export default class DescriptionBlock {
       `<div class="description__content__text">
         <p class="description__content__text__info">${languageData.description[this.indexLanguage]}</p>
        </div>
-       <div class="description__content__facilities">
+       <div class="description__content__facilities d-flex justify-content-around flex-wrap">
         <div class="description__content__facilities__facility" data-name-en="Free WiFi Internet Access Included">
           <svg class="svg__facilities" height="20" width="20" viewBox="0 0 128 128" role="presentation" aria-hidden="true"
             focusable="false">

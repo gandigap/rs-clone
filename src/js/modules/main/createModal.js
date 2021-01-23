@@ -1,6 +1,7 @@
+import create from '../create';
 import ConfirmForm from './confirmForm';
 import SwiperGalery from './addGalery';
-import create from '../create';
+import HotKeysContent from './hotKeysContent';
 import languageData from '../../languageDate/languageDate.json';
 
 export default class Modal {
@@ -19,7 +20,7 @@ export default class Modal {
         document.body.style.overflow = 'hidden';
         const param = button.textContent;
         this.modal.innerHTML = `<div class="main__modal__content">
-                                    <div class="main__modal__content__header">
+                                    <div class="main__modal__content__header d-flex justify-content-between">
                                       <span class="main__modal__content__close">&times;</span>
                                       <h2 class="main__modal__content__header-title"></h2>
                                     </div>
@@ -32,6 +33,8 @@ export default class Modal {
           this.addGaleryToModal();
         } else if (param === languageData.logButton[this.indexLanguage]) {
           this.addConfirmForm();
+        } else if (param === '🔥') {
+          this.addModalWithHotKeys();
         }
         this.audio.play();
         this.modal.style.bottom = '0px';
@@ -65,5 +68,10 @@ export default class Modal {
   addConfirmForm() {
     this.modalHeaderTitle.innerHTML = `${languageData.modalTitle[1][this.indexLanguage]}`;
     this.confirmForm = new ConfirmForm(this.indexLanguage);
+  }
+
+  addModalWithHotKeys() {
+    this.modalHeaderTitle.innerHTML = `${languageData.modalTitle[2][this.indexLanguage]}`;
+    this.confirmForm = new HotKeysContent(this.indexLanguage);
   }
 }

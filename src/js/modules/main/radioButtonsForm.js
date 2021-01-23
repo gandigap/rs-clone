@@ -6,7 +6,7 @@ export default class RadioButtonsForm {
     this.indexLanguage = indexLanguage;
     this.tabIndex = 5;
     const parent = document.getElementById('container__rooms');
-    this.calendar = create('form', 'radio-buttons-form', '<div id="range"></div>', parent);
+    this.calendar = create('form', 'radio-buttons-form d-flex flex-wrap', '<div id="range"></div>', parent);
     this.arrayTypeRooms = languageData.radioButtons[this.indexLanguage];
     this.initRadioButtonsForm();
   }

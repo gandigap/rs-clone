@@ -1,5 +1,8 @@
 import create from '../create';
 import languageData from '../../languageDate/languageDate.json';
+import 'swiper/bundle';
+import 'swiper/swiper-bundle.min';
+import 'swiper/swiper-bundle.min.css';
 
 export default class CardRoom {
   constructor(dataRoom, index, indexLanguage) {
