@@ -10,7 +10,8 @@ export default class HotKeysContent {
        <p class="container__hotkeys__text">${languageData.hotKeysContent[this.indexLanguage][1]}</p>
        <p class="container__hotkeys__text">${languageData.hotKeysContent[this.indexLanguage][2]}</p>
        <p class="container__hotkeys__text">${languageData.hotKeysContent[this.indexLanguage][3]}</p>
-       <p class="container__hotkeys__text">${languageData.hotKeysContent[this.indexLanguage][4]}</p>`,
+       <p class="container__hotkeys__text">${languageData.hotKeysContent[this.indexLanguage][4]}</p>
+       <p class="container__hotkeys__text">${languageData.hotKeysContent[this.indexLanguage][5]}</p>`,
       parent);
   }
 }

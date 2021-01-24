@@ -79,25 +79,28 @@
   ],
   "hotKeysContent": [
     [
-      "Shift + E - increase font",
-      "Shift + Q - reduce font",
-      "Shift + R - light theme",
-      "Shift + T - dark theme",
-      "Liste zimmer in unserem hotel"
+      "Alt + Z - increase font",
+      "Alt + X - reduce font",
+      "Alt + C - light theme",
+      "Alt + V - dark theme",
+      "Alt + A - previous step",
+      "Alt + S - next step"
     ],
     [
-      "Shift + E - увеличить шрифт",
-      "Shift + Q - уменьшить шрифт",
-      "Shift + R - светлая тема",
-      "Shift + T - темная тема",
-      "Liste zimmer in unserem hotel"
+      "Alt + Z - увеличить шрифт",
+      "Alt + X - уменьшить шрифт",
+      "Alt + C - светлая тема",
+      "Alt + V - темная тема",
+      "Alt + A - предыдущий шаг",
+      "Alt + S - следующий шаг"
     ],
     [
-      "Shift + E - Schriftart erhöhen",
-      "Shift + Q - Schriftart reduzieren",
-      "Shift + R - Lichtthema",
-      "Shift + T - dunkles Thema",
-      "Liste zimmer in unserem hotel"
+      "Alt + E - Schriftart erhöhen",
+      "Alt + Q - Schriftart reduzieren",
+      "Alt + R - Lichtthema",
+      "Alt + T - dunkles Thema",
+      "Alt + A - vorheriger Schritt",
+      "Alt + S - Nächster Schritt"
     ]
   ],
   "modalTitle": [

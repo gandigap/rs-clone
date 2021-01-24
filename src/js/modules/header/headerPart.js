@@ -3,7 +3,7 @@ import create from '../create';
 export default class HeaderPart {
   constructor() {
     const parent = document.querySelector('.container-xl');
-    this.header = create('header', 'header col-sm-12 d-flex align-items-center justify-content-between flex-wrap', null, parent);
+    this.header = create('header', 'header col-sm-12 d-flex align-items-center justify-content-between flex-wrap p-0', null, parent);
     this.addHiddenTitleH1();
     this.addButtonOpenConfirmForm();
     this.addButtonOpenHotkeysModal();

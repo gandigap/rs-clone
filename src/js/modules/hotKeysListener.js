@@ -1,4 +1,9 @@
-import { toggleTheme } from './utilsTheme';
+import {
+  toggleTheme,
+  findNumberOpenTab,
+  openTabAndChangeStep,
+  checkButtonDisable,
+} from './utils';
 
 export default class HotKeysListener {
   constructor() {
@@ -13,11 +18,12 @@ export default class HotKeysListener {
     this.reduceFont();
     this.changeLightTheme();
     this.changeDarkTheme();
+    this.openTabs();
   }
 
   enlargeFont() {
     document.addEventListener('keydown', (event) => {
-      if (event.code === 'KeyE' && (event.shiftKey || event.metaKey) && this.coef < 10) {
+      if (event.code === 'KeyZ' && (event.altKey || event.metaKey) && this.coef < 10) {
         this.coef += 1;
         this.html.style.fontSize = `1${this.coef}px`;
       }
@@ -26,7 +32,7 @@ export default class HotKeysListener {
 
   reduceFont() {
     document.addEventListener('keydown', (event) => {
-      if (event.code === 'KeyQ' && (event.shiftKey || event.metaKey) && this.coef > 1) {
+      if (event.code === 'KeyX' && (event.altKey || event.metaKey) && this.coef > 1) {
         this.coef -= 1;
         this.html.style.fontSize = `1${this.coef}px`;
       }
@@ -35,7 +41,7 @@ export default class HotKeysListener {
 
   changeLightTheme() {
     document.addEventListener('keydown', (event) => {
-      if (event.code === 'KeyR' && (event.shiftKey || event.metaKey)) {
+      if (event.code === 'KeyC' && (event.altKey || event.metaKey)) {
         if (!this.switcher.checked) {
           this.switcher.checked = true;
           toggleTheme();
@@ -46,12 +52,25 @@ export default class HotKeysListener {
 
   changeDarkTheme() {
     document.addEventListener('keydown', (event) => {
-      if (event.code === 'KeyT' && (event.shiftKey || event.metaKey)) {
+      if (event.code === 'KeyV' && (event.altKey || event.metaKey)) {
         if (this.switcher.checked) {
           this.switcher.checked = false;
           toggleTheme();
         }
       }
+    });
+  }
+
+  openTabs() {
+    document.addEventListener('keydown', (event) => {
+      this.number = findNumberOpenTab();
+      if (event.code === 'KeyS' && (event.altKey || event.metaKey) && this.number !== 2) {
+        this.number += 1;
+      } else if (event.code === 'KeyA' && (event.altKey || event.metaKey) && this.number !== 0) {
+        this.number -= 1;
+      }
+      openTabAndChangeStep(this.number);
+      checkButtonDisable(this.number);
     });
   }
 }
