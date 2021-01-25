@@ -23,14 +23,15 @@
   --overlay-color          : #eeeeeee6; 
 }
 
-.container1 {  
-  background: var(--light-color);
+.switcher-theme-container {  
+  margin:0 10px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background: var(--light-color);
 }
 
-.container1 button {
+.switcher-theme-container button {
   color: var(--default-color);
   background: var(--primary-color);
   padding: 10px 20px;
@@ -157,6 +158,7 @@ body{
   
     &__list:focus{
       color:var(--success-color);
+      
     }
   }
   
@@ -204,7 +206,7 @@ body{
   &__info-part{          
 
     &__content{
-      margin: 10px;      
+      margin-right:50px;    
       color: var(--primary-color);      
       flex-wrap: wrap;
 
@@ -252,7 +254,7 @@ body{
 
 
     &__title{
-      margin:40px;
+      padding:40px 0;
       font-size: 5rem;
       color: var(--success-color);
       letter-spacing: 5px;
@@ -469,6 +471,7 @@ body{
         background-color: var(--primary-color);  
 
         &__button{ 
+          width:100%;
           height: 100%;  
           font-size: 2.5rem;         
           color: var(--success-color);
@@ -844,11 +847,12 @@ body{
   }
 
   .header{
-    justify-content: flex-start !important;
+    justify-content: space-around !important;
     position: fixed;
 
     &__container-button-log{
       order: 1;
+      margin: 0 50px;
     }
 
     &__language-block__list{
@@ -859,7 +863,7 @@ body{
       order:3;      
 
       &__content{
-        margin: 0;          
+                
   
         &__icon{
           margin: 0px 5px;
@@ -879,10 +883,11 @@ body{
 
   .main{
     flex-direction: column;
+    
 
     &__total-section{
       width:100%;     
-      margin-bottom: -60px; 
+      padding-top: 90px !important; 
     }
 
     &__other-section{
@@ -890,11 +895,13 @@ body{
       
 
       &__tabs{
-        padding-top: 60px;
+        padding-top: 90px;
+        margin-top: -90px;
       }
 
-      &__sub-content-block{
-        
+      &__sub-content-block__description__content{
+        padding-top: 90px;
+        margin-top: -90px;
       }
     }
 
@@ -925,6 +932,36 @@ body{
       }
     }
   }  
+}
+
+@media (max-width: 400px)  {  
+  .menu__btn{
+    display: flex;
+  }
+
+  .header{
+    justify-content: flex-start !important;
+    position: fixed;
+
+    &__container-button-log{
+      margin: 0px;
+    }
+
+    .switcher-theme-container{
+      margin:0px;
+    }
+
+    &__info-part{           
+      
+      &__content{           
+        margin: 0px;
+      }
+    }
+  }
+
+  .swiper-button-prev:after,.swiper-button-next:after{
+    font-size:26px;
+  }
 }
 
 @keyframes morphing {

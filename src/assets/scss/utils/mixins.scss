@@ -7,7 +7,7 @@
   margin:10px;
   height: 40px;
   min-width: 100px;
-  width: 120px;
+  min-width: 100px;
   padding: 5px;
   color:var(--primary-color);
   font:{
@@ -44,7 +44,7 @@
   cursor: pointer;
   margin:10px;
   height: 40px;
-  width: 120px;
+  min-width: 100px;
   padding: 5px;
   color:var(--success-color);
   font:{
