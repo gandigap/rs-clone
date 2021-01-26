@@ -6,299 +6,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Super hotel</title>
   <link rel="shortcut icon" href="assets/icons/favicon.ico">
-  <link rel="stylesheet" type="text/css" href="../src/assets/css/hotel-datepicker.css">
-<link href="assets/vendors.7a92a34dd8a7534b2669.css" rel="stylesheet"><link href="assets/app.7a92a34dd8a7534b2669.css" rel="stylesheet"></head>
+<link href="assets/vendors.c3b59aca626efde72ec2.css" rel="stylesheet"><link href="assets/app.c3b59aca626efde72ec2.css" rel="stylesheet"></head>
 
 <body>
-
-  <div class="demo__input" id="demo1-input-parent">
-    <input type="text" value="">
-  </div>
-  <script type="text/javascript">
-    function googleTranslateElementInit() {
-      new google.translate.TranslateElement({ pageLanguage: 'en', includedLanguages: 'de,ru,es,en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE }, 'google_translate_element');
+  <script>
+    function setTheme(themeName) {
+      localStorage.setItem('theme', themeName);
+      document.documentElement.className = themeName;
     }
+
+    // function to toggle between light and dark theme
+    function toggleTheme() {
+      if (localStorage.getItem('theme') === 'theme-dark') {
+        setTheme('theme-light');
+      } else {
+        setTheme('theme-dark');
+      }
+    }
+
+    // Immediately invoked function to set the theme on initial load
+    (function () {
+      if (localStorage.getItem('theme') === 'theme-dark') {
+        setTheme('theme-dark');
+        document.getElementById('slider').checked = false;
+      } else {
+        setTheme('theme-light');
+        document.getElementById('slider').checked = true;
+      }
+    })();
   </script>
-  <script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-  <script type="text/javascript" src="../node_modules/fecha/dist/fecha.min.js"></script>
-  <script type="text/javascript" src="./js/modules/main/hotel-datepicker.js"></script>
-  <script type="text/javascript">
-		(function() {
-			// ------------------- DEMO 1 ------------------- //
-
-			var today = new Date();
-			var tomorrow = new Date();
-			tomorrow.setDate(tomorrow.getDate() + 1);
-            var input1 = document.querySelector('#demo1-input-parent input');
-			input1.value = fecha.format(today, 'YYYY-MM-DD') + ' - ' + fecha.format(tomorrow, 'YYYY-MM-DD');
-
-			var demo1 = new HotelDatepicker(input1);
-
-
-			// ------------------- DEMO 2 ------------------- //
-
-            var demo2 = new HotelDatepicker(document.querySelector('#demo2-input-parent input'));
-
-
-			// ------------------- DEMO 3 ------------------- //
-
-			var demo3 = new HotelDatepicker(document.getElementById('demo3'), {
-				format: 'DD-MM-YYYY'
-			});
-
-
-			// ------------------- DEMO 4 ------------------- //
-
-			var demo4 = new HotelDatepicker(document.getElementById('demo4'), {
-				startOfWeek: 'monday'
-			});
-
-
-			// ------------------- DEMO 5 ------------------- //
-
-			var demo5 = new HotelDatepicker(document.getElementById('demo5'), {
-				minNights: 7
-			});
-
-
-			// ------------------- DEMO 6 ------------------- //
-
-			var demo6 = new HotelDatepicker(document.getElementById('demo6'), {
-				maxNights: 5
-			});
-
-
-			// ------------------- DEMO 7 ------------------- //
-
-			var demo7 = new HotelDatepicker(document.getElementById('demo7'), {
-				minNights: 4,
-				maxNights: 8
-			});
-
-
-			// ------------------- DEMO 8 ------------------- //
-
-			var date = new Date();
-			date.setDate(date.getDate() + 5);
-
-			var codeDemo8 = document.getElementById('code-demo8');
-			var preDemo8 = document.getElementById('pre-demo8');
-			var txt = "var input = document.getElementById('input-id');\nvar datepicker = new HotelDatepicker(input, {\n    startDate: "+ fecha.format(date, 'YYYY-MM-DD') +"\n});";
-			preDemo8.textContent = txt;
-			codeDemo8.textContent = fecha.format(date, 'YYYY-MM-DD');
-
-			var demo8 = new HotelDatepicker(document.getElementById('demo8'), {
-				startDate: date
-			});
-
-
-			// ------------------- DEMO 9 ------------------- //
-
-			var date = new Date();
-			date.setDate(date.getDate() + 25);
-
-			var codeDemo9 = document.getElementById('code-demo9');
-			var preDemo9 = document.getElementById('pre-demo9');
-			var txt = "var input = document.getElementById('input-id');\nvar datepicker = new HotelDatepicker(input, {\n    endDate: "+ fecha.format(date, 'YYYY-MM-DD') +"\n});";
-			preDemo9.textContent = txt;
-			codeDemo9.textContent = fecha.format(date, 'YYYY-MM-DD');
-
-			var demo9 = new HotelDatepicker(document.getElementById('demo9'), {
-				endDate: date
-			});
-
-
-			// ------------------- DEMO 10 ------------------ //
-
-			var demo10 = new HotelDatepicker(document.getElementById('demo10'), {
-				selectForward: true
-			});
-
-
-			// ------------------- DEMO 11 & 12 ------------------ //
-
-			var date1 = new Date();
-			var date2 = new Date();
-			var date3 = new Date();
-			var date4 = new Date();
-			var date5 = new Date();
-			var date6 = new Date();
-			date1.setDate(date1.getDate() + 3);
-			date2.setDate(date2.getDate() + 6);
-			date3.setDate(date3.getDate() + 7);
-			date4.setDate(date4.getDate() + 8);
-			date5.setDate(date5.getDate() + 11);
-			date6.setDate(date6.getDate() + 21);
-
-			var codeDemo11 = document.getElementById('code-demo11');
-			var codeDemo12 = document.getElementById('code-demo12');
-			var preDemo11 = document.getElementById('pre-demo11');
-			var preDemo12 = document.getElementById('pre-demo12');
-			var txt = "var input = document.getElementById('input-id');\nvar datepicker = new HotelDatepicker(input, {\n    disabledDates: [\n        "+ "'" + fecha.format(date3, 'YYYY-MM-DD') + "'" + ",\n        "+ "'" + fecha.format(date1, 'YYYY-MM-DD') + "'" + ",\n        "+ "'" + fecha.format(date2, 'YYYY-MM-DD') + "'" + ",\n        "+ "'" + fecha.format(date4, 'YYYY-MM-DD') + "'" + ",\n        "+ "'" + fecha.format(date5, 'YYYY-MM-DD') + "'" + ",\n        "+ "'" + fecha.format(date6, 'YYYY-MM-DD') + "'" + "\n    ]\n});";
-			preDemo11.textContent = txt;
-			var txt = "var input = document.getElementById('input-id');\nvar datepicker = new HotelDatepicker(input, {\n    disabledDates: [\n        "+ "'" + fecha.format(date3, 'YYYY-MM-DD') + "'" + ",\n        "+ "'" + fecha.format(date1, 'YYYY-MM-DD') + "'" + ",\n        "+ "'" + fecha.format(date2, 'YYYY-MM-DD') + "'" + ",\n        "+ "'" + fecha.format(date4, 'YYYY-MM-DD') + "'" + ",\n        "+ "'" + fecha.format(date5, 'YYYY-MM-DD') + "'" + ",\n        "+ "'" + fecha.format(date6, 'YYYY-MM-DD') + "'" + "\n    ],\n    enableCheckout: true\n});";
-			preDemo12.textContent = txt;
-			codeDemo11.textContent = '['+ fecha.format(date3, 'YYYY-MM-DD') +', '+ fecha.format(date1, 'YYYY-MM-DD') +', '+ fecha.format(date2, 'YYYY-MM-DD') +', '+ fecha.format(date4, 'YYYY-MM-DD') +', '+ fecha.format(date5, 'YYYY-MM-DD') +', '+ fecha.format(date6, 'YYYY-MM-DD') +']'
-			codeDemo12.textContent = '['+ fecha.format(date3, 'YYYY-MM-DD') +', '+ fecha.format(date1, 'YYYY-MM-DD') +', '+ fecha.format(date2, 'YYYY-MM-DD') +', '+ fecha.format(date4, 'YYYY-MM-DD') +', '+ fecha.format(date5, 'YYYY-MM-DD') +', '+ fecha.format(date6, 'YYYY-MM-DD') +']'
-
-			var demo11 = new HotelDatepicker(document.getElementById('demo11'), {
-				disabledDates: [
-					fecha.format(date3, 'YYYY-MM-DD'),
-					fecha.format(date1, 'YYYY-MM-DD'),
-					fecha.format(date2, 'YYYY-MM-DD'),
-					fecha.format(date4, 'YYYY-MM-DD'),
-					fecha.format(date5, 'YYYY-MM-DD'),
-					fecha.format(date6, 'YYYY-MM-DD')
-				]
-			});
-
-			var demo12 = new HotelDatepicker(document.getElementById('demo12'), {
-				disabledDates: [
-					fecha.format(date3, 'YYYY-MM-DD'),
-					fecha.format(date1, 'YYYY-MM-DD'),
-					fecha.format(date2, 'YYYY-MM-DD'),
-					fecha.format(date4, 'YYYY-MM-DD'),
-					fecha.format(date5, 'YYYY-MM-DD'),
-					fecha.format(date6, 'YYYY-MM-DD')
-				],
-				enableCheckout: true
-			});
-
-
-			// ------------------- DEMO 13 ------------------ //
-
-			var demo13 = new HotelDatepicker(document.getElementById('demo13'), {
-				autoClose: false
-			});
-
-
-			// ------------------- DEMO 14 ------------------ //
-
-			var demo14 = new HotelDatepicker(document.getElementById('demo14'), {
-                format: 'dddd D MMM YYYY',
-				startOfWeek: 'monday',
-				i18n: {
-					selected: 'Il tuo soggiorno:',
-					night: 'Notte',
-					nights: 'Notti',
-					button: 'Chiudi',
-					'checkin-disabled': 'Check-in disabilitato',
-					'checkout-disabled': 'Check-out disabilitato',
-					'day-names-short': ['Dom', 'Lun', 'Mar', 'Mer', 'Gio', 'Ven', 'Sab'],
-					'day-names': ['Domenica', 'Lunedì', 'Martedì', 'Mercoledì', 'Giovedì', 'Venerdì', 'Sabato'],
-					'month-names-short': ['Gen', 'Feb', 'Mar', 'Apr', 'Mag', 'Giu', 'Lug', 'Ago', 'Set', 'Ott', 'Nov', 'Dic'],
-					'month-names': ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'],
-					'error-more': 'L\'intervallo di date non deve avere più di 1 notte',
-					'error-more-plural': 'L\'intervallo di date non deve avere più di %d notti',
-					'error-less': 'L\'intervallo di date non deve avere meno di 1 notte',
-					'error-less-plural': 'L\'intervallo di date non deve avere meno di %d notti',
-					'info-more': 'Per favore seleziona un intervallo di date di almeno 1 notte',
-					'info-more-plural': 'Per favore seleziona un intervallo di date di almeno %d notti',
-					'info-range': 'Per favore seleziona un intervallo di date tra %d e %d notti',
-					'info-default': 'Per favore seleziona un intervallo di date'
-				}
-			});
-
-			// ------------------- DEMO 15 ------------------ //
-
-			var demo15 = new HotelDatepicker(document.getElementById('demo15'));
-
-			var destroyButton = document.getElementById('destroy-datepicker');
-			destroyButton.addEventListener('click', destroyDatepicker);
-
-			function destroyDatepicker() {
-                if (document.getElementById('datepicker-demo15')) {
-                    demo15.destroy();
-                    destroyButton.textContent = "Recreate";
-                } else {
-                    demo15 = new HotelDatepicker(document.getElementById('demo15'));
-                    destroyButton.textContent = "Destroy";
-                }
-			}
-
-			// ------------------- DEMO 16 ------------------- //
-
-			var demo16 = new HotelDatepicker(document.getElementById('demo16'), {
-				showTopbar: false
-			});
-
-			// ------------------- DEMO 17 ------------------- //
-
-			var date1 = new Date();
-			var date2 = new Date();
-			var date3 = new Date();
-			var date4 = new Date();
-			var date5 = new Date();
-			var date6 = new Date();
-			date1.setDate(date1.getDate() + 3);
-			date2.setDate(date2.getDate() + 10);
-			date3.setDate(date3.getDate() + 6);
-			date4.setDate(date4.getDate() + 15);
-
-			var codeDemo17a = document.getElementById('code-demo17-a');
-			var codeDemo17b = document.getElementById('code-demo17-b');
-			var preDemo17 = document.getElementById('pre-demo17');
-
-			var txt = "var input = document.getElementById('input-id');\nvar datepicker = new HotelDatepicker(input, {\n    noCheckInDates: [\n        "+ "'" + fecha.format(date1, 'YYYY-MM-DD') + "'" + ",\n        "+ "'" + fecha.format(date2, 'YYYY-MM-DD') + "'" + "\n    ],\n    noCheckOutDates: [\n        "+ "'" + fecha.format(date3, 'YYYY-MM-DD') + "'" + ",\n        "+ "'" + fecha.format(date4, 'YYYY-MM-DD') + "'" + "\n    ]\n});";
-			preDemo17.textContent = txt;
-
-			codeDemo17a.textContent = '['+ fecha.format(date1, 'YYYY-MM-DD') +', '+ fecha.format(date2, 'YYYY-MM-DD') +']'
-			codeDemo17b.textContent = '['+ fecha.format(date3, 'YYYY-MM-DD') +', '+ fecha.format(date4, 'YYYY-MM-DD') +']'
-
-			var demo17 = new HotelDatepicker(document.getElementById('demo17'), {
-				noCheckInDates: [
-					fecha.format(date1, 'YYYY-MM-DD'),
-					fecha.format(date2, 'YYYY-MM-DD'),
-				],
-				noCheckOutDates: [
-					fecha.format(date3, 'YYYY-MM-DD'),
-					fecha.format(date4, 'YYYY-MM-DD'),
-				]
-			});
-
-			// ------------------- DEMO 18 ------------------ //
-
-			var demo18 = new HotelDatepicker(document.getElementById('demo18'), {
-				moveBothMonths: true
-			});
-
-			// ------------------- DEMO 19 ------------------ //
-
-			var input19 = document.getElementById('demo19');
-			var demo19 = new HotelDatepicker(input19);
-
-			input19.addEventListener('afterClose', function () {
-			    console.log('Closed!');
-			}, false);
-
-			// ------------------- DEMO 20 ------------------ //
-
-			var demo20 = new HotelDatepicker(document.getElementById('demo20'), {
-				minNights: 6,
-				disabledDaysOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']
-			});
-
-			// ------------------- DEMO 22 ------------------- //
-
-			var demo22 = new HotelDatepicker(document.getElementById('demo22'));
-			var open_datepicker_button = document.getElementById('open-datepicker');
-
-			open_datepicker_button.addEventListener('click', open_datepicker_function);
-
-			function open_datepicker_function() {
-				console.log('Open!');
-				demo22.open();
-			}
-
-			// ------------------- DEMO 23 ------------------- //
-
-			var demo23 = new HotelDatepicker(document.getElementById('demo23'), {
-				onSelectRange: function() {
-					console.log('Date rage selected!')
-				}
-			});
-		})();
-	</script>
-<script type="text/javascript" src="./js/vendors.7a92a34dd8a7534b2669.js"></script><script type="text/javascript" src="./js/app.7a92a34dd8a7534b2669.js"></script></body>
+<script type="text/javascript" src="./js/vendors.c3b59aca626efde72ec2.js"></script><script type="text/javascript" src="./js/app.c3b59aca626efde72ec2.js"></script></body>
 
 </html>

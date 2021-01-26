@@ -1,12 +1,12 @@
-import ConfirmForm from '../main/confirmForm';
-import SwiperGalery from '../main/addGalery';
+import ConfirmFormModal from '../main/modals/ConfirmFormModal';
+import GalleryRoomsModal from '../main/modals/GalleryRoomsModal';
 
 
 export function changeModalContent(contentType, registration) {
     if (contentType === 'confirmForm') {
-        if (registration) return new ConfirmForm('registration');
-        else return new ConfirmForm('signIn');
+        if (registration) return new ConfirmFormModal('registration');
+        else return new ConfirmFormModal('signIn');
     } else if (contentType === 'swiperGalery')
-        return new SwiperGalery();
+        return new GalleryRoomsModal();
     else return;
 }

@@ -1,26 +1,34 @@
-import FooterBlock from './footer/footerBlock';
-import HeaderBlock from './header/headerBlock';
-import MainBlock from './main/mainBlock';
+import changeLanguage from './main/utils/changeLanguage';
+import HeaderPart from './header/HeaderPart';
+import MainPart from './main/mainPart';
+import FooterPart from './footer/FooterPart';
+import BurgerMenu from './header/BurgerMenu';
+import HotKeysListener from './main/utils/hotKeysListener';
+import create from './main/utils/create';
+import SwitcherColor from './header/SwitcherColorTheme';
 
 export default class App {
-  constructor() {
+  constructor(indexLanguage) {
+    this.indexLanguage = indexLanguage;
     this.body = document.querySelector('body');
     this.header = null;
   }
 
   createWrapper() {
-    const WRAPPER = document.createElement('div');
-    WRAPPER.classList.add('wrapper');
-    this.body.appendChild(WRAPPER);
+    this.container = create('div', 'container-xl p-0', null, this.body);
   }
 
   createAppStructure() {
-    this.header = new HeaderBlock();
-    this.main = new MainBlock();
-    this.footer = new FooterBlock();
+    this.header = new HeaderPart();
+    this.main = new MainPart(0);
+    this.footer = new FooterPart();
+    this.burgerMenu = new BurgerMenu(0);
+    this.switcherColor = new SwitcherColor();
+    this.hotKeysListeners = new HotKeysListener();
   }
 }
 
 const app = new App();
 app.createWrapper();
 app.createAppStructure();
+changeLanguage();
