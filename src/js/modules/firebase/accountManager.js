@@ -1,6 +1,7 @@
 import ConfirmForm from '../main/confirmForm';
 import SwiperGalery from '../main/addGalery';
 import Modal from '../main/createModal';
+import { writeUserData } from './database';
 
 // Firebase
 import firebase from "firebase/app";
@@ -30,6 +31,7 @@ export class AccountManager {
             firebase.auth().createUserWithEmailAndPassword(email, password)
                 .then((user) => {
                     console.log('registered as ' + user.user);
+                    writeUserData(user.user.uid, name, user.user.email)
                     outputBuff.code = 200;
                     outputBuff.message = 'You are successfully registered!';
                     console.log(outputBuff);
@@ -53,6 +55,13 @@ export class AccountManager {
         let email = document.querySelector('[type="email"]').value;
         let password = document.querySelector('[type="password"]').value;
         const outputBuff = { code: 0, message: '' };
+        // firebase.auth().onAuthStateChanged(function(user) {
+        //     if (user) {
+        //         // User is signed in.
+        //     } else {
+        //         // No user is signed in.
+        //     }
+        // });
         if (firebase.auth().currentUser) {
             outputBuff.code = 400;
             outputBuff.message = 'Already logged as ' + firebase.auth().currentUser.email;
@@ -70,8 +79,6 @@ export class AccountManager {
                 showMessage(messageContainer, outputBuff.message)
             });
     }
-
-
 
     changeModalContent(contentType, registration) {
         if (contentType === 'confirmForm') {
