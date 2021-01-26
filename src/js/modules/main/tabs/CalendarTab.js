@@ -1,6 +1,6 @@
 import Litepicker from 'litepicker/dist/js/main';
-import create from '../create';
-import languageData from '../../languageDate/languageDate.json';
+import create from '../utils/create';
+import languageData from '../../../languageDate/languageDate.json';
 
 export default class Calendar {
   constructor(indexLanguage) {
@@ -27,6 +27,5 @@ export default class Calendar {
     const mm = String(this.today.getMonth() + 1).padStart(2, '0');
     const yyyy = this.today.getFullYear();
     this.today = `${yyyy}-${mm}-${dd}`;
-    console.log(this.today);
   }
 }

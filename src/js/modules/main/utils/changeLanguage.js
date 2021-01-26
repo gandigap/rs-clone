@@ -1,7 +1,7 @@
-import languageData from '../languageDate/languageDate.json';
-import MainPart from './main/mainPart';
-import FooterPart from './footer/footerPart';
-import BurgerMenu from './header/burgerMenu';
+import languageData from '../../../languageDate/languageDate.json';
+import MainPart from '../mainPart';
+import FooterPart from '../../footer/FooterPart';
+import BurgerMenu from '../../header/BurgerMenu';
 
 export default function changeLanguage() {
   const selectElement = document.getElementById('select__language');

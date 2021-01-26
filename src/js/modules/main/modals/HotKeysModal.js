@@ -1,7 +1,7 @@
-import create from '../create';
-import languageData from '../../languageDate/languageDate.json';
+import create from '../utils/create';
+import languageData from '../../../languageDate/languageDate.json';
 
-export default class HotKeysContent {
+export default class HotKeysModal {
   constructor(indexLanguage) {
     this.indexLanguage = indexLanguage;
     const parent = document.querySelector('.main__modal__content__body');

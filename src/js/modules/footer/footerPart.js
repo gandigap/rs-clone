@@ -1,4 +1,4 @@
-import create from '../create';
+import create from '../main/utils/create';
 
 export default class FooterBlock {
   constructor() {

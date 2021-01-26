@@ -1,12 +1,13 @@
-import create from '../create';
+import create from '../utils/create';
 import {
   findNumberOpenTab,
   openTabAndChangeStep,
   checkButtonDisable,
-} from '../utils';
-import Calendar from './calendar';
-import RadioButtonsForm from './radioButtonsForm';
-import languageData from '../../languageDate/languageDate.json';
+} from '../utils/utils';
+import Calendar from './CalendarTab';
+import RadioButtonsForm from './RadioButtonsRoomsTab';
+import ModalDialogTab from './ModalDialogTab';
+import languageData from '../../../languageDate/languageDate.json';
 
 export default class Tabs {
   constructor(indexLanguage) {
@@ -32,10 +33,11 @@ export default class Tabs {
     ], this.tabs, ['id', 'container__date']);
     this.tabcontent3 = create('div', 'main__other-section__tabs__tabcontent', [
       create('h3', 'main__other-section__tabs__tabcontent__title', `${languageData.tabcontent3Title[this.indexLanguage]}`),
-    ], this.tabs, ['id', 'container__confirm']);
+    ], this.tabs, ['id', 'container__dialog']);
     this.addBlockWithButtonsWhichChangeTabs();
     this.radioButtonsForm = new RadioButtonsForm(this.indexLanguage);
     this.calendar = new Calendar(this.indexLanguage);
+    this.modalDialogTab = new ModalDialogTab(this.indexLanguage);
   }
 
   addBlockWithButtonsWhichChangeTabs() {
@@ -43,6 +45,8 @@ export default class Tabs {
       `<button class="main__other-section__tabs__button-step-block__button" id="button-prev-step" tabindex="11">${languageData.buttonPrevStep[this.indexLanguage]}</button>
        <button class="main__other-section__tabs__button-step-block__button" id="button-next-step" tabindex="12">${languageData.buttonNextStep[this.indexLanguage]}</button>`,
       this.tabs);
+    this.numberCurrentTab = findNumberOpenTab();
+    checkButtonDisable(this.numberCurrentTab);
     this.addListenerForButtonsWhichChangeTabs();
   }
 
@@ -50,7 +54,6 @@ export default class Tabs {
     const buttonsChangeTab = document.querySelectorAll('.main__other-section__tabs__button-step-block__button');
     buttonsChangeTab.forEach((element) => {
       element.addEventListener('click', () => {
-        this.numberCurrentTab = findNumberOpenTab();
         if (element.getAttribute('id') === 'button-prev-step' && this.numberCurrentTab !== 0) {
           this.numberCurrentTab -= 1;
         } else if (element.getAttribute('id') === 'button-next-step' && this.numberCurrentTab !== 2) {

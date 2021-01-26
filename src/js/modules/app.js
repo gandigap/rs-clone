@@ -1,11 +1,11 @@
-import changeLanguage from './changeLanguage';
-import HeaderPart from './header/headerPart';
+import changeLanguage from './main/utils/changeLanguage';
+import HeaderPart from './header/HeaderPart';
 import MainPart from './main/mainPart';
-import FooterPart from './footer/footerPart';
-import BurgerMenu from './header/burgerMenu';
-import HotKeysListener from './hotKeysListener';
-import create from './create';
-import SwitcherColor from './switcherColorTheme';
+import FooterPart from './footer/FooterPart';
+import BurgerMenu from './header/BurgerMenu';
+import HotKeysListener from './main/utils/hotKeysListener';
+import create from './main/utils/create';
+import SwitcherColor from './header/SwitcherColorTheme';
 
 export default class App {
   constructor(indexLanguage) {

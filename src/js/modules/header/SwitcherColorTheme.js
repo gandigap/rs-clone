@@ -1,5 +1,5 @@
-import create from './create';
-import { setTheme, toggleTheme } from './utils';
+import create from '../main/utils/create';
+import { setTheme, toggleTheme } from '../main/utils/utils';
 
 export default class SwitcherColor {
   constructor() {

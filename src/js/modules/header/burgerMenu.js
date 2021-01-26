@@ -1,4 +1,4 @@
-import create from '../create';
+import create from '../main/utils/create';
 import languageData from '../../languageDate/languageDate.json';
 
 export default class BurgerMenu {

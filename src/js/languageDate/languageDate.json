@@ -35,9 +35,9 @@
     "Bitte wählen Sie ein Datum"
   ],
   "tabcontent3Title": [
-    "other",
-    "other",
-    "other"
+    "Please click on the button and answer the questions",
+    "Пожалуйста, нажмите на кнопку и ответьте на вопросы",
+    "Bitte klicken Sie auf die Schaltfläche und beantworten Sie die Fragen"
   ],
   "buttonNextStep": [
     "Next",
@@ -171,6 +171,62 @@
     "The PARADISE is a luxury hotel secluded on the small island, offering a pristine pool and spa. Known for its exceptional service, it includes a 24-hour concierge, numerous beach and pool attendants, and twice-daily housekeeping, the resort is a favorite among honeymooners and has an impressive number of return clients considering its remote location.",
     "Рай - это роскошный отель, уединенный на небольшом острове, предлагающий невероятные бассейн и спа. Известный своим исключительным сервисом, он включает в себя круглосуточного консьержа, многочисленный обслуживающий персонал на пляже и у бассейна, а также уборку номеров дважды в день. Курорт пользуется популярностью среди молодоженов и имеет впечатляющее количество постоянных клиентов, учитывая его удаленность.",
     "Das PARADISE ist ein Luxushotel auf der kleinen Insel und bietet einen makellosen Pool und ein Spa. Das Resort ist für seinen außergewöhnlichen Service bekannt und umfasst einen 24-Stunden-Concierge, zahlreiche Strand- und Poolbetreuer sowie eine zweimal tägliche Reinigung. Es ist bei Hochzeitsreisenden beliebt und hat aufgrund seiner abgelegenen Lage eine beeindruckende Anzahl von Stammkunden."
+  ],
+  "dialogInfo": [
+    {
+      "buttonOpen": "Test",
+      "dialogGenderContent": "Which option describes you?",
+      "dialogGenderButtonOne": "Male",
+      "dialogGenderButtonTwo": "Female",
+      "dialogGenderButtonThree": "Other",
+      "dialogAgeContent": "Which age group describes you?",
+      "dialogAgeButtonOne": "18-30",
+      "dialogAgeButtonTwo": "30-50",
+      "dialogAgeButtonThree": "50+",
+      "dialogIncomeContent": "Which of these describes your income last year?",
+      "dialogIncomeButtonOne": "$1 - $9 999",
+      "dialogIncomeButtonTwo": "$10 000 - $24 999",
+      "dialogIncomeButtonThree": "$30,000 or more",
+      "dialogAnswerGender": "Gender :",
+      "dialogAnswerAge": "Age :",
+      "dialogAnswerIncome": "Income :"
+    },
+    {
+      "buttonOpen": "Тест",
+      "dialogGenderContent": "Ваш пол?",
+      "dialogGenderButtonOne": "Male",
+      "dialogGenderButtonTwo": "Female",
+      "dialogGenderButtonThree": "Other",
+      "dialogAgeContent": "Ваш возраст?",
+      "dialogAgeButtonOne": "18-30",
+      "dialogAgeButtonTwo": "30-50",
+      "dialogAgeButtonThree": "50+",
+      "dialogIncomeContent": "Ваш доход за последний год?",
+      "dialogIncomeButtonOne": "$1 - $9 999",
+      "dialogIncomeButtonTwo": "$10 000 - $24 999",
+      "dialogIncomeButtonThree": "$30,000 or more",
+      "dialogAnswerGender": "Пол :",
+      "dialogAnswerAge": "Возраст :",
+      "dialogAnswerIncome": "Доход :"
+    },
+    {
+      "buttonOpen": "Test",
+      "dialogGenderContent": "Which option describes you?",
+      "dialogGenderButtonOne": "Male",
+      "dialogGenderButtonTwo": "Female",
+      "dialogGenderButtonThree": "Other",
+      "dialogAgeContent": "Which age group describes you?",
+      "dialogAgeButtonOne": "18-30",
+      "dialogAgeButtonTwo": "30-50",
+      "dialogAgeButtonThree": "50+",
+      "dialogIncomeContent": "Which of these describes your income last year?",
+      "dialogIncomeButtonOne": "$1 - $9 999",
+      "dialogIncomeButtonTwo": "$10 000 - $24 999",
+      "dialogIncomeButtonThree": "$30,000 or more",
+      "dialogAnswerGender": "Gender :",
+      "dialogAnswerAge": "Age :",
+      "dialogAnswerIncome": "Income :"
+    }
   ],
   "dataRooms": [
     [

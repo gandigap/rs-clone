@@ -1,7 +1,7 @@
-import create from '../create';
-import Modal from './createModal';
+import create from './utils/create';
+import MainModal from './modals/MainModal';
 import DescriptionBlock from './descriptionPart';
-import Tabs from './tabs';
+import Tabs from './tabs/Tabs';
 import Audio from './audio';
 import languageData from '../../languageDate/languageDate.json';
 
@@ -30,7 +30,7 @@ export default class MainPart {
     this.descriptionHotel = new DescriptionBlock(this.indexLanguage);
     this.addButtonOpenGaleryRooms();
     this.audio = new Audio();
-    this.modal = new Modal(this.indexLanguage);
+    this.modal = new MainModal(this.indexLanguage);
   }
 
   addBlockWithMainImageAndTitle() {

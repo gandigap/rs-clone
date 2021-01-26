@@ -1,8 +1,8 @@
-import create from '../create';
-import ConfirmForm from './confirmForm';
-import SwiperGalery from './addGalery';
-import HotKeysContent from './hotKeysContent';
-import languageData from '../../languageDate/languageDate.json';
+import create from '../utils/create';
+import ConfirmFormModal from './ConfirmFormModal';
+import GaleryRoomsModal from './GaleryRoomsModal';
+import HotKeysModal from './HotKeysModal';
+import languageData from '../../../languageDate/languageDate.json';
 
 export default class Modal {
   constructor(indexLanguage) {
@@ -62,16 +62,16 @@ export default class Modal {
 
   addGaleryToModal() {
     this.modalHeaderTitle.innerHTML = `${languageData.modalTitle[0][this.indexLanguage]}`;
-    this.galery = new SwiperGalery(this.indexLanguage);
+    this.galery = new GaleryRoomsModal(this.indexLanguage);
   }
 
   addConfirmForm() {
     this.modalHeaderTitle.innerHTML = `${languageData.modalTitle[1][this.indexLanguage]}`;
-    this.confirmForm = new ConfirmForm(this.indexLanguage);
+    this.confirmForm = new ConfirmFormModal(this.indexLanguage);
   }
 
   addModalWithHotKeys() {
     this.modalHeaderTitle.innerHTML = `${languageData.modalTitle[2][this.indexLanguage]}`;
-    this.confirmForm = new HotKeysContent(this.indexLanguage);
+    this.confirmForm = new HotKeysModal(this.indexLanguage);
   }
 }

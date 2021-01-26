@@ -1,7 +1,7 @@
 import Swiper from 'swiper';
-import create from '../create';
-import CardRoom from './cardRoom';
-import languageData from '../../languageDate/languageDate.json';
+import create from '../utils/create';
+import CardRoom from './CardRoom';
+import languageData from '../../../languageDate/languageDate.json';
 
 export default class SwiperGalery {
   constructor(indexLanguage) {

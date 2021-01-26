@@ -8,7 +8,7 @@
   height: 40px;
   min-width: 100px;
   min-width: 100px;
-  padding: 5px;
+  
   color:var(--primary-color);
   font:{
     size:2rem;
@@ -43,9 +43,9 @@
 @mixin button-dark{
   cursor: pointer;
   margin:10px;
-  height: 40px;
+  min-height: 40px;
   min-width: 100px;
-  padding: 5px;
+  
   color:var(--success-color);
   font:{
     size:2rem;
@@ -79,7 +79,7 @@
 @mixin button-hotkeys{
   cursor: pointer;
   width: 40px;
-  height: 40px;
+  min-height: 40px;
   padding: 5px;
   display: flex;
   justify-content: center;    
