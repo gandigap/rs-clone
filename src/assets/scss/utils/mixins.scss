@@ -1,3 +1,99 @@
 @function toRem($px) {
   @return ($px / $mainFontSize) + rem;
 }
+
+@mixin button-light{
+  cursor: pointer;
+  margin:10px;
+  height: 40px;
+  min-width: 100px;
+  min-width: 100px;
+  
+  color:var(--primary-color);
+  font:{
+    size:2rem;
+    family:Ubuntu;
+    style:normal;
+    weight:normal;
+  }
+  background-color: var(--success-color);
+  border: 3px solid var(--primary-color);
+  border-radius: 20px;
+}
+
+@mixin button-light-hover{  
+  
+}
+
+@mixin button-light-active{
+  border: 1px solid var(--primary-color);
+  transition: .1s;
+  transform: scale(0.9);
+}
+
+@mixin button-dark-disable{
+  border: 3px solid var(--success-color);
+  transition: .1s;
+  transform: scale(1);
+  cursor: auto;
+  color: var(--default-color);
+  background-color: var(--disabled-color);
+}
+
+@mixin button-dark{
+  cursor: pointer;
+  margin:10px;
+  min-height: 40px;
+  min-width: 100px;
+  
+  color:var(--success-color);
+  font:{
+    size:2rem;
+    family:Ubuntu;
+    style:normal;
+    weight:normal;
+  }
+  background-color: var(--primary-color);
+  border: 3px solid var(--success-color);
+  border-radius: 20px;
+}
+
+@mixin button-dark-hover{  
+}
+
+@mixin button-dark-active{
+  border: 1px solid var(--success-color);
+  transition: .1s;
+  transform: scale(0.9);
+}
+
+@mixin button-dark-disable{
+  border: 3px solid var(--success-color);
+  transition: .1s;
+  transform: scale(1);
+  cursor: auto;
+  color: var(--default-color);
+  background-color: var(--disabled-color);
+}
+
+@mixin button-hotkeys{
+  cursor: pointer;
+  width: 40px;
+  min-height: 40px;
+  padding: 5px;
+  display: flex;
+  justify-content: center;    
+  align-items: center;
+  font-size:20px;
+  border: 3px solid var(--primary-color);
+  border-radius: 50%;  
+}
+@mixin button-hotkeys-hover{  
+  font-size: 24px;
+  transition: 0.3s;
+}
+
+@mixin button-hotkeys-active{  
+  transform: scale(0.8);
+  transition: 0.3s;
+}

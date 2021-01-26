@@ -67,6 +67,7 @@
     "webpack-merge": "^4.2.2"
   },
   "dependencies": {
+    "bootstrap": "^5.0.0-beta1",
     "litepicker": "^1.5.7",
     "swiper": "^6.4.5"
   }
