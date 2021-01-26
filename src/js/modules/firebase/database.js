@@ -8,17 +8,24 @@ export function writeUserData(userId, name, email) {
         username: name,
         email: email,
     });
-    writeHotelRoom(userId);
+    writeHotelRoom('King room', userId);
     firebase.database().ref('users/' + userId + 'f1').set({
         username: name + '111',
         email: email + '111',
     });
-    writeHotelRoom(userId + 'f1');
+    writeHotelRoom('King room', userId + 'f1');
 }
 
-export function writeHotelRoom(userId) {
-    let roomType = 'King room'
-    firebase.database().ref('users/' + userId).update({
+export function writeHotelRoom(roomType, userId) {
+    let UID;
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+            UID = user.uid;
+        } else {
+            UID = userId;
+        }
+    });
+    firebase.database().ref('users/' + UID).update({
         roomType: roomType,
         date: new Date().toDateString(),
     });

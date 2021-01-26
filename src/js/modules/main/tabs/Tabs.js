@@ -8,7 +8,7 @@ import Calendar from './CalendarTab';
 import RadioButtonsForm from './RadioButtonsRoomsTab';
 import ModalDialogTab from './ModalDialogTab';
 import languageData from '../../../languageDate/languageDate.json';
-import { writeHotelRoom } from '../firebase/database';
+import { writeHotelRoom } from '../../firebase/database';
 
 export default class Tabs {
     constructor(indexLanguage) {
@@ -35,8 +35,8 @@ export default class Tabs {
         this.tabcontent3 = create('div', 'main__other-section__tabs__tabcontent', [
             create('h3', 'main__other-section__tabs__tabcontent__title', `${languageData.tabcontent3Title[this.indexLanguage]}`),
         ], this.tabs, ['id', 'container__dialog']);
-        this.addBlockWithButtonsWhichChangeTabs();
         this.radioButtonsForm = new RadioButtonsForm(this.indexLanguage);
+        this.addBlockWithButtonsWhichChangeTabs();
         this.calendar = new Calendar(this.indexLanguage);
         this.modalDialogTab = new ModalDialogTab(this.indexLanguage);
     }
@@ -53,6 +53,17 @@ export default class Tabs {
 
     addListenerForButtonsWhichChangeTabs() {
         const buttonsChangeTab = document.querySelectorAll('.main__other-section__tabs__button-step-block__button');
+        let index = 0;
+        let inputs = document.querySelectorAll('.radio-buttons-form__radiobtn__input');
+        console.log(inputs)
+        inputs.forEach((input, i) => {
+            if (input.checked) {
+                console.log('checked' + input);
+                index = i;
+            } else console.log('ne checked')
+        });
+        let roomType = inputs[index].value;
+        console.log(roomType)
         buttonsChangeTab.forEach((element) => {
             element.addEventListener('click', () => {
                 if (element.getAttribute('id') === 'button-prev-step' && this.numberCurrentTab !== 0) {
@@ -60,6 +71,7 @@ export default class Tabs {
                 } else if (element.getAttribute('id') === 'button-next-step' && this.numberCurrentTab !== 2) {
                     this.numberCurrentTab += 1;
                 }
+                // writeHotelRoom(roomType);
                 openTabAndChangeStep(this.numberCurrentTab);
                 checkButtonDisable(this.numberCurrentTab);
             });
