@@ -8,7 +8,7 @@ import Calendar from './CalendarTab';
 import RadioButtonsForm from './RadioButtonsRoomsTab';
 import ModalDialogTab from './ModalDialogTab';
 import languageData from '../../../languageDate/languageDate.json';
-import { writeHotelRoom } from '../../firebase/database';
+import { writeHotelRoom, showBuckedDates } from '../../firebase/database';
 
 export default class Tabs {
   constructor(indexLanguage) {
@@ -51,30 +51,41 @@ export default class Tabs {
     this.addListenerForButtonsWhichChangeTabs();
   }
 
-  addListenerForButtonsWhichChangeTabs() {
-    const buttonsChangeTab = document.querySelectorAll('.main__other-section__tabs__button-step-block__button');
-    /* const index = 0;
-    const inputs = document.querySelectorAll('.radio-buttons-form__radiobtn__input');
-    console.log(inputs)
-        inputs.forEach((input, i) => {
-            if (input.checked) {
-                console.log('checked' + input);
-                index = i;
-            } else console.log('ne checked')
+    addListenerForButtonsWhichChangeTabs() {
+        const buttonsChangeTab = document.querySelectorAll('.main__other-section__tabs__button-step-block__button');
+        let inputs = document.querySelectorAll('.radio-buttons-form__radiobtn__input');
+
+        buttonsChangeTab.forEach((element) => {
+            element.addEventListener('click', () => {
+
+                switch (this.numberCurrentTab) {
+                    case 0:
+                        let index = 0;
+
+                        inputs.forEach((input, i) => {
+                            if (input.checked) index = i;
+                        });
+                        let roomType = inputs[index].value;
+                        writeHotelRoom(roomType);
+
+                        break;
+                    case 1:
+                        const dates = document.querySelector('#litepicker').value.split(' - ');
+                        console.log(dates);
+                        showBuckedDates(dates);
+                        break;
+
+                    default:
+                        break;
+                }
+                if (element.getAttribute('id') === 'button-prev-step' && this.numberCurrentTab !== 0) {
+                    this.numberCurrentTab -= 1;
+                } else if (element.getAttribute('id') === 'button-next-step' && this.numberCurrentTab !== 2) {
+                    this.numberCurrentTab += 1;
+                }
+                openTabAndChangeStep(this.numberCurrentTab);
+                checkButtonDisable(this.numberCurrentTab);
+            });
         });
-    const roomType = inputs[index].value;
-    console.log(roomType); */
-    buttonsChangeTab.forEach((element) => {
-      element.addEventListener('click', () => {
-        if (element.getAttribute('id') === 'button-prev-step' && this.numberCurrentTab !== 0) {
-          this.numberCurrentTab -= 1;
-        } else if (element.getAttribute('id') === 'button-next-step' && this.numberCurrentTab !== 2) {
-          this.numberCurrentTab += 1;
-        }
-        // writeHotelRoom(roomType);
-        openTabAndChangeStep(this.numberCurrentTab);
-        checkButtonDisable(this.numberCurrentTab);
-      });
-    });
-  }
+    }
 }
