@@ -8,17 +8,19 @@ import firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/firestore";
 
+var firebaseConfig = {
+    apiKey: "AIzaSyCtS882jl4p5maCkoEO-J7qSpCJ3gdK44s",
+    projectId: "backjack123",
+};
+// Initialize Firebase
+if (firebase.apps.length === 0) {
+    firebase.initializeApp(firebaseConfig);
+}
+firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL);
 export class AccountManager {
 
     constructor() {
-        var firebaseConfig = {
-            apiKey: "AIzaSyCtS882jl4p5maCkoEO-J7qSpCJ3gdK44s",
-            projectId: "backjack123",
-        };
-        // Initialize Firebase
-        if (firebase.apps.length === 0) {
-            firebase.initializeApp(firebaseConfig);
-        }
+        //
     }
 
     registerUser(messageContainer) {
@@ -55,13 +57,6 @@ export class AccountManager {
         let email = document.querySelector('[type="email"]').value;
         let password = document.querySelector('[type="password"]').value;
         const outputBuff = { code: 0, message: '' };
-        // firebase.auth().onAuthStateChanged(function(user) {
-        //     if (user) {
-        //         // User is signed in.
-        //     } else {
-        //         // No user is signed in.
-        //     }
-        // });
         if (firebase.auth().currentUser) {
             outputBuff.code = 400;
             outputBuff.message = 'Already logged as ' + firebase.auth().currentUser.email;
