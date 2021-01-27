@@ -397,6 +397,23 @@ body{
             }
           }
         }
+
+        .dialogs__content{
+          text-align: center;
+
+          &__button-start{
+            @include button-start;
+          }
+
+          &__dialog{
+            background-color: var(--success-color);
+          }
+
+          &__dialog::backdrop {
+            background-color: #fc643a;
+          }
+        }
+        
         
       }
 

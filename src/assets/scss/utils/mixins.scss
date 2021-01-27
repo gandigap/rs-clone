@@ -97,3 +97,33 @@
   transform: scale(0.8);
   transition: 0.3s;
 }
+
+
+@mixin button-start{
+  cursor: pointer;
+  margin:10px;
+  height: 40px;
+  min-width: 100px;
+  min-width: 100px;
+  
+  color:var(--primary-color);
+  font:{
+    size:2rem;
+    family:Ubuntu;
+    style:normal;
+    weight:normal;
+  }
+  background-color: var(--success-color);
+  border: 3px solid var(--primary-color);
+  border-radius: 20px;
+}
+
+@mixin button-light-hover{  
+  
+}
+
+@mixin button-light-active{
+  border: 1px solid var(--primary-color);
+  transition: .1s;
+  transform: scale(0.9);
+}
