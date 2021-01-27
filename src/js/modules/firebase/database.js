@@ -3,42 +3,36 @@ import 'firebase/database';
 
 
 export function writeUserData(userId, name, email) {
-    // console.log(firebase.apps);
     firebase.database().ref('users/' + userId).set({
         username: name,
         email: email,
     });
-    writeHotelRoom('King room', userId);
-    firebase.database().ref('users/' + userId + 'f1').set({
-        username: name + '111',
-        email: email + '111',
-    });
-    writeHotelRoom('King room', userId + 'f1');
 }
 
-export function writeHotelRoom(roomType, userId) {
-    let UID;
-    firebase.auth().onAuthStateChanged(function(user) {
-        if (user) {
-            UID = user.uid;
-        } else {
-            UID = userId;
-        }
-    });
+export async function writeHotelRoom(roomType) {
+    let UID = await getUserId();
     firebase.database().ref('users/' + UID).update({
         roomType: roomType,
-        date: new Date().toDateString(),
     });
-    var users = firebase.database().ref("users").orderByKey();
-    users.once("value")
-        .then(function(snapshot) {
-            snapshot.forEach(function(childSnapshot) {
-                var childData = childSnapshot.val();
-                console.log(childData.roomType);
-                findRoom(childData.roomType)
-            });
-        });
+    findRoom(roomType)
+}
 
+export async function getRoomsDate(date) {
+    let UID = await getUserId();
+    firebase.database().ref('users/' + UID).update({
+        date: date,
+    });
+}
+
+async function getUserId() {
+    var user = firebase.auth().currentUser;
+    if (user) {
+        console.log(user.uid)
+        return user.uid;
+    } else {
+        console.log('User is not signed in');
+        return null;
+    }
 
 }
 
@@ -47,16 +41,18 @@ function findRoom(roomType) {
         .equalTo(roomType)
         .on("value", function(snapshot) {
             console.log(snapshot.val());
-            snapshot.forEach(function(data) {
-                console.log(data.key);
+            snapshot.forEach(function(obj) {
+                const date = obj.val().date;
+                if (date) {
+                    showBuckedDates(date);
+                }
             });
         });
 }
 
-// function buttonEventListener() {
-//     const button = document.querySelector('#button-next-step');
-//     button.addEventListener('click', () => {
-
-//       writeHotelRoom()
-//     });
-// }
+export async function showBuckedDates(dates) {
+    let UID = await getUserId();
+    firebase.database().ref('users/' + UID).update({
+        dates: dates,
+    });
+}
