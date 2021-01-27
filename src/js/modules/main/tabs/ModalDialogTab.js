@@ -7,33 +7,37 @@ export default class ModalDialogTab {
     this.tabIndex = 87;
     const parent = document.getElementById('container__dialog');
     this.languageData = languageData.dialogInfo[this.indexLanguage];
+    this.arrayAtributes = [
+      ['gender', 'male', 'female', 'trans'],
+      ['age', 'youngAge', 'middleAge', 'oldAgeButton'],
+      ['income', 'lowIncome', 'middleIncome', 'highIncome']];
+    this.index = 0;
     this.modalDialogContainer = create('div', 'dialogs__content',
-      `<button class="dialogs__content__button-start" id="openDialog">${this.languageData.buttonOpen}</button>
-      <dialog class="dialogs__content__dialog dialog-gender" class='dialog-gender'>
-        <h4>${this.languageData.dialogGenderContent}</h4>
-        <button class="dialogs__content__dialog__button gender__button" id="maleButton">${this.languageData.dialogGenderButtonOne}</button>
-        <button class="dialogs__content__dialog__button gender__button" id="femaleButton">${this.languageData.dialogGenderButtonTwo}</button>
-        <button class="dialogs__content__dialog__button gender__button" id="transButton">${this.languageData.dialogGenderButtonThree}</button>
-      </dialog>
-      <dialog class="dialogs__content__dialog dialog-age">
-        <h4>${this.languageData.dialogAgeContent}</h4>
-        <button class="dialogs__content__dialog__button age__button" id="youngAgeButton">${this.languageData.dialogAgeButtonOne}</button>
-        <button class="dialogs__content__dialog__button age__button" id="middleAgeButton">${this.languageData.dialogAgeButtonTwo}</button>
-        <button class="dialogs__content__dialog__button age__button" id="oldAgeButton">${this.languageData.dialogAgeButtonThree}</button>
-      </dialog>
-      <dialog class="dialogs__content__dialog dialog-income">
-        <h4>${this.languageData.dialogAgeContent}</h4>
-        <button class="dialogs__content__dialog__button income__button" id="lowIncomeButton">${this.languageData.dialogIncomeButtonOne}</button>
-        <button class="dialogs__content__dialog__button income__button" id="middleIncomeButton">${this.languageData.dialogIncomeButtonTwo}</button>
-        <button class="dialogs__content__dialog__button income__button" id="highIncomeButton">${this.languageData.dialogIncomeButtonThree}</button>
-      </dialog>`, parent);
+      `<button class="dialogs__content__button-start" id="openDialog">${this.languageData[5][0]}</button>
+       <div class="dialogs__content__answers"></div>`, parent);
     this.arrayTypeRooms = languageData.radioButtons[this.indexLanguage];
+    this.initDialogs();
     this.addListeners();
   }
 
+  initDialogs() {
+    this.blockAnswers = document.querySelector('.dialogs__content__answers');
+    this.arrayAtributes.forEach((el) => {
+      create('dialog', `dialogs__content__dialog dialog-${el[0]}`,
+        `<h4>${this.languageData[1][this.index]}</h4>
+         <button class="dialogs__content__dialog__button ${el[0]}__button" id="${el[1]}Button">${this.languageData[2][this.index]}</button>
+         <button class="dialogs__content__dialog__button ${el[0]}__button" id="${el[2]}Button">${this.languageData[3][this.index]}</button>
+         <button class="dialogs__content__dialog__button ${el[0]}__button" id="${el[3]}Button">${this.languageData[4][this.index]}</button>`,
+        this.modalDialogContainer);
+      this.index += 1;
+    });
+  }
+
   addListeners() {
-    document.querySelector('#openDialog').addEventListener('click', () => {
+    const buttonStart = document.querySelector('#openDialog');
+    buttonStart.addEventListener('click', () => {
       this.dialogMale.showModal();
+      this.blockAnswers.innerHTML = '';
     });
     this.dialogMale = document.querySelector('.dialog-gender');
     this.dialogAge = document.querySelector('.dialog-age');
@@ -44,11 +48,17 @@ export default class ModalDialogTab {
         if (el.classList.contains('gender__button')) {
           this.dialogMale.close();
           this.dialogAge.showModal();
+          create('p', 'dialogs__content__answers__content',
+            `${this.languageData[0][0]}<span class="dialogs__content__answers__content-gender">${el.textContent}</span>`, this.blockAnswers);
         } else if (el.classList.contains('age__button')) {
           this.dialogAge.close();
           this.dialogIncome.showModal();
+          create('p', 'dialogs__content__answers__content',
+            `${this.languageData[0][1]}<span class="dialogs__content__answers__content-age">${el.textContent}</span>`, this.blockAnswers);
         } else if (el.classList.contains('income__button')) {
           this.dialogIncome.close();
+          create('p', 'dialogs__content__answers__content',
+            `${this.languageData[0][2]}<span class="dialogs__content__answers__content-income">${el.textContent}</span>`, this.blockAnswers);
         }
       });
     });
