@@ -72,8 +72,7 @@ export default class Tabs {
                     case 1:
                         const dates = document.querySelector('#litepicker').value.split(' - ');
                         console.log(dates);
-                        showBuckedDates(dates)
-
+                        showBuckedDates(dates);
                         break;
 
                     default:

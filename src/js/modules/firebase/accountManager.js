@@ -20,7 +20,7 @@ firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL);
 export class AccountManager {
 
     constructor() {
-        //
+        this.user = firebase.auth().currentUser;
     }
 
     registerUser(messageContainer) {
@@ -53,13 +53,13 @@ export class AccountManager {
         }
     }
 
-    signInUser(messageContainer) {
+    signInUser(messageContainer) { // менять кнопку на юзера
         let email = document.querySelector('[type="email"]').value;
         let password = document.querySelector('[type="password"]').value;
         const outputBuff = { code: 0, message: '' };
-        if (firebase.auth().currentUser) {
+        if (this.user) {
             outputBuff.code = 400;
-            outputBuff.message = 'Already logged as ' + firebase.auth().currentUser.email;
+            outputBuff.message = 'Already logged as ' + this.user.email;
             showMessage(messageContainer, outputBuff.message)
         } else
             firebase.auth().signInWithEmailAndPassword(email, password)
@@ -75,13 +75,30 @@ export class AccountManager {
             });
     }
 
-    changeModalContent(contentType, registration) {
-        if (contentType === 'confirmForm') {
-            if (registration) return new ConfirmFormModal('registration');
-            else return new ConfirmFormModal('signIn');
-        } else if (contentType === 'swiperGalery')
-            return new GalleryRoomsModal();
-        else return;
+    deleteUser() {
+        this.user.delete().then(function() {
+            console.log('User deleted');
+            console.log(this.user)
+        }).catch(function(error) {
+            console.log(error)
+        });
+    }
+
+    changePassword(passwordContainer) {
+        const newPassword = passwordContainer.value;
+        this.user.updatePassword(newPassword).then(function() {
+            console.log('Password updated.')
+        }).catch(function(error) {
+            console.log(error)
+        });
+    }
+
+    signOut() { // менять кнопку обратно на Log In
+        firebase.auth().signOut().then(() => {
+            console.log(this.user)
+        }).catch((error) => {
+            console.log(error)
+        });
     }
 }
 
