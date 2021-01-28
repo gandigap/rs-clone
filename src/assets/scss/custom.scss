@@ -3,7 +3,7 @@
 @import "utils/_reset";
 @import "utils/vars";
 @import "utils/mixins";
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,400;0,700;1,400&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,400;0,700;1,400&display=swap'); */
 
 
 .theme-light {  
@@ -12,7 +12,7 @@
   --success-color           : #FC633A;
   --light-color             : #eeeeee;
   --disabled-color          : #63687169;
-  --overlay-color          : #27282be6; 
+  --overlay-color           : #27282be6; 
 }
 .theme-dark {  
   --default-color           : #eeeeee;
@@ -20,7 +20,7 @@
   --success-color           : #ffffff;
   --light-color             : #636871;
   --disabled-color          : #ffffff69;
-  --overlay-color          : #eeeeeee6; 
+  --overlay-color           : #eeeeeee6; 
 }
 
 .switcher-theme-container {  
@@ -128,6 +128,7 @@ body{
 .header{
   z-index: 10;  
   background-color: var(--light-color); 
+  padding: 5px 0px;
   
   &__hidden-title{
     position: absolute;
@@ -180,6 +181,22 @@ body{
   
     &__button:focus{
       @include button-light-hover;
+    }
+
+    &__setting{
+      @include button-other;
+    }
+  
+    &__setting:hover{
+      @include button-other-hover;
+    }
+  
+    &__setting:active{
+      @include button-other-active;
+    }
+  
+    &__setting:focus{
+      @include button-other-hover;
     }
   }
 
@@ -237,7 +254,7 @@ body{
 
     &__image-container{
       margin:20px;
-      width: 80%;
+      width: 70%;
       background-color: var(--success-color);
       border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
       -webkit-box-shadow: inset 0px 0px 25px 0px var(--light-color); 
@@ -401,16 +418,63 @@ body{
         .dialogs__content{
           text-align: center;
 
-          &__button-start{
-            @include button-start;
+          &__answers{
+            font-size: 18px;
+
+            &__content{
+              font-weight: bold;
+              margin: 5px;
+
+              span {
+                font-weight: normal;
+              }
+            }
           }
 
-          &__dialog{
-            background-color: var(--success-color);
+          &__confirm-button{
+            @include button-other;
+            margin: 0 auto;
           }
+
+          &__confirm-button:hover{
+            @include button-other-hover;
+          }
+
+          &__confirm-button:active{
+            @include button-other-active;
+          }
+
+          &__dialog{            
+            width: 500px;            
+            &__title{
+              font-size: 24px;
+            }
+
+            &__buttons{
+              display: flex;
+              flex-direction: column;
+
+              &__button{
+                @include button-other;
+              }
+
+              &__button:hover{
+                @include button-other-hover;
+              }
+
+              &__button:active{
+                @include button-other-active;
+              }
+            }
+          }
+
+          &__button-start{
+            @include button-start;
+          }         
 
           &__dialog::backdrop {
             background-color: #fc643a;
+            min-width: 300px; 
           }
         }
         
@@ -424,6 +488,7 @@ body{
       }
 
       &__button-step-block{
+        padding: 10px;
         
         &__button{
           @include button-dark;
