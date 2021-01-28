@@ -14,7 +14,8 @@ export async function writeHotelRoom(roomType:string) {
     firebase.database().ref('users/' + UID).update({
         roomType: roomType,
     });
-    showBuckedDates(roomType);
+    let result = await showBuckedDates(roomType);
+    return result;
 }
 
 export async function setRoomsDate(dates) {
@@ -35,16 +36,16 @@ async function getUserId() {
     }
 }
 
-function showBuckedDates(roomType) {
+async function showBuckedDates(roomType) {
     const datesArray = [];
-    firebase.database().ref('users').orderByChild('roomType')
+   let smth = await firebase.database().ref('users').orderByChild('roomType')
         .equalTo(roomType)
-        .on("value", function(snapshot) {
-            snapshot.forEach(function(userObj) {
+        .once("value", function (snapshot) {
+            snapshot.forEach(function (userObj) {
                 const date = userObj.val().dates;
                 if (date) datesArray.push(date);
             });
-            console.log(datesArray)
+            console.log(datesArray);
         });
-    // return datesArray;
+    return datesArray.length === 0 ? undefined : datesArray;
 }
