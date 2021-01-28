@@ -3,7 +3,6 @@ import ConfirmFormModal from './ConfirmFormModal';
 import GalleryRoomsModal from './GalleryRoomsModal';
 import HotKeysModal from './HotKeysModal';
 import languageData from '../../../languageDate/languageDate.json';
-import { changeModalContent } from '../../firebase/authorization';
 import { changeLogButtonState } from '../utils/utils';
 import SettingUserModal from './SettingUserModal';
 
@@ -33,17 +32,15 @@ export default class Modal {
         this.modalClose();
         this.modalHeaderTitle = document.querySelector('.main__modal__content__header-title');
         if (param === languageData.galeryButton[this.indexLanguage]) {
-          this.addGaleryToModal();
-          // changeModalContent('swiperGalery');
+          this.changeModalContent('gallery');
         } else if (param === languageData.logButton[this.indexLanguage]) {
-          this.addConfirmForm('confirmForm', false);
-          // changeModalContent('confirmForm', false);
+          this.changeModalContent('confirmForm', false);
         } else if (param === '🔥') {
-          this.addModalWithHotKeys();
+          this.changeModalContent('hotKeys');
           changeLogButtonState(true, 'asdasd', 0);
           /* changeLogButtonState(true, '', 0); */
         } else {
-          this.addSettingModal();
+          this.changeModalContent('setting');
           changeLogButtonState(false, 'asdasd', 0);
         }
         this.audio.play();
@@ -70,25 +67,19 @@ export default class Modal {
     };
   }
 
-  addGaleryToModal() {
-    this.modalHeaderTitle.innerHTML = `${languageData.modalTitle[0][this.indexLanguage]}`;
-    this.galery = new GalleryRoomsModal(this.indexLanguage);
-  }
-
-  addConfirmForm(contentType, registration) {
-    this.modalHeaderTitle.innerHTML = `${languageData.modalTitle[1][this.indexLanguage]}`;
-    if (contentType === 'confirmForm') {
+  changeModalContent(contentType, registration) {
+    if (contentType === 'gallery') {
+      this.modalHeaderTitle.innerHTML = `${languageData.modalTitle[0][this.indexLanguage]}`;
+      this.galery = new GalleryRoomsModal(this.indexLanguage);
+    } else if (contentType === 'confirmForm') {
+      this.modalHeaderTitle.innerHTML = `${languageData.modalTitle[1][this.indexLanguage]}`;
       if (registration) { this.modalContent = new ConfirmFormModal('registration', this.indexLanguage); } else { this.modalContent = new ConfirmFormModal('signIn', this.indexLanguage); }
+    } else if (contentType === 'hotKeys') {
+      this.modalHeaderTitle.innerHTML = `${languageData.modalTitle[2][this.indexLanguage]}`;
+      this.modalContent = new HotKeysModal(this.indexLanguage);
+    } else if (contentType === 'setting') {
+      this.modalHeaderTitle.innerHTML = `${languageData.modalTitle[3][this.indexLanguage]}`;
+      this.modalContent = new SettingUserModal(this.indexLanguage);
     }
-  }
-
-  addModalWithHotKeys() {
-    this.modalHeaderTitle.innerHTML = `${languageData.modalTitle[2][this.indexLanguage]}`;
-    this.modalContent = new HotKeysModal(this.indexLanguage);
-  }
-
-  addSettingModal() {
-    this.modalHeaderTitle.innerHTML = `${languageData.modalTitle[3][this.indexLanguage]}`;
-    this.modalContent = new SettingUserModal(this.indexLanguage);
   }
 }

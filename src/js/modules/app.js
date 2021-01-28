@@ -1,6 +1,6 @@
 import changeLanguage from './main/utils/changeLanguage';
 import HeaderPart from './header/HeaderPart';
-import MainPart from './main/mainPart';
+import MainPart from './main/MainPart';
 import FooterPart from './footer/FooterPart';
 import BurgerMenu from './header/BurgerMenu';
 import HotKeysListener from './main/utils/hotKeysListener';

@@ -24,10 +24,13 @@ export default class ModalDialogTab {
     this.blockAnswers = document.querySelector('.dialogs__content__answers');
     this.arrayAtributes.forEach((el) => {
       create('dialog', `dialogs__content__dialog dialog-${el[0]}`,
-        `<h4>${this.languageData[1][this.index]}</h4>
-         <button class="dialogs__content__dialog__button ${el[0]}__button" id="${el[1]}Button">${this.languageData[2][this.index]}</button>
-         <button class="dialogs__content__dialog__button ${el[0]}__button" id="${el[2]}Button">${this.languageData[3][this.index]}</button>
-         <button class="dialogs__content__dialog__button ${el[0]}__button" id="${el[3]}Button">${this.languageData[4][this.index]}</button>`,
+        `<h4 class="dialogs__content__dialog__title">${this.languageData[1][this.index]}</h4>
+         <div class="dialogs__content__dialog__buttons">
+         <button class="dialogs__content__dialog__buttons__button ${el[0]}__button" id="${el[1]}Button">${this.languageData[2][this.index]}</button>
+         <button class="dialogs__content__dialog__buttons__button ${el[0]}__button" id="${el[2]}Button">${this.languageData[3][this.index]}</button>
+         <button class="dialogs__content__dialog__buttons__button ${el[0]}__button" id="${el[3]}Button">${this.languageData[4][this.index]}</button>
+         </div>
+         `,
         this.modalDialogContainer);
       this.index += 1;
     });
@@ -42,7 +45,7 @@ export default class ModalDialogTab {
     this.dialogMale = document.querySelector('.dialog-gender');
     this.dialogAge = document.querySelector('.dialog-age');
     this.dialogIncome = document.querySelector('.dialog-income');
-    this.buttonsDialog = document.querySelectorAll('.dialogs__content__dialog__button');
+    this.buttonsDialog = document.querySelectorAll('.dialogs__content__dialog__buttons__button');
     this.buttonsDialog.forEach((el) => {
       el.addEventListener('click', () => {
         if (el.classList.contains('gender__button')) {
@@ -59,6 +62,7 @@ export default class ModalDialogTab {
           this.dialogIncome.close();
           create('p', 'dialogs__content__answers__content',
             `${this.languageData[0][2]}<span class="dialogs__content__answers__content-income">${el.textContent}</span>`, this.blockAnswers);
+          create('button', 'dialogs__content__confirm-button', `${this.languageData[6][0]}`, this.blockAnswers, ['id', 'dialog-confirm-button']);
         }
       });
     });
