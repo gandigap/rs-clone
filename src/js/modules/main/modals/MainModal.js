@@ -3,7 +3,6 @@ import ConfirmFormModal from './ConfirmFormModal';
 import GalleryRoomsModal from './GalleryRoomsModal';
 import HotKeysModal from './HotKeysModal';
 import languageData from '../../../languageDate/languageDate.json';
-import { changeModalContent } from '../../firebase/authorization';
 
 export default class Modal {
     constructor(indexLanguage) {
