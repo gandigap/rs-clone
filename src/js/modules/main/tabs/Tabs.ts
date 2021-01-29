@@ -49,7 +49,7 @@ export default class Tabs {
         ], this.tabs, ['id', 'container__dialog']);
         this.radioButtonsForm = new RadioButtonsForm(this.indexLanguage);
         this.addBlockWithButtonsWhichChangeTabs();
-
+this.calendar = new Calendar(this.indexLanguage, '');
         this.modalDialogTab = new ModalDialogTab(this.indexLanguage);
     }
 
@@ -66,23 +66,20 @@ export default class Tabs {
     async addListenerForButtonsWhichChangeTabs() {
         const buttonsChangeTab = document.querySelectorAll('.main__other-section__tabs__button-step-block__button');
         let inputs = <NodeListOf<HTMLInputElement>>document.querySelectorAll('.radio-buttons-form__radiobtn__input');
-
+        let index = 0;
+        inputs.forEach((input, i) => {
+           input.addEventListener('click', async ()=> {
+            if (input.checked) index = i;
+            let roomType = inputs[index].value;
+            let  datesArr = await writeHotelRoom(roomType);
+            console.log(datesArr)
+            document.querySelector('.container__date__content').remove();
+            this.calendar = new Calendar(this.indexLanguage, datesArr);
+        });
+        });
         buttonsChangeTab.forEach((element) => {
             element.addEventListener('click', () => {
-
                 switch (this.numberCurrentTab) {
-                    case 0:
-                        let index = 0;
-
-                        inputs.forEach((input, i) => {
-                            if (input.checked) index = i;
-                        });
-                        let roomType = inputs[index].value;
-                        writeHotelRoom(roomType);
-                        // let datesArr = showBuckedDates(roomType);
-                        let datesArr = ["2021-02-05", "2021-02-07"];
-                        this.calendar = new Calendar(datesArr, this.indexLanguage);
-                        break;
                     case 1:
                         const dates = (<HTMLInputElement>document.querySelector('#litepicker')).value.split(' - ');
                         console.log(dates);
