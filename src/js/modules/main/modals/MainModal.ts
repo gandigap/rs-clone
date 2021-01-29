@@ -25,14 +25,14 @@ export default class Modal {
         this.addListenersForButtonsOpenModal();
     }
 
-    addListenersForButtonsOpenModal() {
-        const buttonsWhichOpenModal = document.querySelectorAll('.button-open-modal');
-        this.audio = document.querySelector('.audio');
-        buttonsWhichOpenModal.forEach((button : HTMLElement) => {
-            button.onclick = () => {
-                document.body.style.overflow = 'hidden';
-                const param = button.textContent;
-                this.modal.innerHTML = `<div class="main__modal__content">
+addListenersForButtonsOpenModal() {
+    const buttonsWhichOpenModal = document.querySelectorAll('.button-open-modal');
+    this.audio = document.querySelector('.audio');
+    buttonsWhichOpenModal.forEach((button: HTMLButtonElement) => {
+      button.onclick = () => {
+        document.body.style.overflow = 'hidden';
+        const param = button.textContent;
+        this.modal.innerHTML = `<div class="main__modal__content">
                                     <div class="main__modal__content__header d-flex justify-content-between">
                                       <span class="main__modal__content__close">&times;</span>
                                       <h2 class="main__modal__content__header-title"></h2>
@@ -53,11 +53,12 @@ export default class Modal {
         } else {
           this.changeModalContent('setting', undefined);
           changeLogButtonState(false, 'asdasd', 0);
-                this.audio.play();
-                this.modal.style.bottom = '0px';
-            };
-        });
-    }
+        }
+        this.audio.play();
+        this.modal.style.bottom = '0px';
+      };
+    });
+  }
 
     modalClose() {
         this.span = document.querySelector('.main__modal__content__close');
