@@ -2,12 +2,14 @@ import create from '../utils/create';
 import { AccountManager } from '../../firebase/accountManager';
 import languageData from '../../../languageDate/languageDate.json'
 import MainModal from '../modals/MainModal';
+import { changeLogButtonState } from '../utils/utils';
 
 export default class ConfirmForm {
   submitType: any;
   indexLanguage: any;
   accountManager: AccountManager;
   contentForm: any;
+  modal: MainModal;
     constructor(submitType, indexLanguage) {
         this.submitType = submitType;
         this.indexLanguage = indexLanguage;
@@ -19,7 +21,6 @@ export default class ConfirmForm {
 
     createForm() {
         const parent = document.querySelector('.main__modal__content__body');
-        console.log(this.submitType)
         const register = !!(this.submitType === 'registration');
         if (register)
             return create('div', 'container__confirm-form',
@@ -75,15 +76,19 @@ export default class ConfirmForm {
             if (e.target.tagName === 'BUTTON' && e.target.textContent === 'Register') {
                 form.outerHTML = '';
                 form.remove();
-                MainModal.addConfirmForm('confirmForm', true);
+                console.log(this.indexLanguage)
+                this.modal = new MainModal(this.indexLanguage);
+                this.modal.changeModalContent('registration');
             }
         });
         form.addEventListener('submit', (e) => {
             e.preventDefault();
-            if (this.submitType === 'signIn') {
+            if (this.submitType === 'logIn') {
                 this.accountManager.signInUser(messageContainer);
             } else {
+              const name = (<HTMLInputElement>document.querySelector('[name="name"]')).value;
                 this.accountManager.registerUser(messageContainer);
+                changeLogButtonState(true, name, this.indexLanguage);
             }
             // successMessage.className = 'container__confirm-form__success-message';
             // form.outerHTML = '';

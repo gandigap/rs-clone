@@ -1,4 +1,5 @@
 import { writeUserData } from './database';
+import { changeLogButtonState } from '../main/utils/utils';
 
 // Firebase
 import firebase from "firebase/app";
@@ -77,9 +78,11 @@ export class AccountManager {
         this.user.delete().then(function() {
             console.log('User deleted');
             console.log(this.user)
+            changeLogButtonState(true, 'Log In', 0); // indexLanguage
         }).catch(function(error) {
             console.log(error)
         });
+
     }
 
     changePassword(passwordContainer) {
@@ -97,6 +100,10 @@ export class AccountManager {
         }).catch((error) => {
             console.log(error)
         });
+    }
+
+    getUserState() :boolean {
+        return !!this.user;
     }
 }
 
