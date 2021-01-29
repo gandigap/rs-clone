@@ -2,7 +2,7 @@ import create from '../utils/create';
 import { AccountManager } from '../../firebase/accountManager';
 import languageData from '../../../languageDate/languageDate.json'
 import MainModal from '../modals/MainModal';
-import { changeLogButtonState } from '../utils/utils';
+import { changeModalContent, changeLogButtonState } from '../utils/utils';
 
 export default class ConfirmForm {
   submitType: any;
@@ -10,21 +10,21 @@ export default class ConfirmForm {
   accountManager: AccountManager;
   contentForm: any;
   modal: MainModal;
-    constructor(submitType, indexLanguage) {
-        this.submitType = submitType;
-        this.indexLanguage = indexLanguage;
-        this.accountManager = new AccountManager();
-        this.contentForm = this.createForm();
+  constructor(submitType, indexLanguage) {
+    this.submitType = submitType;
+    this.indexLanguage = indexLanguage;
+    this.accountManager = new AccountManager();
+    this.contentForm = this.createForm();
 
-        this.validate();
-    }
+    this.validate();
+  }
 
-    createForm() {
-        const parent = document.querySelector('.main__modal__content__body');
-        const register = !!(this.submitType === 'registration');
-        if (register)
-            return create('div', 'container__confirm-form',
-                `<div class="container__confirm-form__error-message hidden"></div>
+  createForm() {
+    const parent = document.querySelector('.main__modal__content__body');
+    const register = !!(this.submitType === 'registration');
+    if (register)
+      return create('div', 'container__confirm-form',
+        `<div class="container__confirm-form__error-message hidden"></div>
           <div class="container__confirm-form__message">
           </div>
           <form id="confirm-form" class="container__confirm-form__form" novalidate>
@@ -46,9 +46,9 @@ export default class ConfirmForm {
             </div>
              <button class="container__confirm-form__button" type="submit">Submit</button>
           </form>`,
-                parent);
-        else return create('div', 'container__confirm-form',
-            `<div class="container__confirm-form__error-message hidden"></div>
+        parent);
+    else return create('div', 'container__confirm-form',
+      `<div class="container__confirm-form__error-message hidden"></div>
           <div class="container__confirm-form__message">
                       </div>
           <form id="confirm-form" class="container__confirm-form__form" novalidate>
@@ -66,34 +66,33 @@ export default class ConfirmForm {
               <button class="container__confirm-form__button">Register</button>
             </div>
           </form>`,
-            parent);
-    }
+      parent);
+  }
 
-    validate() {
-        const form = document.getElementById('confirm-form');
-        const messageContainer = document.querySelector('.container__confirm-form__message');
-        form.addEventListener('click', (e: any) => {
-            if (e.target.tagName === 'BUTTON' && e.target.textContent === 'Register') {
-                form.outerHTML = '';
-                form.remove();
-                console.log(this.indexLanguage)
-                this.modal = new MainModal(this.indexLanguage);
-                this.modal.changeModalContent('registration');
-            }
-        });
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            if (this.submitType === 'logIn') {
-                this.accountManager.signInUser(messageContainer);
-            } else {
-              const name = (<HTMLInputElement>document.querySelector('[name="name"]')).value;
-                this.accountManager.registerUser(messageContainer);
-                changeLogButtonState(true, name, this.indexLanguage);
-            }
-            // successMessage.className = 'container__confirm-form__success-message';
-            // form.outerHTML = '';
-            // form.remove();
+  validate() {
+    const form = document.getElementById('confirm-form');
+    const messageContainer = document.querySelector('.container__confirm-form__message');
+    form.addEventListener('click', (e: any) => {
+      if (e.target.tagName === 'BUTTON' && e.target.textContent === 'Register') {
+        form.outerHTML = '';
+        form.remove();
+        console.log(this.indexLanguage);
+        changeModalContent('registration', this.indexLanguage);
+      }
+    });
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (this.submitType === 'logIn') {
+        this.accountManager.signInUser(messageContainer);
+      } else {
+        const name = (<HTMLInputElement>document.querySelector('[name="name"]')).value;
+        this.accountManager.registerUser(messageContainer);
+        changeLogButtonState(true, name, this.indexLanguage);
+      }
+      // successMessage.className = 'container__confirm-form__success-message';
+      // form.outerHTML = '';
+      // form.remove();
 
-        }, false);
-    }
+    }, false);
+  }
 }

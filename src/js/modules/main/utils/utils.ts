@@ -1,4 +1,8 @@
 import languageData from '../../../languageDate/languageDate.json';
+import ConfirmFormModal from '../modals/ConfirmFormModal';
+import HotKeysModal from '../modals/HotKeysModal';
+import SettingUserModal from '../modals/SettingUserModal';
+import GalleryRoomsModal from '../modals/GalleryRoomsModal';
 
 export const setTheme = (themeName) => {
   localStorage.setItem('theme', themeName);
@@ -63,5 +67,42 @@ export function changeLogButtonState(state, date, index) {
     buttonSet.classList.add('header__container-button-log__button');
     buttonSet.classList.remove('header__container-button-log__setting');
     buttonSet.textContent = `${languageData.logButton[index]}`;
+  }
+}
+
+export function modalClose() {
+  const modal = <HTMLElement>document.querySelector('.main__modal');
+  const audio = <HTMLAudioElement>document.querySelector('.audio');
+  modal.style.bottom = '-100%';
+  modal.innerHTML = '';
+  audio.play();
+  document.body.style.overflow = 'auto';
+}
+
+export function changeModalContent(contentType: string, index: number) {
+  const modalHeaderTitle = document.querySelector('.main__modal__content__header-title');
+  let modalContent = null;
+  switch (contentType) {
+    case 'gallery':
+      modalHeaderTitle.innerHTML = `${languageData.modalTitle[0][index]}`;
+      modalContent = new GalleryRoomsModal(index);
+      break;
+    case 'logIn':
+      modalHeaderTitle.innerHTML = `${languageData.modalTitle[1][index]}`;
+      modalContent = new ConfirmFormModal('logIn', index);
+      break;
+    case 'registration':
+      modalContent = new ConfirmFormModal('registration', index);
+      break;
+    case 'hotKeys':
+      modalHeaderTitle.innerHTML = `${languageData.modalTitle[2][index]}`;
+      modalContent = new HotKeysModal(this.indexLanguage);
+      break;
+    case 'setting':
+      this.modalHeaderTitle.innerHTML = `${languageData.modalTitle[3][index]}`;
+      this.modalContent = new SettingUserModal(this.indexLanguage);
+      break;
+    default:
+      break;
   }
 }
