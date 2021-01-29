@@ -279,7 +279,8 @@
         ]
     ],
     "dataRooms": [
-        [{
+        [
+            {
                 "srcImg": "assets/images/appartments/quad-room.svg",
                 "name": "Quad Room",
                 "price": "120 $",
@@ -339,7 +340,8 @@
                 ]
             }
         ],
-        [{
+        [
+            {
                 "srcImg": "assets/images/appartments/quad-room.svg",
                 "name": "Номер Квартет",
                 "price": "120 $",
@@ -399,7 +401,8 @@
                 ]
             }
         ],
-        [{
+        [
+            {
                 "srcImg": "assets/images/appartments/quad-room.svg",
                 "name": "Quade zimmer",
                 "price": "120 $",
@@ -473,5 +476,19 @@
             "Buchung",
             "Über"
         ]
+    ],
+    "settingModal": [
+        {
+            "buttonsContent": [
+                "Изменить пароль",
+                "Удалить аккаунт",
+                "Выйти"
+            ],
+            "dialogButtons": [
+                "Нет",
+                "Да"
+            ],
+            "dialogTitle": "Вы уверены?"
+        }
     ]
 }

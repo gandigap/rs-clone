@@ -62,24 +62,24 @@ export class AccountManager {
             showMessage(messageContainer, outputBuff.message)
         } else
             firebase.auth().signInWithEmailAndPassword(email, password)
-            .then((user) => {
-                outputBuff.code = 400;
-                outputBuff.message = 'Signed in as ' + user.user.email;
-                showMessage(messageContainer, outputBuff.message)
-            })
-            .catch((error) => {
-                outputBuff.code = error.code;
-                outputBuff.message = error.message;
-                showMessage(messageContainer, outputBuff.message)
-            });
+                .then((user) => {
+                    outputBuff.code = 400;
+                    outputBuff.message = 'Signed in as ' + user.user.email;
+                    showMessage(messageContainer, outputBuff.message)
+                })
+                .catch((error) => {
+                    outputBuff.code = error.code;
+                    outputBuff.message = error.message;
+                    showMessage(messageContainer, outputBuff.message)
+                });
     }
 
     deleteUser() {
-        this.user.delete().then(function() {
+        this.user.delete().then(function () {
             console.log('User deleted');
             console.log(this.user)
-            changeLogButtonState(true, 'Log In', 0); // indexLanguage
-        }).catch(function(error) {
+            changeLogButtonState(false, 'Log In', 0); // indexLanguage
+        }).catch(function (error) {
             console.log(error)
         });
 
@@ -87,9 +87,9 @@ export class AccountManager {
 
     changePassword(passwordContainer) {
         const newPassword = passwordContainer.value;
-        this.user.updatePassword(newPassword).then(function() {
+        this.user.updatePassword(newPassword).then(function () {
             console.log('Password updated.')
-        }).catch(function(error) {
+        }).catch(function (error) {
             console.log(error)
         });
     }
@@ -102,7 +102,7 @@ export class AccountManager {
         });
     }
 
-    getUserState() :boolean {
+    getUserState(): boolean {
         return !!this.user;
     }
 }
