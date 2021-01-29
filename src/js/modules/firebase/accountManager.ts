@@ -17,20 +17,30 @@ if (firebase.apps.length === 0) {
 firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL);
 export class AccountManager {
     user: firebase.User;
+    indexLanguage: number;
 
-    constructor() {
+    constructor(indexLanguage) {
+        this.indexLanguage = indexLanguage;
         this.user = firebase.auth().currentUser;
     }
 
-    registerUser(messageContainer) {
+    async registerUser(messageContainer) {
         const email = (<HTMLInputElement>document.querySelector('[type="email"]')).value;
         const password = (<HTMLInputElement>document.querySelector('[type="password"]')).value;
         const passwordConfirm = (<HTMLInputElement>document.querySelector('[data-confirm-password]')).value;
         const name = (<HTMLInputElement>document.querySelector('[name="name"]')).value;
         const outputBuff = { code: 0, message: '' };
+        
         if (password === passwordConfirm) {
-            firebase.auth().createUserWithEmailAndPassword(email, password)
-                .then((user) => {
+           await firebase.auth().createUserWithEmailAndPassword(email, password)
+                .then(async (user) => {
+                    await user.user.updateProfile({
+                    displayName: name,
+                   }).then(function() {
+                    console.log('success!!!!!!!');
+                    }).catch((err)=> {
+                       console.log(err);
+                   });
                     console.log('registered as ' + user.user);
                     writeUserData(user.user.uid, name, user.user.email)
                     outputBuff.code = 200;
@@ -52,7 +62,7 @@ export class AccountManager {
         }
     }
 
-    signInUser(messageContainer) { // менять кнопку на юзера
+    async signInUser(messageContainer) { 
         const email = (<HTMLInputElement>document.querySelector('[type="email"]')).value;
         const password = (<HTMLInputElement>document.querySelector('[type="password"]')).value;
         const outputBuff = { code: 0, message: '' };
@@ -61,7 +71,7 @@ export class AccountManager {
             outputBuff.message = 'Already logged as ' + this.user.email;
             showMessage(messageContainer, outputBuff.message)
         } else
-            firebase.auth().signInWithEmailAndPassword(email, password)
+           await firebase.auth().signInWithEmailAndPassword(email, password)
                 .then((user) => {
                     outputBuff.code = 400;
                     outputBuff.message = 'Signed in as ' + user.user.email;
@@ -75,17 +85,16 @@ export class AccountManager {
     }
 
     deleteUser() {
+        const language = this.indexLanguage;
+        console.log(this.user)
         this.user.delete().then(function () {
-            console.log('User deleted');
-            console.log(this.user)
-            changeLogButtonState(false, 'Log In', 0); // indexLanguage
+            changeLogButtonState(false, 'Log In', language);
         }).catch(function (error) {
             console.log(error)
         });
-
     }
 
-    changePassword(passwordContainer) {
+    changePassword(passwordContainer: HTMLInputElement) {
         const newPassword = passwordContainer.value;
         this.user.updatePassword(newPassword).then(function () {
             console.log('Password updated.')
@@ -94,16 +103,26 @@ export class AccountManager {
         });
     }
 
-    signOut() { // менять кнопку обратно на Log In
+    signOut() { 
         firebase.auth().signOut().then(() => {
-            console.log(this.user)
+           changeLogButtonState(false, 'Log In', 0);
         }).catch((error) => {
-            console.log(error)
+           console.log(error);
         });
     }
 
     getUserState(): boolean {
-        return !!this.user;
+        console.log('user state')
+        return !!firebase.auth().currentUser;
+    }
+
+    async getUserName() {
+        return new Promise((resolve, reject)=> {
+        firebase.auth().onAuthStateChanged(user => {
+            if (user) 
+                resolve(firebase.auth().currentUser.displayName);
+            });
+        })
     }
 }
 

@@ -5,17 +5,16 @@ import MainModal from '../modals/MainModal';
 import { changeModalContent, changeLogButtonState } from '../utils/utils';
 
 export default class ConfirmForm {
-  submitType: any;
-  indexLanguage: any;
+  submitType: string;
+  indexLanguage: number;
   accountManager: AccountManager;
   contentForm: any;
   modal: MainModal;
-  constructor(submitType, indexLanguage) {
+  constructor(submitType: string, indexLanguage: number) {
     this.submitType = submitType;
     this.indexLanguage = indexLanguage;
-    this.accountManager = new AccountManager();
+    this.accountManager = new AccountManager(this.indexLanguage);
     this.contentForm = this.createForm();
-
     this.validate();
   }
 
@@ -69,26 +68,29 @@ export default class ConfirmForm {
       parent);
   }
 
-  validate() {
+   validate() {
     const form = document.getElementById('confirm-form');
     const messageContainer = document.querySelector('.container__confirm-form__message');
     form.addEventListener('click', (e: any) => {
       if (e.target.tagName === 'BUTTON' && e.target.textContent === 'Register') {
         form.outerHTML = '';
         form.remove();
-        console.log(this.indexLanguage);
         changeModalContent('registration', this.indexLanguage);
       }
     });
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
+      
       if (this.submitType === 'logIn') {
-        this.accountManager.signInUser(messageContainer);
+        await this.accountManager.signInUser(messageContainer);
       } else {
-        const name = (<HTMLInputElement>document.querySelector('[name="name"]')).value;
-        this.accountManager.registerUser(messageContainer);
-        changeLogButtonState(true, name, this.indexLanguage);
+        await this.accountManager.registerUser(messageContainer);
       }
+    let name = await this.accountManager.getUserName();
+      changeLogButtonState(true, name, this.indexLanguage);
+      
+     
+      // закрыть форму
       // successMessage.className = 'container__confirm-form__success-message';
       // form.outerHTML = '';
       // form.remove();

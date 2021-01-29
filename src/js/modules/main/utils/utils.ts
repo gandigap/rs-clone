@@ -55,18 +55,18 @@ export function checkButtonDisable(numberTab) {
   }
 }
 
-export function changeLogButtonState(state, date, index) {
-  if (state) {
+export function changeLogButtonState(isLogged: boolean, buttonText: any, indexLanguage: number) {
+  if (isLogged) {
     const buttonLog = document.querySelector('.header__container-button-log__button');
     console.log(buttonLog);
     buttonLog.classList.add('header__container-button-log__setting');
-    buttonLog.textContent = `${date}`;
+    buttonLog.textContent = `${buttonText}`;
     buttonLog.classList.remove('header__container-button-log__button');
   } else {
     const buttonSet = document.querySelector('.header__container-button-log__setting');
     buttonSet.classList.add('header__container-button-log__button');
     buttonSet.classList.remove('header__container-button-log__setting');
-    buttonSet.textContent = `${languageData.logButton[index]}`;
+    buttonSet.textContent = `${languageData.logButton[indexLanguage]}`;
   }
 }
 
@@ -79,28 +79,28 @@ export function modalClose() {
   document.body.style.overflow = 'auto';
 }
 
-export function changeModalContent(contentType: string, index: number) {
+export function changeModalContent(contentType: string, indexLanguage: number) {
   const modalHeaderTitle = document.querySelector('.main__modal__content__header-title');
   let modalContent = null;
   switch (contentType) {
     case 'gallery':
-      modalHeaderTitle.innerHTML = `${languageData.modalTitle[0][index]}`;
-      modalContent = new GalleryRoomsModal(index);
+      modalHeaderTitle.innerHTML = `${languageData.modalTitle[0][indexLanguage]}`;
+      modalContent = new GalleryRoomsModal(indexLanguage);
       break;
     case 'logIn':
-      modalHeaderTitle.innerHTML = `${languageData.modalTitle[1][index]}`;
-      modalContent = new ConfirmFormModal('logIn', index);
+      modalHeaderTitle.innerHTML = `${languageData.modalTitle[1][indexLanguage]}`;
+      modalContent = new ConfirmFormModal('logIn', indexLanguage);
       break;
     case 'registration':
-      modalContent = new ConfirmFormModal('registration', index);
+      modalContent = new ConfirmFormModal('registration', indexLanguage);
       break;
     case 'hotKeys':
-      modalHeaderTitle.innerHTML = `${languageData.modalTitle[2][index]}`;
-      modalContent = new HotKeysModal(this.indexLanguage);
+      modalHeaderTitle.innerHTML = `${languageData.modalTitle[2][indexLanguage]}`;
+      modalContent = new HotKeysModal(indexLanguage);
       break;
     case 'setting':
-      this.modalHeaderTitle.innerHTML = `${languageData.modalTitle[3][index]}`;
-      this.modalContent = new SettingUserModal(this.indexLanguage);
+      modalHeaderTitle.innerHTML = `${languageData.modalTitle[3][indexLanguage]}`;
+      modalContent = new SettingUserModal(indexLanguage);
       break;
     default:
       break;
