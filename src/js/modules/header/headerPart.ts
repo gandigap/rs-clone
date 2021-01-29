@@ -50,14 +50,12 @@ export default class HeaderPart {
     this.containerButtonLog = create('div', 'header__container-button-log', null, this.header);
     this.buttonConfirmForm = create('button', 'button-open-modal header__container-button-log__button',
       'Log in', this.containerButtonLog, ['id', 'button-open-confirm-form'], ['tabindex', '1']);
-    // this.accountManager = new AccountManager(0);
-    // console.log(this.accountManager)
-    // if (this.accountManager.getUserState()) {
-    //   let name = await this.accountManager.getUserName();
-    //   console.log('user is already signed in !!!');
-    //   changeLogButtonState(true, name, 0);
-    // }
-      
+    this.accountManager = new AccountManager(0);
+    let state = await this.accountManager.getUserState();
+    if (state) {
+      let name = await this.accountManager.getUserName();
+      changeLogButtonState(true, name, 0);
+    }
   }
 
   addButtonOpenHotkeysModal() {

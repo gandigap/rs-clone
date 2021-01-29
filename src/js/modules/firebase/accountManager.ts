@@ -111,9 +111,13 @@ export class AccountManager {
         });
     }
 
-    getUserState(): boolean {
-        console.log('user state')
-        return !!firebase.auth().currentUser;
+    async getUserState() {
+        return new Promise((resolve, reject)=> {
+        firebase.auth().onAuthStateChanged(user => {
+            if (user) 
+                resolve(!!firebase.auth().currentUser);
+            });
+        })
     }
 
     async getUserName() {

@@ -87,7 +87,7 @@ export default class ConfirmForm {
         await this.accountManager.registerUser(messageContainer);
       }
     let name = await this.accountManager.getUserName();
-      changeLogButtonState(true, name, this.indexLanguage);
+    changeLogButtonState(true, name, this.indexLanguage);
       
      
       // закрыть форму
