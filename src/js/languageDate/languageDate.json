@@ -118,6 +118,11 @@
             "Hotkeys",
             "Горячие клавиши",
             "Hotkeys"
+        ],
+        [
+            "Setting",
+            "Настройки",
+            "Rahmen"
         ]
     ],
     "confirmFormField": {
@@ -201,6 +206,9 @@
             ],
             [
                 "Test"
+            ],
+            [
+                "Submit"
             ]
         ],
         [
@@ -231,6 +239,42 @@
             ],
             [
                 "Тест"
+            ],
+            [
+                "Подтвердить"
+            ]
+        ],
+        [
+            [
+                "Paul:",
+                "Alter:",
+                "Einkommen:"
+            ],
+            [
+                "Dein Geschlecht?",
+                "Dein Alter?",
+                "Was war Ihr Einkommen im letzten Jahr?"
+            ],
+            [
+                "Der Mann",
+                "18-30",
+                "$1 - $9 999"
+            ],
+            [
+                "Frau",
+                "30-50",
+                "$10 000 - $24 999"
+            ],
+            [
+                "Andere",
+                "50+",
+                "$30,000 oder mehr"
+            ],
+            [
+                "Prüfung"
+            ],
+            [
+                "Bestätigen"
             ]
         ]
     ],

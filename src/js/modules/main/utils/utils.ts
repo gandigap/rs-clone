@@ -1,3 +1,5 @@
+import languageData from '../../../languageDate/languageDate.json';
+
 export const setTheme = (themeName) => {
   localStorage.setItem('theme', themeName);
   document.documentElement.className = themeName;
@@ -46,5 +48,20 @@ export function checkButtonDisable(numberTab) {
     buttonNext.classList.add('button__disable');
   } else {
     buttonNext.classList.remove('button__disable');
+  }
+}
+
+export function changeLogButtonState(state, date, index) {
+  if (state) {
+    const buttonLog = document.querySelector('.header__container-button-log__button');
+    console.log(buttonLog);
+    buttonLog.classList.add('header__container-button-log__setting');
+    buttonLog.textContent = `${date}`;
+    buttonLog.classList.remove('header__container-button-log__button');
+  } else {
+    const buttonSet = document.querySelector('.header__container-button-log__setting');
+    buttonSet.classList.add('header__container-button-log__button');
+    buttonSet.classList.remove('header__container-button-log__setting');
+    buttonSet.textContent = `${languageData.logButton[index]}`;
   }
 }

@@ -1,5 +1,5 @@
 import languageData from '../../../languageDate/languageDate.json';
-import MainPart from '../mainPart';
+import MainPart from '../MainPart';
 import FooterPart from '../../footer/FooterPart';
 import BurgerMenu from '../../header/BurgerMenu';
 

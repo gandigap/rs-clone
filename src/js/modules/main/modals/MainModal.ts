@@ -3,8 +3,12 @@ import ConfirmFormModal from './ConfirmFormModal';
 import GalleryRoomsModal from './GalleryRoomsModal';
 import HotKeysModal from './HotKeysModal';
 import languageData from '../../../languageDate/languageDate.json';
+import { changeLogButtonState } from '../utils/utils';
+import SettingUserModal from './SettingUserModal';
 
 export default class Modal {
+  modalContent: any;
+  gallery: GalleryRoomsModal;
     static addConfirmForm(arg0: string, arg1: boolean) {
       throw new Error('Method not implemented.');
     }
@@ -13,7 +17,6 @@ export default class Modal {
     audio: any;
     modalHeaderTitle: any;
     span: any;
-    gallery: any;
     confirmForm: any;
     constructor(indexLanguage) {
         this.indexLanguage = indexLanguage;
@@ -37,17 +40,19 @@ export default class Modal {
                                     <div class="main__modal__content__body">
                                     </div>
                                   </div>`;
-                this.modalClose();
-                this.modalHeaderTitle = document.querySelector('.main__modal__content__header-title');
-                if (param === languageData.galleryButton[this.indexLanguage]) {
-                    this.addGalleryToModal();
-                    // changeModalContent('swiperGallery');
-                } else if (param === languageData.logButton[this.indexLanguage]) {
-                    this.addConfirmForm('confirmForm', false);
-                    // changeModalContent('confirmForm', false);
-                } else if (param === '🔥') {
-                    this.addModalWithHotKeys();
-                }
+        this.modalClose();
+        this.modalHeaderTitle = document.querySelector('.main__modal__content__header-title');
+        if (param === languageData.galleryButton[this.indexLanguage]) {
+          this.changeModalContent('gallery', undefined);
+        } else if (param === languageData.logButton[this.indexLanguage]) {
+          this.changeModalContent('confirmForm', false);
+        } else if (param === '🔥') {
+          this.changeModalContent('hotKeys', undefined);
+          changeLogButtonState(true, 'asdasd', 0);
+          /* changeLogButtonState(true, '', 0); */
+        } else {
+          this.changeModalContent('setting', undefined);
+          changeLogButtonState(false, 'asdasd', 0);
                 this.audio.play();
                 this.modal.style.bottom = '0px';
             };
@@ -72,23 +77,20 @@ export default class Modal {
         };
     }
 
-    addGalleryToModal() {
-        this.modalHeaderTitle.innerHTML = `${languageData.modalTitle[0][this.indexLanguage]}`;
-        this.gallery = new GalleryRoomsModal(this.indexLanguage);
+   changeModalContent(contentType, registration) {
+    if (contentType === 'gallery') {
+      this.modalHeaderTitle.innerHTML = `${languageData.modalTitle[0][this.indexLanguage]}`;
+      this.modalContent = new GalleryRoomsModal(this.indexLanguage);
+    } else if (contentType === 'confirmForm') {
+      this.modalHeaderTitle.innerHTML = `${languageData.modalTitle[1][this.indexLanguage]}`;
+      if (registration) { this.modalContent = new ConfirmFormModal('registration', this.indexLanguage); } else { this.modalContent = new ConfirmFormModal('signIn', this.indexLanguage); }
+    } else if (contentType === 'hotKeys') {
+      this.modalHeaderTitle.innerHTML = `${languageData.modalTitle[2][this.indexLanguage]}`;
+      this.modalContent = new HotKeysModal(this.indexLanguage);
+    } else if (contentType === 'setting') {
+      this.modalHeaderTitle.innerHTML = `${languageData.modalTitle[3][this.indexLanguage]}`;
+      this.modalContent = new SettingUserModal(this.indexLanguage);
     }
 
-    addConfirmForm(contentType, registration) {
-        this.modalHeaderTitle.innerHTML = `${languageData.modalTitle[1][this.indexLanguage]}`;
-        if (contentType === 'confirmForm') {
-            if (registration)
-                this.confirmForm = new ConfirmFormModal('registration', this.indexLanguage);
-            else
-                this.confirmForm = new ConfirmFormModal('signIn', this.indexLanguage);
-        }
-    }
-
-    addModalWithHotKeys() {
-        this.modalHeaderTitle.innerHTML = `${languageData.modalTitle[2][this.indexLanguage]}`;
-        this.confirmForm = new HotKeysModal(this.indexLanguage);
-    }
+  }
 }

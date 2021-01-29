@@ -3,12 +3,11 @@
 }
 
 @mixin button-light{
-  cursor: pointer;
-  margin:10px;
+  cursor: pointer;  
+  margin:0 10px;
   height: 40px;
   min-width: 100px;
-  min-width: 100px;
-  
+  min-width: 100px;  
   color:var(--primary-color);
   font:{
     size:2rem;
@@ -22,7 +21,7 @@
 }
 
 @mixin button-light-hover{  
-  
+  color: var(--light-color);
 }
 
 @mixin button-light-active{
@@ -31,21 +30,11 @@
   transform: scale(0.9);
 }
 
-@mixin button-dark-disable{
-  border: 3px solid var(--success-color);
-  transition: .1s;
-  transform: scale(1);
-  cursor: auto;
-  color: var(--default-color);
-  background-color: var(--disabled-color);
-}
-
 @mixin button-dark{
   cursor: pointer;
-  margin:10px;
+  margin:0 10px;
   min-height: 40px;
-  min-width: 100px;
-  
+  min-width: 100px;  
   color:var(--success-color);
   font:{
     size:2rem;
@@ -59,6 +48,7 @@
 }
 
 @mixin button-dark-hover{  
+  color:var(--default-color);
 }
 
 @mixin button-dark-active{
@@ -89,11 +79,34 @@
   border-radius: 50%;  
 }
 @mixin button-hotkeys-hover{  
-  font-size: 24px;
+  border-color: var(--success-color) ;
   transition: 0.3s;
 }
 
 @mixin button-hotkeys-active{  
+  transform: scale(0.8);
+  transition: 0.3s;
+}
+
+@mixin button-other{
+  cursor: pointer;
+  min-width: 100px;
+  min-height: 40px;
+  padding: 5px;
+  display: flex;
+  justify-content: center;    
+  align-items: center;
+  font-size:20px;
+  color: var(--default-color);
+  border: 3px solid var(--success-color);
+  background-color: var(--primary-color);    
+}
+@mixin button-other-hover{  
+  color: var(--success-color);
+  transition: 0.3s;
+}
+
+@mixin button-other-active{  
   transform: scale(0.8);
   transition: 0.3s;
 }
@@ -118,12 +131,10 @@
   border-radius: 20px;
 }
 
-@mixin button-light-hover{  
-  
-}
-
-@mixin button-light-active{
+@mixin button-start-active{
   border: 1px solid var(--primary-color);
   transition: .1s;
   transform: scale(0.9);
 }
+
+
