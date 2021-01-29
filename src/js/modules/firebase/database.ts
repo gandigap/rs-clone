@@ -47,5 +47,5 @@ async function showBuckedDates(roomType) {
             });
             console.log(datesArray);
         });
-    return datesArray.length === 0 ? undefined : datesArray;
+    return datesArray;
 }

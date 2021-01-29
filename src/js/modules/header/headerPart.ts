@@ -1,4 +1,6 @@
 import create from '../main/utils/create';
+import {changeLogButtonState} from '../main/utils/utils';
+import {AccountManager} from '../firebase/accountManager';
 
 export default class HeaderPart {
   header: any;
@@ -8,6 +10,7 @@ export default class HeaderPart {
   containerButtonLog: any;
   buttonConfirmForm: any;
   containerButtonHot: any;
+  accountManager: any;
   constructor() {
     const parent = document.querySelector('.container-xl');
     this.header = create('header', 'header col-sm-12 d-flex align-items-center justify-content-between flex-wrap', null, parent);
@@ -43,10 +46,16 @@ export default class HeaderPart {
     ], this.header);
   }
 
-  addButtonOpenConfirmForm() {
+  async addButtonOpenConfirmForm() {
     this.containerButtonLog = create('div', 'header__container-button-log', null, this.header);
     this.buttonConfirmForm = create('button', 'button-open-modal header__container-button-log__button',
       'Log in', this.containerButtonLog, ['id', 'button-open-confirm-form'], ['tabindex', '1']);
+    this.accountManager = new AccountManager(0);
+    let state = await this.accountManager.getUserState();
+    if (state) {
+      let name = await this.accountManager.getUserName();
+      changeLogButtonState(true, name, 0);
+    }
   }
 
   addButtonOpenHotkeysModal() {
