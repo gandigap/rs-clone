@@ -82,9 +82,12 @@ export default class ConfirmForm {
       e.preventDefault();
       
       if (this.submitType === 'logIn') {
+        console.log('log in')
         await this.accountManager.signInUser(messageContainer);
       } else {
+         console.log('registration')
         await this.accountManager.registerUser(messageContainer);
+        console.log('registered successfully')
       }
     let name = await this.accountManager.getUserName();
     changeLogButtonState(true, name, this.indexLanguage);
