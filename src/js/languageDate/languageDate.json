@@ -123,6 +123,11 @@
             "Setting",
             "Настройки",
             "Rahmen"
+        ],
+        [
+            "Statistics",
+            "Статистика",
+            "Statistiken"
         ]
     ],
     "confirmFormField": {
@@ -489,6 +494,15 @@
                 "Да"
             ],
             "dialogTitle": "Вы уверены?"
+        }
+    ],
+    "staticticsModal": [
+        {
+            "staticticsContent": [
+                "Изменить пароль",
+                "Удалить аккаунт",
+                "Выйти"
+            ]
         }
     ]
 }

@@ -445,7 +445,8 @@ body{
           }
 
           &__dialog{            
-            width: 500px;            
+           /*  width: 500px;   */   
+           /*  min-width: 500px;  */       
             &__title{
               font-size: 24px;
             }
@@ -473,8 +474,7 @@ body{
           }         
 
           &__dialog::backdrop {
-            background-color: #fc643a;
-            min-width: 300px; 
+            background-color: #fc643a;            
           }
         }
         
@@ -728,7 +728,66 @@ body{
 
       .swiper-scrollbar,.swiper-pagination{
         position: initial;
-      }       
+      }  
+
+      .container__setting{
+        display: table;
+        margin:0 auto;
+        
+        &__button{
+          @include button-other;
+          min-width: 180px;
+          margin: 5px;
+        }
+
+        &__button:hover{
+          @include button-other-hover;          
+        }
+
+        &__button:active{
+          @include button-other-active;          
+        }
+
+        &__dialog {
+          border:3px solid var(--primary-color);
+          border-radius: 10px; 
+          color:var(--primary-color);
+
+          &__title {
+            font-size:20px;
+          }
+
+          &__buttons{
+            display:flex;
+            flex-direction: column;
+            
+            &__input{
+              background-color: var(--success-color);;
+              border: 1px solid var(--primary-color);;
+              font-size: 18px;
+              margin: 5px;
+            }
+
+            &__button{
+              @include button-other;
+              min-width: 180px;
+              margin: 5px;
+            }
+    
+            &__button:hover{
+              @include button-other-hover;          
+            }
+    
+            &__button:active{
+              @include button-other-active;          
+            }
+          }
+        }
+
+        &__dialog::backdrop {
+          background-color: #fc643a;          
+        }
+      }     
       
       .container__confirm-form{
         padding: 10px;
