@@ -51,7 +51,7 @@ export default class HeaderPart {
     this.buttonConfirmForm = create('button', 'button-open-modal header__container-button-log__button',
       'Log in', this.containerButtonLog, ['id', 'button-open-confirm-form'], ['tabindex', '1']);
     this.accountManager = new AccountManager(0);
-    let state = await this.accountManager.getUserState();
+    const state = await this.accountManager.getUserState();
     if (state) {
       let name = await this.accountManager.getUserName();
       changeLogButtonState(true, name, 0);

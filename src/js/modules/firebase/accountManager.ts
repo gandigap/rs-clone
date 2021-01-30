@@ -114,8 +114,7 @@ export class AccountManager {
     async getUserState() {
         return new Promise((resolve, reject)=> {
         firebase.auth().onAuthStateChanged(user => {
-            if (user) 
-                resolve(!!firebase.auth().currentUser);
+                 resolve(!!user);
             });
         })
     }
