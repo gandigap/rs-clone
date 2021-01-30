@@ -49,14 +49,14 @@ export default class Tabs {
         ], this.tabs, ['id', 'container__dialog']);
         this.radioButtonsForm = new RadioButtonsForm(this.indexLanguage);
         this.addBlockWithButtonsWhichChangeTabs();
-this.calendar = new Calendar(this.indexLanguage, '');
+        this.calendar = new Calendar(this.indexLanguage, '');
         this.modalDialogTab = new ModalDialogTab(this.indexLanguage);
     }
 
     addBlockWithButtonsWhichChangeTabs() {
         this.buttonStepBlock = create('div', 'main__other-section__tabs__button-step-block d-flex justify-content-center',
-            `<button class="main__other-section__tabs__button-step-block__button" id="button-prev-step" tabindex="11">${languageData.buttonPrevStep[this.indexLanguage]}</button>
-       <button class="main__other-section__tabs__button-step-block__button" id="button-next-step" tabindex="12">${languageData.buttonNextStep[this.indexLanguage]}</button>`,
+            `<button class="main__other-section__tabs__button-step-block__button" id="button-prev-step" tabindex="0">${languageData.buttonPrevStep[this.indexLanguage]}</button>
+       <button class="main__other-section__tabs__button-step-block__button" id="button-next-step" tabindex="0">${languageData.buttonNextStep[this.indexLanguage]}</button>`,
             this.tabs);
         this.numberCurrentTab = findNumberOpenTab();
         checkButtonDisable(this.numberCurrentTab);
@@ -68,14 +68,14 @@ this.calendar = new Calendar(this.indexLanguage, '');
         let inputs = <NodeListOf<HTMLInputElement>>document.querySelectorAll('.radio-buttons-form__radiobtn__input');
         let index = 0;
         inputs.forEach((input, i) => {
-           input.addEventListener('click', async ()=> {
-            if (input.checked) index = i;
-            let roomType = inputs[index].value;
-            let  datesArr = await writeHotelRoom(roomType);
-            console.log(datesArr)
-            document.querySelector('.container__date__content').remove();
-            this.calendar = new Calendar(this.indexLanguage, datesArr);
-        });
+            input.addEventListener('click', async () => {
+                if (input.checked) index = i;
+                let roomType = inputs[index].value;
+                let datesArr = await writeHotelRoom(roomType);
+                console.log(datesArr)
+                document.querySelector('.container__date__content').remove();
+                this.calendar = new Calendar(this.indexLanguage, datesArr);
+            });
         });
         buttonsChangeTab.forEach((element) => {
             element.addEventListener('click', () => {

@@ -12,9 +12,9 @@ export default class Calendar {
         this.indexLanguage = indexLanguage;
         this.lockDays = lockDays;
         const parent = document.getElementById('container__date');
-        this.calendar = create('div', 'container__date__content', 
-    '<input type="text" class="new-input d-flex" id="litepicker" placeholder="click" tabindex="10">',
-      parent);
+        this.calendar = create('div', 'container__date__content',
+            '<input type="text" class="new-input d-flex" id="litepicker" placeholder="click" tabindex="0">',
+            parent);
         this.getCurrentDate();
         this.initCalendar();
     }
@@ -25,15 +25,15 @@ export default class Calendar {
             element: document.getElementById('litepicker'),
             lang: `${languageData.langCalendar[this.indexLanguage]}`,
         });
-       this.setLockedDays();
+        this.setLockedDays();
     }
     setLockedDays() {
-      if (this.lockDays) {
+        if (this.lockDays) {
             const past = ['2020-01-01', `${this.today}`]
             this.lockDays.push(past)
             this.picker.setLockDays(this.lockDays)
         }
-    }    
+    }
     getCurrentDate() {
         this.today = new Date();
         const dd = String(this.today.getDate()).padStart(2, '0');

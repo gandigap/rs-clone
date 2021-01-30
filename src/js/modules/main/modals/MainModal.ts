@@ -1,6 +1,6 @@
 import create from '../utils/create';
 import languageData from '../../../languageDate/languageDate.json';
-import { showAndAddStructureModal, changeModalContent, modalClose } from '../utils/utils';
+import { showAndAddStructureModal, changeModalContent, addListenerForCloseModal } from '../utils/utils';
 
 export default class Modal {
   modalContent: any;
@@ -24,7 +24,7 @@ export default class Modal {
         document.body.style.overflow = 'hidden';
         const param = button.textContent;
         showAndAddStructureModal();
-        this.addListenerForCloseModal();
+        addListenerForCloseModal();
 
         if (param === languageData.galleryButton[this.indexLanguage]) {
           changeModalContent('gallery', this.indexLanguage);
@@ -35,22 +35,7 @@ export default class Modal {
         } else {
           changeModalContent('setting', this.indexLanguage);
         }
-
       };
     });
   }
-
-  addListenerForCloseModal() {
-    const buttonModalClose = <HTMLButtonElement>document.querySelector('.main__modal__content__close');
-    buttonModalClose.addEventListener('click', () => {
-      modalClose();
-    });
-    window.addEventListener('click', () => {
-      if (event.target === this.modal) {
-        modalClose();
-      }
-    });
-  }
-
-
 }

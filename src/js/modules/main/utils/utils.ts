@@ -71,6 +71,19 @@ export function changeLogButtonState(isLogged: boolean, buttonText: any, indexLa
   }
 }
 
+export function addListenerForCloseModal() {
+  const buttonModalClose = <HTMLButtonElement>document.querySelector('.main__modal__content__close');
+  const modal = <HTMLElement>document.querySelector('.main__modal');
+  buttonModalClose.addEventListener('click', () => {
+    modalClose();
+  });
+  window.addEventListener('click', (event) => {
+    if (event.target === modal) {
+      modalClose();
+    }
+  });
+}
+
 export function modalClose() {
   const modal = <HTMLElement>document.querySelector('.main__modal');
   const audio = <HTMLAudioElement>document.querySelector('.audio');

@@ -1,6 +1,6 @@
 import create from '../utils/create';
 import languageData from '../../../languageDate/languageDate.json';
-import { modalClose } from '../utils/utils';
+import { addListenerForCloseModal } from '../utils/utils';
 import { AccountManager } from '../../firebase/accountManager';
 
 export default class StaticticModal {
@@ -19,5 +19,6 @@ export default class StaticticModal {
         this.contentModal = create('div', 'container__statictics',
             `example`,
             parent);
+        addListenerForCloseModal();
     }
 }

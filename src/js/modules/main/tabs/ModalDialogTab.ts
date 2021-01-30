@@ -3,7 +3,6 @@ import languageData from '../../../languageDate/languageDate.json';
 
 export default class ModalDialogTab {
   indexLanguage: any;
-  tabIndex: number;
   languageData: string[][];
   arrayAtributes: string[][];
   index: number;
@@ -16,7 +15,6 @@ export default class ModalDialogTab {
   buttonsDialog: NodeListOf<Element>;
   constructor(indexLanguage) {
     this.indexLanguage = indexLanguage;
-    this.tabIndex = 87;
     const parent = document.getElementById('container__dialog');
     this.languageData = languageData.dialogInfo[this.indexLanguage];
     this.arrayAtributes = [

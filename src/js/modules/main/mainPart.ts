@@ -57,6 +57,6 @@ export default class MainPart {
     addButtonOpenGaleryRooms() {
         this.buttonSearchGalery = create('button', 'button-open-modal main__other-section__sub-content-block__button-container__button col-md-12 p-0',
             `${languageData.galleryButton[this.indexLanguage]}`,
-            this.containerForButtonOpenGaleryRooms, ['id', 'button-open-galery'], ['tabindex', '13']);
+            this.containerForButtonOpenGaleryRooms, ['id', 'button-open-galery'], ['tabindex', '0']);
     }
 }
