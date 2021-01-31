@@ -79,7 +79,7 @@ export default class SettingUserModal {
         this.dialogContent.remove();
         if (type === 'pass') {
             create('div', 'container__setting__dialog__buttons',
-                `<input class="container__setting__dialog__buttons__input" type="text" id="userPasswordInput" tabindex="0">
+                `<input class="container__setting__dialog__buttons__input" type="password" id="userPasswordInput" tabindex="0">
         <button class="container__setting__dialog__buttons__button button-false" tabindex="0">${this.languageData.dialogButtons[0]}</button>
         <button class="container__setting__dialog__buttons__button button-true-${type}" tabindex="0">${this.languageData.dialogButtons[1]}</button>`,
                 this.dialog);

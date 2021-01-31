@@ -124,6 +124,9 @@ export function changeModalContent(contentType: string, indexLanguage: number) {
     case 'registration':
       modalContent = new ConfirmFormModal('registration', indexLanguage);
       break;
+    case 'resetPassword':
+      modalContent = new ConfirmFormModal('resetPassword', indexLanguage);
+      break;
     case 'hotKeys':
       modalHeaderTitle.innerHTML = `${languageData.modalTitle[2][indexLanguage]}`;
       modalContent = new HotKeysModal(indexLanguage);
