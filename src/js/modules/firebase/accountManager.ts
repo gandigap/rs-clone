@@ -103,6 +103,24 @@ export class AccountManager {
         });
     }
 
+    async resetPassword(messageContainer:Element) {
+       const email = (<HTMLInputElement>document.querySelector('[type="email"]')).value;
+        const outputBuff = { code: 0, message: '' };
+        firebase.auth().sendPasswordResetEmail(email)
+    .then(function() {
+          outputBuff.code = 400;
+          outputBuff.message = 'Mail is sending to ' + email;
+          showMessage(messageContainer, outputBuff.message)
+          console.log('check your email')
+    })
+    .catch(function(error) {
+        outputBuff.code = error.code;
+        outputBuff.message = error.message;
+        showMessage(messageContainer, outputBuff.message)
+        console.log(error)
+    });
+    }
+
     signOut() { 
         firebase.auth().signOut().then(() => {
            changeLogButtonState(false, 'Log In', 0);
