@@ -7,9 +7,9 @@ import {
 
 export default class HotKeysListener {
   html: HTMLHtmlElement;
-  switcher: any;
+  switcher: HTMLInputElement;
   coef: number;
-  number: any;
+  number: number;
   constructor() {
     this.html = document.querySelector('html');
     this.switcher = document.querySelector('.color__switcher');

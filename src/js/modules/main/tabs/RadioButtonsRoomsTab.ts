@@ -2,8 +2,8 @@ import create from '../utils/create';
 import languageData from '../../../languageDate/languageDate.json';
 
 export default class RadioButtonsRoomsTab {
-  indexLanguage: any;
-  radioButtonContainer: any;
+  indexLanguage: number;
+  radioButtonContainer: HTMLElement;
   arrayTypeRooms: string[];
   constructor(indexLanguage) {
     this.indexLanguage = indexLanguage;

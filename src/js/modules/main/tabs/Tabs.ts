@@ -11,23 +11,21 @@ import languageData from '../../../languageDate/languageDate.json';
 import { writeHotelRoom, setRoomsDate } from '../../firebase/database';
 
 export default class Tabs {
-    indexLanguage: any;
-    tabButton1: any;
-    tabs: any;
-    numberCurrentTab: any;
-    tab: any;
-    tabcontent1: any;
-    tabcontent2: any;
-    tabcontent3: any;
-    radioButtonsForm: any;
-    modalDialogTab: any;
-    buttonStepBlock: any;
-    calendar: any;
+    indexLanguage: number;
+    tabs: HTMLElement;
+    numberCurrentTab: number;
+    tab: HTMLElement;
+    tabcontent1: HTMLElement;
+    tabcontent2: HTMLElement;
+    tabcontent3: HTMLElement;
+    radioButtonsForm: RadioButtonsForm;
+    modalDialogTab: ModalDialogTab;
+    buttonStepBlock: HTMLElement;
+    calendar: Calendar;
     constructor(indexLanguage) {
         this.indexLanguage = indexLanguage;
         const parent = document.querySelector('.main__other-section');
         this.tabs = create('div', 'main__other-section__tabs d-flex flex-column', null, parent, ['id', 'booking']);
-        this.tabButton1 = null;
         this.numberCurrentTab = null;
         this.addTabContent();
     }

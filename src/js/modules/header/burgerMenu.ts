@@ -2,12 +2,12 @@ import create from '../main/utils/create';
 import languageData from '../../languageDate/languageDate.json';
 
 export default class BurgerMenu {
-  indexLanguage: any;
+  indexLanguage: number;
   body: HTMLBodyElement;
   menu: string[];
-  burgerContainer: any;
-  burger: any;
-  overlay: any;
+  burgerContainer: HTMLElement;
+  burger: HTMLInputElement;
+  overlay: HTMLElement;
   links: NodeListOf<Element>;
   constructor(indexLanguage) {
     this.indexLanguage = indexLanguage;

@@ -4,13 +4,13 @@ import { AccountManager } from '../firebase/accountManager';
 
 export default class HeaderPart {
   header: any;
-  hiddenTitleBlock: any;
+  hiddenTitleBlock: HTMLElement;
   infoBlock: any;
   languageBlock: any;
   containerButtonLog: any;
   buttonConfirmForm: any;
   containerButtonHot: any;
-  accountManager: any;
+  accountManager: AccountManager;
   constructor() {
     const parent = document.querySelector('.container-xl');
     this.header = create('header', 'header col-sm-12 d-flex align-items-center justify-content-between flex-wrap', null, parent);

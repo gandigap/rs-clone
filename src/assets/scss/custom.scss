@@ -268,7 +268,8 @@ body{
       font-size: 5rem;
       color: var(--success-color);
       letter-spacing: 5px;
-      text-shadow: var(--light-color) 2px 2px 0, var(--light-color) -2px -2px 0, var(--light-color) -2px 2px 0, var(--light-color) 2px -2px 0;
+      animation: textShadow 2s infinite;      
+      /* text-shadow: var(--light-color) 2px 2px 0, var(--light-color) -2px -2px 0, var(--light-color) -2px 2px 0, var(--light-color) 2px -2px 0; */
     }
   }
 
@@ -528,8 +529,7 @@ body{
             }
 
             &__facility:hover{
-              background-color: var(--primary-color);
-              fill: var(--light-color);
+              animation: backgroundIcon 2s infinite;
               border-radius: 50%;
               transition: 0.3s;
             }
@@ -1119,7 +1119,24 @@ body{
   }
 }
 
-@keyframes animatetop {
-  from {top: -300px; opacity: 0}
-  to {top: 0; opacity: 1}
+@keyframes textShadow {
+  from {text-shadow: var(--light-color) 1px 1px 0, var(--light-color) -1px -1px 0, var(--light-color) -1px 1px 0, var(--light-color) 1px -1px 0;}
+  to {text-shadow: var(--default-color) 2px 2px 0, var(--default-color) -2px -2px 0, var(--default-color) -2px 2px 0, var(--default-color) 2px -2px 0;}
+}
+
+@keyframes backgroundIcon {
+  0% {
+    background-color: var(--primary-color);
+    fill: var(--light-color);
+  }
+
+  50% {
+    background-color: var(--success-color);
+    fill: var(--light-color);   
+  }
+  
+  100% {
+    background-color: var(--primary-color);
+    fill: var(--light-color);	
+  }
 }

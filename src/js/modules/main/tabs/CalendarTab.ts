@@ -4,10 +4,10 @@ import languageData from '../../../languageDate/languageDate.json';
 
 export default class Calendar {
     lockDays: Array<Array<String>>;
-    indexLanguage: any;
-    calendar: any;
-    picker: any;
-    today: any;
+    indexLanguage: number;
+    calendar: HTMLElement;
+    picker: Litepicker;
+    today: string;
     constructor(indexLanguage, lockDays) {
         this.indexLanguage = indexLanguage;
         this.lockDays = lockDays;
@@ -35,10 +35,10 @@ export default class Calendar {
         }
     }
     getCurrentDate() {
-        this.today = new Date();
-        const dd = String(this.today.getDate()).padStart(2, '0');
-        const mm = String(this.today.getMonth() + 1).padStart(2, '0');
-        const yyyy = this.today.getFullYear();
+        const date = new Date();
+        const dd = String(date.getDate()).padStart(2, '0');
+        const mm = String(date.getMonth() + 1).padStart(2, '0');
+        const yyyy = date.getFullYear();
         this.today = `${yyyy}-${mm}-${dd}`;
     }
 }

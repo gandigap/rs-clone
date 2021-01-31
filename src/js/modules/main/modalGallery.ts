@@ -1,10 +1,8 @@
-import SwiperGalery from '../main/modals/GalleryRoomsModal.js';
 import create from './utils/create';
 
 export default class ModalGalery {
-  button: any;
-  modal: any;
-  galery: any;
+  button: HTMLElement;
+  modal: HTMLElement;
   constructor() {
     const parent = document.querySelector('.main__other-section__sub-content-block__galery-modal');
     this.button = create('button', 'main__other-section__sub-content-block__galery-modal__button', 'ROOMS', parent, ['id', 'myBtn']);
@@ -19,29 +17,23 @@ export default class ModalGalery {
       </div>`,
       parent, ['id', 'myModal']);
     this.modalOpenClose();
-    // this.addGaleryToModal();
   }
 
   modalOpenClose() {
     const modal = document.getElementById('myModal');
     const span = <HTMLElement>document.getElementsByClassName('main__other-section__sub-content-block__galery-modal__modal__content__close')[0];
     this.button.onclick = () => {
-      /* modal.style.display = 'block'; */
       modal.style.bottom = '0px';
     };
     span.onclick = () => {
-      /* modal.style.display = 'none'; */
       modal.style.bottom = '-100%';
     };
     window.onclick = (event) => {
       if (event.target === modal) {
-        /* modal.style.display = 'none'; */
         modal.style.bottom = '-100%';
       }
     };
   }
 
-  addGaleryToModal() {
-    // this.galery = new SwiperGalery();
-  }
+
 }

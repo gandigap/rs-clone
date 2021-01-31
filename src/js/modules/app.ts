@@ -9,17 +9,16 @@ import SwitcherColor from './header/SwitcherColorTheme';
 
 export default class App {
   // indexLanguage: any;
-  header: any;
-  container: any;
+  header: HeaderPart;
+  container: HTMLElement;
   body: HTMLBodyElement;
   main: MainPart;
-  footer: any;
-  burgerMenu: any;
-  switcherColor: any;
+  footer: FooterPart;
+  burgerMenu: BurgerMenu;
+  switcherColor: SwitcherColor;
   hotKeysListeners: HotKeysListener;
 
-  constructor(/*indexLanguage*/) {
-    // this.indexLanguage = indexLanguage;
+  constructor() {
     this.body = document.querySelector('body');
     this.header = null;
   }
