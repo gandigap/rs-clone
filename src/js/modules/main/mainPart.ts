@@ -13,13 +13,13 @@ export default class MainPart {
     tabs: Tabs;
     subContentBlock: HTMLElement;
     someBlock: HTMLElement;
-    containerForButtonOpenGaleryRooms: HTMLElement;
+    containerForButtonOpenGalleryRooms: HTMLElement;
     descriptionHotel: DescriptionPart;
     audio: Audio;
     modal: MainModal;
     mainTitle: HTMLElement;
     figureMainImage: HTMLElement;
-    buttonSearchGalery: HTMLButtonElement;
+    buttonSearchGallery: HTMLButtonElement;
     constructor(indexLanguage) {
         this.indexLanguage = indexLanguage;
         const parent = document.querySelector('.container-xl');
@@ -40,9 +40,9 @@ export default class MainPart {
     addBlockWithSubContent() {
         this.subContentBlock = create('div', 'main__other-section__sub-content-block row m-0', null, this.otherInfoSection); //d-flex align-self-end
         this.someBlock = create('div', 'main__other-section__sub-content-block__description col-sm-12 col-md-9 p-0', null, this.subContentBlock);
-        this.containerForButtonOpenGaleryRooms = create('div', 'main__other-section__sub-content-block__button-container col-sm-12 col-md-3 p-0', null, this.subContentBlock);
+        this.containerForButtonOpenGalleryRooms = create('div', 'main__other-section__sub-content-block__button-container col-sm-12 col-md-3 p-0', null, this.subContentBlock);
         this.descriptionHotel = new DescriptionPart(this.indexLanguage);
-        this.addButtonOpenGaleryRooms();
+        this.addButtonOpenGalleryRooms();
         this.audio = new Audio();
         this.modal = new MainModal(this.indexLanguage);
     }
@@ -50,13 +50,13 @@ export default class MainPart {
     addBlockWithMainImageAndTitle() {
         this.mainTitle = create('h2', 'main__total-section__title', `${languageData.mainTitle[this.indexLanguage]}`, this.totalInfoSection);
         this.figureMainImage = create('figure', 'main__total-section__image-container',
-            `<img class="main__total-section__image-container__img" src="assets/images/appartments/hotel.svg" alt="${languageData.mainTitle[this.indexLanguage]}">`,
+            `<img class="main__total-section__image-container__img" src="assets/images/apartments/hotel.svg" alt="${languageData.mainTitle[this.indexLanguage]}">`,
             this.totalInfoSection);
     }
 
-    addButtonOpenGaleryRooms() {
-        this.buttonSearchGalery = create('button', 'button-open-modal main__other-section__sub-content-block__button-container__button col-md-12 p-0',
+    addButtonOpenGalleryRooms() {
+        this.buttonSearchGallery = create('button', 'button-open-modal main__other-section__sub-content-block__button-container__button col-md-12 p-0',
             `${languageData.galleryButton[this.indexLanguage]}`,
-            this.containerForButtonOpenGaleryRooms, ['id', 'button-open-galery'], ['tabindex', '0']);
+            this.containerForButtonOpenGalleryRooms, ['id', 'button-open-gallery'], ['tabindex', '0']);
     }
 }

@@ -284,9 +284,8 @@
         ]
     ],
     "dataRooms": [
-        [
-            {
-                "srcImg": "assets/images/appartments/quad-room.svg",
+        [{
+                "srcImg": "assets/images/apartments/quad-room.svg",
                 "name": "Quad Room",
                 "price": "120 $",
                 "description": "The Quad Room with 2 set of twin-sized bunk beds is the perfect solution for getting everyone their own bed, even when traveling with friends or family. It comes with warm walnut furnishings. Sleeps up to four adults.",
@@ -297,7 +296,7 @@
                 ]
             },
             {
-                "srcImg": "assets/images/appartments/double-room.svg",
+                "srcImg": "assets/images/apartments/double-room.svg",
                 "name": "Double Room",
                 "price": "100 $",
                 "description": "With astounding views of the surrounding city, these double room combine flexible modern design with tech-friendly features. Sleeps up to two adults.",
@@ -308,7 +307,7 @@
                 ]
             },
             {
-                "srcImg": "assets/images/appartments/queen-room.svg",
+                "srcImg": "assets/images/apartments/queen-room.svg",
                 "name": "Queen Room",
                 "price": "160 $",
                 "description": "These queen room is well outfitted for the modern traveler. The flexible design includes thoughtful tech help you make yourself at home when you’re not out exploring. Sleeps up to two adults.",
@@ -321,7 +320,7 @@
                 ]
             },
             {
-                "srcImg": "assets/images/appartments/royal-room.svg",
+                "srcImg": "assets/images/apartments/royal-room.svg",
                 "name": "Royal Room",
                 "price": "180 $",
                 "description": "Highlighting busy urban landscape, these high floor queen-bedded rooms look out over the city. Warm walnut furniture, rain showers and handmade porcelain tiles give the room an inviting touch. Sleeps up to two adults.",
@@ -333,7 +332,7 @@
                 ]
             },
             {
-                "srcImg": "assets/images/appartments/king-room.svg",
+                "srcImg": "assets/images/apartments/king-room.svg",
                 "name": "King Room",
                 "price": "200 $",
                 "description": "This one-of a kind hotel room designed by Ihar Interiors. Room features distressed hardwood oak floors and floor-to-ceiling windows with great natural light. Bathroom features bath and amenities. Sleeps up to two adults.",
@@ -345,9 +344,8 @@
                 ]
             }
         ],
-        [
-            {
-                "srcImg": "assets/images/appartments/quad-room.svg",
+        [{
+                "srcImg": "assets/images/apartments/quad-room.svg",
                 "name": "Номер Квартет",
                 "price": "120 $",
                 "description": "Четырехместный номер с 2 односпальными двухъярусными кроватями - идеальное решение, чтобы у каждого была отдельная кровать, даже если вы путешествуете с друзьями или семьей. Он обставлен мебелью из орехового дерева в теплых тонах. Вмещает до четырех взрослых.",
@@ -358,7 +356,7 @@
                 ]
             },
             {
-                "srcImg": "assets/images/appartments/double-room.svg",
+                "srcImg": "assets/images/apartments/double-room.svg",
                 "name": "Номер Двойной",
                 "price": "100 $",
                 "description": "Этот двухместный номер с потрясающим видом на окружающий город сочетает в себе гибкий современный дизайн с техническими удобствами. Вмещает до двух взрослых.",
@@ -369,7 +367,7 @@
                 ]
             },
             {
-                "srcImg": "assets/images/appartments/queen-room.svg",
+                "srcImg": "assets/images/apartments/queen-room.svg",
                 "name": "номер Королевы",
                 "price": "160 $",
                 "description": "Этот номер с кроватью размера королевы отлично подходит для современного путешественника. Гибкий дизайн включает продуманные технологии, которые помогут вам чувствовать себя как дома, когда вы не на прогулке. Вмещает до двух взрослых.",
@@ -382,7 +380,7 @@
                 ]
             },
             {
-                "srcImg": "assets/images/appartments/royal-room.svg",
+                "srcImg": "assets/images/apartments/royal-room.svg",
                 "name": "номер Царский",
                 "price": "180 $",
                 "description": "Этот номер с кроватью размера королевы на верхнем этаже подчеркивает оживленный городской пейзаж и выходит окнами на город. Теплая мебель из орехового дерева, тропический душ и керамогранит ручной работы придают помещению уют. Вмещает до двух взрослых.",
@@ -394,7 +392,7 @@
                 ]
             },
             {
-                "srcImg": "assets/images/appartments/king-room.svg",
+                "srcImg": "assets/images/apartments/king-room.svg",
                 "name": "номер Короля",
                 "price": "200 $",
                 "description": "Этот единственный в своем роде гостиничный номер разработан Ihar Interiors. Номер с деревянным полом из состаренного дуба и окнами от пола до потолка с прекрасным естественным освещением. В ванной номере есть ванна и туалетные принадлежности. Вместимость до двух взрослых.",
@@ -406,9 +404,8 @@
                 ]
             }
         ],
-        [
-            {
-                "srcImg": "assets/images/appartments/quad-room.svg",
+        [{
+                "srcImg": "assets/images/apartments/quad-room.svg",
                 "name": "Quade zimmer",
                 "price": "120 $",
                 "description": "Das Quad-Zimmer mit 2 Etagenbetten ist die perfekte Lösung, um jedem sein eigenes Bett zu geben, auch wenn er mit Freunden oder der Familie unterwegs ist. Es kommt mit warmen Walnussmöbeln. Schlafmöglichkeiten für bis zu vier Erwachsene.",
@@ -419,7 +416,7 @@
                 ]
             },
             {
-                "srcImg": "assets/images/appartments/double-room.svg",
+                "srcImg": "assets/images/apartments/double-room.svg",
                 "name": "Doppel zimmer",
                 "price": "100 $",
                 "description": "Diese Doppelzimmer bieten einen atemberaubenden Blick auf die umliegende Stadt und kombinieren flexibles modernes Design mit technikfreundlichen Funktionen. Schlafmöglichkeiten für bis zu zwei Erwachsene.",
@@ -430,7 +427,7 @@
                 ]
             },
             {
-                "srcImg": "assets/images/appartments/queen-room.svg",
+                "srcImg": "assets/images/apartments/queen-room.svg",
                 "name": "Queen Zimmer",
                 "price": "160 $",
                 "description": "Dieses Queen-Zimmer ist gut für den modernen Reisenden ausgestattet. Das flexible Design umfasst durchdachte technische Hilfe, mit der Sie sich wie zu Hause fühlen, wenn Sie nicht gerade unterwegs sind. Schlafmöglichkeiten für bis zu zwei Erwachsene.",
@@ -443,7 +440,7 @@
                 ]
             },
             {
-                "srcImg": "assets/images/appartments/royal-room.svg",
+                "srcImg": "assets/images/apartments/royal-room.svg",
                 "name": "Königliches Zimmer",
                 "price": "180 $",
                 "description": "Diese hochrangigen Zimmer mit Queensize-Bett heben die geschäftige Stadtlandschaft hervor und bieten Blick auf die Stadt. Warme Walnussmöbel, Regenduschen und handgefertigte Porzellanfliesen verleihen dem Raum eine einladende Note. Schlafmöglichkeiten für bis zu zwei Erwachsene.",
@@ -455,7 +452,7 @@
                 ]
             },
             {
-                "srcImg": "assets/images/appartments/king-room.svg",
+                "srcImg": "assets/images/apartments/king-room.svg",
                 "name": "King Zimmer",
                 "price": "200 $",
                 "description": "Dieses einzigartige Hotelzimmer wurde von Ihar Interiors entworfen. Das Zimmer verfügt über Parkettböden aus Eichenholz und raumhohe Fenster mit viel Tageslicht. Das Badezimmer verfügt über eine Badewanne und Annehmlichkeiten. Schlafmöglichkeiten für bis zu zwei Erwachsene.",
@@ -482,8 +479,7 @@
             "Über"
         ]
     ],
-    "settingModal": [
-        {
+    "settingModal": [{
             "buttonsContent": [
                 "Change Password",
                 "Delete account",
@@ -520,13 +516,11 @@
             "dialogTitle": "Bist du sicher?"
         }
     ],
-    "staticticsModal": [
-        {
-            "staticticsContent": [
-                "Изменить пароль",
-                "Удалить аккаунт",
-                "Выйти"
-            ]
-        }
-    ]
+    "staticticsModal": [{
+        "staticticsContent": [
+            "Изменить пароль",
+            "Удалить аккаунт",
+            "Выйти"
+        ]
+    }]
 }

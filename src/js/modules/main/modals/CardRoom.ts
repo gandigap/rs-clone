@@ -42,11 +42,11 @@ export default class CardRoom {
            <ul class="swiper-slide__content__info__facilities"></ul>
            <p class="swiper-slide__content__info__price">Price: ${this.price}</p>
          </div>
-         <img class="swiper-slide__galery-top__img" src="${this.src}" alt="${this.title}">
+         <img class="swiper-slide__gallery-top__img" src="${this.src}" alt="${this.title}">
        </div>`,
       this.swiperWrapper);
     this.swiperSlide2 = create('div', 'swiper-slide',
-      `<img class="swiper-slide__galery-thumbs__img" src="${this.src}" alt="${this.title}">`,
+      `<img class="swiper-slide__gallery-thumbs__img" src="${this.src}" alt="${this.title}">`,
       this.swiperWrapper2);
     const listFacilities = document.querySelectorAll('.swiper-slide__content__info__facilities');
     this.facilities.forEach((element) => {

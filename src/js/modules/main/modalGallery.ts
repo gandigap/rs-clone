@@ -1,18 +1,18 @@
 import create from './utils/create';
 
-export default class ModalGalery {
+export default class ModalGallery {
   button: HTMLElement;
   modal: HTMLElement;
   constructor() {
-    const parent = document.querySelector('.main__other-section__sub-content-block__galery-modal');
-    this.button = create('button', 'main__other-section__sub-content-block__galery-modal__button', 'ROOMS', parent, ['id', 'myBtn']);
-    this.modal = create('div', 'main__other-section__sub-content-block__galery-modal__modal',
-      `<div class="main__other-section__sub-content-block__galery-modal__modal__content">
-        <div class="main__other-section__sub-content-block__galery-modal__modal__content__header">
-          <span class="main__other-section__sub-content-block__galery-modal__modal__content__close">&times;</span>
+    const parent = document.querySelector('.main__other-section__sub-content-block__gallery-modal');
+    this.button = create('button', 'main__other-section__sub-content-block__gallery-modal__button', 'ROOMS', parent, ['id', 'myBtn']);
+    this.modal = create('div', 'main__other-section__sub-content-block__gallery-modal__modal',
+      `<div class="main__other-section__sub-content-block__gallery-modal__modal__content">
+        <div class="main__other-section__sub-content-block__gallery-modal__modal__content__header">
+          <span class="main__other-section__sub-content-block__gallery-modal__modal__content__close">&times;</span>
           <h2>List rooms in our hotel</h2>
         </div>
-        <div class="main__other-section__sub-content-block__galery-modal__modal__content__body">
+        <div class="main__other-section__sub-content-block__gallery-modal__modal__content__body">
         </div>
       </div>`,
       parent, ['id', 'myModal']);
@@ -21,7 +21,7 @@ export default class ModalGalery {
 
   modalOpenClose() {
     const modal = document.getElementById('myModal');
-    const span = <HTMLElement>document.getElementsByClassName('main__other-section__sub-content-block__galery-modal__modal__content__close')[0];
+    const span = <HTMLElement>document.getElementsByClassName('main__other-section__sub-content-block__gallery-modal__modal__content__close')[0];
     this.button.onclick = () => {
       modal.style.bottom = '0px';
     };
