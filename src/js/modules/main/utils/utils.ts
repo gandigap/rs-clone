@@ -3,6 +3,7 @@ import ConfirmFormModal from '../modals/ConfirmFormModal';
 import HotKeysModal from '../modals/HotKeysModal';
 import SettingUserModal from '../modals/SettingUserModal';
 import GalleryRoomsModal from '../modals/GalleryRoomsModal';
+import StatisticsModal from '../modals/StatisticsModal';
 
 export const setTheme = (themeName) => {
   localStorage.setItem('theme', themeName);
@@ -70,6 +71,19 @@ export function changeLogButtonState(isLogged: boolean, buttonText: any, indexLa
   }
 }
 
+export function addListenerForCloseModal() {
+  const buttonModalClose = <HTMLButtonElement>document.querySelector('.main__modal__content__close');
+  const modal = <HTMLElement>document.querySelector('.main__modal');
+  buttonModalClose.addEventListener('click', () => {
+    modalClose();
+  });
+  window.addEventListener('click', (event) => {
+    if (event.target === modal) {
+      modalClose();
+    }
+  });
+}
+
 export function modalClose() {
   const modal = <HTMLElement>document.querySelector('.main__modal');
   const audio = <HTMLAudioElement>document.querySelector('.audio');
@@ -77,6 +91,22 @@ export function modalClose() {
   modal.innerHTML = '';
   audio.play();
   document.body.style.overflow = 'auto';
+}
+
+export function showAndAddStructureModal() {
+  const mainModal = <HTMLElement>document.querySelector('.main__modal');
+  const audio = <HTMLAudioElement>document.querySelector('.audio');
+  mainModal.innerHTML = `<div class="main__modal__content">
+                                    <div class="main__modal__content__header d-flex justify-content-between">
+                                      <span class="main__modal__content__close">&times;</span>
+                                      <h2 class="main__modal__content__header-title"></h2>
+                                    </div>
+                                    <div class="main__modal__content__body">
+                                    </div>
+                                  </div>`;
+  audio.play()
+  mainModal.style.bottom = '0px';
+
 }
 
 export function changeModalContent(contentType: string, indexLanguage: number) {
@@ -101,6 +131,10 @@ export function changeModalContent(contentType: string, indexLanguage: number) {
     case 'setting':
       modalHeaderTitle.innerHTML = `${languageData.modalTitle[3][indexLanguage]}`;
       modalContent = new SettingUserModal(indexLanguage);
+      break;
+    case 'stats':
+      modalHeaderTitle.innerHTML = `${languageData.modalTitle[4][indexLanguage]}`;
+      modalContent = new StatisticsModal(indexLanguage);
       break;
     default:
       break;

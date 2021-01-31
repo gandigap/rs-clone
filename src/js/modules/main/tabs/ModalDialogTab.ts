@@ -2,21 +2,19 @@ import create from '../utils/create';
 import languageData from '../../../languageDate/languageDate.json';
 
 export default class ModalDialogTab {
-  indexLanguage: any;
-  tabIndex: number;
+  indexLanguage: number;
   languageData: string[][];
   arrayAtributes: string[][];
   index: number;
-  modalDialogContainer: any;
+  modalDialogContainer: HTMLElement;
   arrayTypeRooms: string[];
-  blockAnswers: any;
-  dialogMale: any;
-  dialogAge: any;
-  dialogIncome: any;
+  blockAnswers: HTMLElement;
+  dialogMale: HTMLDialogElement;
+  dialogAge: HTMLDialogElement;
+  dialogIncome: HTMLDialogElement;
   buttonsDialog: NodeListOf<Element>;
   constructor(indexLanguage) {
     this.indexLanguage = indexLanguage;
-    this.tabIndex = 87;
     const parent = document.getElementById('container__dialog');
     this.languageData = languageData.dialogInfo[this.indexLanguage];
     this.arrayAtributes = [

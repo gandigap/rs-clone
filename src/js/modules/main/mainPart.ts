@@ -1,25 +1,25 @@
 import create from './utils/create';
 import MainModal from './modals/MainModal';
-import DescriptionBlock from './descriptionPart';
+import DescriptionPart from './descriptionPart';
 import Tabs from './tabs/Tabs';
 import Audio from './audio';
 import languageData from '../../languageDate/languageDate.json';
 
 export default class MainPart {
-    indexLanguage: any;
-    main: any;
-    totalInfoSection: any;
-    otherInfoSection: any;
+    indexLanguage: number;
+    main: HTMLElement;
+    totalInfoSection: HTMLElement;
+    otherInfoSection: HTMLElement;
     tabs: Tabs;
-    subContentBlock: any;
-    someBlock: any;
-    containerForButtonOpenGaleryRooms: any;
-    descriptionHotel: any;
-    audio: any;
-    modal: any;
-    mainTitle: any;
-    figureMainImage: any;
-    buttonSearchGalery: any;
+    subContentBlock: HTMLElement;
+    someBlock: HTMLElement;
+    containerForButtonOpenGaleryRooms: HTMLElement;
+    descriptionHotel: DescriptionPart;
+    audio: Audio;
+    modal: MainModal;
+    mainTitle: HTMLElement;
+    figureMainImage: HTMLElement;
+    buttonSearchGalery: HTMLButtonElement;
     constructor(indexLanguage) {
         this.indexLanguage = indexLanguage;
         const parent = document.querySelector('.container-xl');
@@ -41,7 +41,7 @@ export default class MainPart {
         this.subContentBlock = create('div', 'main__other-section__sub-content-block row m-0', null, this.otherInfoSection); //d-flex align-self-end
         this.someBlock = create('div', 'main__other-section__sub-content-block__description col-sm-12 col-md-9 p-0', null, this.subContentBlock);
         this.containerForButtonOpenGaleryRooms = create('div', 'main__other-section__sub-content-block__button-container col-sm-12 col-md-3 p-0', null, this.subContentBlock);
-        this.descriptionHotel = new DescriptionBlock(this.indexLanguage);
+        this.descriptionHotel = new DescriptionPart(this.indexLanguage);
         this.addButtonOpenGaleryRooms();
         this.audio = new Audio();
         this.modal = new MainModal(this.indexLanguage);
@@ -57,6 +57,6 @@ export default class MainPart {
     addButtonOpenGaleryRooms() {
         this.buttonSearchGalery = create('button', 'button-open-modal main__other-section__sub-content-block__button-container__button col-md-12 p-0',
             `${languageData.galleryButton[this.indexLanguage]}`,
-            this.containerForButtonOpenGaleryRooms, ['id', 'button-open-galery'], ['tabindex', '13']);
+            this.containerForButtonOpenGaleryRooms, ['id', 'button-open-galery'], ['tabindex', '0']);
     }
 }

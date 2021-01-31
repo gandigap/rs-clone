@@ -123,6 +123,11 @@
             "Setting",
             "Настройки",
             "Rahmen"
+        ],
+        [
+            "Statistics",
+            "Статистика",
+            "Statistiken"
         ]
     ],
     "confirmFormField": {
@@ -480,6 +485,18 @@
     "settingModal": [
         {
             "buttonsContent": [
+                "Change Password",
+                "Delete account",
+                "Log off"
+            ],
+            "dialogButtons": [
+                "No",
+                "Yes"
+            ],
+            "dialogTitle": "Are you sure?"
+        },
+        {
+            "buttonsContent": [
                 "Изменить пароль",
                 "Удалить аккаунт",
                 "Выйти"
@@ -489,6 +506,27 @@
                 "Да"
             ],
             "dialogTitle": "Вы уверены?"
+        },
+        {
+            "buttonsContent": [
+                "Ändere das Passwort",
+                "Konto löschen",
+                "Ausloggen"
+            ],
+            "dialogButtons": [
+                "Nicht",
+                "Ja"
+            ],
+            "dialogTitle": "Bist du sicher?"
+        }
+    ],
+    "staticticsModal": [
+        {
+            "staticticsContent": [
+                "Изменить пароль",
+                "Удалить аккаунт",
+                "Выйти"
+            ]
         }
     ]
 }

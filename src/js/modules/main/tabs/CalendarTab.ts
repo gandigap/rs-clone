@@ -4,17 +4,17 @@ import languageData from '../../../languageDate/languageDate.json';
 
 export default class Calendar {
     lockDays: Array<Array<String>>;
-    indexLanguage: any;
-    calendar: any;
-    picker: any;
-    today: any;
+    indexLanguage: number;
+    calendar: HTMLElement;
+    picker: Litepicker;
+    today: string;
     constructor(indexLanguage, lockDays) {
         this.indexLanguage = indexLanguage;
         this.lockDays = lockDays;
         const parent = document.getElementById('container__date');
-        this.calendar = create('div', 'container__date__content', 
-    '<input type="text" class="new-input d-flex" id="litepicker" placeholder="click" tabindex="10">',
-      parent);
+        this.calendar = create('div', 'container__date__content',
+            '<input type="text" class="new-input d-flex" id="litepicker" placeholder="click" tabindex="0">',
+            parent);
         this.getCurrentDate();
         this.initCalendar();
     }
@@ -25,20 +25,20 @@ export default class Calendar {
             element: document.getElementById('litepicker'),
             lang: `${languageData.langCalendar[this.indexLanguage]}`,
         });
-       this.setLockedDays();
+        this.setLockedDays();
     }
     setLockedDays() {
-      if (this.lockDays) {
+        if (this.lockDays) {
             const past = ['2020-01-01', `${this.today}`]
             this.lockDays.push(past)
             this.picker.setLockDays(this.lockDays)
         }
-    }    
+    }
     getCurrentDate() {
-        this.today = new Date();
-        const dd = String(this.today.getDate()).padStart(2, '0');
-        const mm = String(this.today.getMonth() + 1).padStart(2, '0');
-        const yyyy = this.today.getFullYear();
+        const date = new Date();
+        const dd = String(date.getDate()).padStart(2, '0');
+        const mm = String(date.getMonth() + 1).padStart(2, '0');
+        const yyyy = date.getFullYear();
         this.today = `${yyyy}-${mm}-${dd}`;
     }
 }

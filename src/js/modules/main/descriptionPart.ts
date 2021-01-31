@@ -1,7 +1,7 @@
 import create from './utils/create';
 import languageData from '../../languageDate/languageDate.json';
 
-export default class DescriptionBlock {
+export default class DescriptionPart {
   indexLanguage: any;
   parent: any;
   description: any;

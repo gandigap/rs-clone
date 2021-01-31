@@ -171,23 +171,19 @@ body{
       @include button-light;
     }
   
-    &__button:hover{
+    &__button:hover,&__button:focus{
       @include button-light-hover;
     }
   
     &__button:active{
       @include button-light-active;
     }
-  
-    &__button:focus{
-      @include button-light-hover;
-    }
 
     &__setting{
       @include button-other;
     }
   
-    &__setting:hover{
+    &__setting:hover, &__setting:focus{
       @include button-other-hover;
     }
   
@@ -195,9 +191,6 @@ body{
       @include button-other-active;
     }
   
-    &__setting:focus{
-      @include button-other-hover;
-    }
   }
 
   &__container-button-hotkeys{
@@ -275,7 +268,8 @@ body{
       font-size: 5rem;
       color: var(--success-color);
       letter-spacing: 5px;
-      text-shadow: var(--light-color) 2px 2px 0, var(--light-color) -2px -2px 0, var(--light-color) -2px 2px 0, var(--light-color) 2px -2px 0;
+      animation: textShadow 2s infinite;      
+      /* text-shadow: var(--light-color) 2px 2px 0, var(--light-color) -2px -2px 0, var(--light-color) -2px 2px 0, var(--light-color) 2px -2px 0; */
     }
   }
 
@@ -436,7 +430,7 @@ body{
             margin: 0 auto;
           }
 
-          &__confirm-button:hover{
+          &__confirm-button:hover, &__confirm-button:focus{
             @include button-other-hover;
           }
 
@@ -445,7 +439,8 @@ body{
           }
 
           &__dialog{            
-            width: 500px;            
+           /*  width: 500px;   */   
+           /*  min-width: 500px;  */       
             &__title{
               font-size: 24px;
             }
@@ -458,7 +453,7 @@ body{
                 @include button-other;
               }
 
-              &__button:hover{
+              &__button:hover, &__button:focus{
                 @include button-other-hover;
               }
 
@@ -473,8 +468,7 @@ body{
           }         
 
           &__dialog::backdrop {
-            background-color: #fc643a;
-            min-width: 300px; 
+            background-color: #fc643a;            
           }
         }
         
@@ -535,8 +529,7 @@ body{
             }
 
             &__facility:hover{
-              background-color: var(--primary-color);
-              fill: var(--light-color);
+              animation: backgroundIcon 2s infinite;
               border-radius: 50%;
               transition: 0.3s;
             }
@@ -728,10 +721,68 @@ body{
 
       .swiper-scrollbar,.swiper-pagination{
         position: initial;
-      }       
+      }  
+
+      .container__setting{
+        display: table;
+        margin:0 auto;
+        
+        &__button{
+          @include button-other;
+          min-width: 180px;
+          margin: 5px;
+        }
+
+        &__button:hover, &__button:focus{
+          @include button-other-hover;          
+        }
+
+        &__button:active{
+          @include button-other-active;          
+        }
+
+        &__dialog {
+          border:3px solid var(--primary-color);
+          border-radius: 10px; 
+          color:var(--primary-color);
+
+          &__title {
+            font-size:20px;
+          }
+
+          &__buttons{
+            display:flex;
+            flex-direction: column;
+            
+            &__input{
+              background-color: var(--success-color);;
+              border: 1px solid var(--primary-color);;
+              font-size: 18px;
+              margin: 5px;
+            }
+
+            &__button{
+              @include button-other;
+              min-width: 180px;
+              margin: 5px;
+            }
+    
+            &__button:hover, &__button:focus{
+              @include button-other-hover;          
+            }
+    
+            &__button:active{
+              @include button-other-active;          
+            }
+          }
+        }
+
+        &__dialog::backdrop {
+          background-color: #fc643a;          
+        }
+      }     
       
       .container__confirm-form{
-        padding: 10px;
         text-align: center;
         font-size:1.4rem;
 
@@ -740,16 +791,19 @@ body{
         }
 
         &__form{          
-            
+            display:table;
+            margin:0 auto;
+
           &-field{
             padding: 5px 0;          
-            min-width:260px;
+            /* min-width:260px; */
 
             &__label{
               font-style: italic;
             }
 
             &__input{
+              width: 150px;
               height: 30px;
               border-radius: 5px;
               text-align: center;
@@ -931,6 +985,7 @@ body{
   .header{
     justify-content: space-around !important;
     position: fixed;
+    height: 90px;
 
     &__container-button-log{
       order: 1;
@@ -1064,7 +1119,24 @@ body{
   }
 }
 
-@keyframes animatetop {
-  from {top: -300px; opacity: 0}
-  to {top: 0; opacity: 1}
+@keyframes textShadow {
+  from {text-shadow: var(--light-color) 1px 1px 0, var(--light-color) -1px -1px 0, var(--light-color) -1px 1px 0, var(--light-color) 1px -1px 0;}
+  to {text-shadow: var(--default-color) 2px 2px 0, var(--default-color) -2px -2px 0, var(--default-color) -2px 2px 0, var(--default-color) 2px -2px 0;}
+}
+
+@keyframes backgroundIcon {
+  0% {
+    background-color: var(--primary-color);
+    fill: var(--light-color);
+  }
+
+  50% {
+    background-color: var(--success-color);
+    fill: var(--light-color);   
+  }
+  
+  100% {
+    background-color: var(--primary-color);
+    fill: var(--light-color);	
+  }
 }
