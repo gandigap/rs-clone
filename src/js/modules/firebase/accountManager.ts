@@ -76,14 +76,24 @@ export class AccountManager {
                 });
     }
 
-async deleteUser() {
+    async deleteUser(passwordContainer: HTMLInputElement /* , messageContainer: HTMLInputElement */) {
+        await this.reauthenticate(passwordContainer);
+        const user = firebase.auth().currentUser;
         const language = this.indexLanguage;
-        await removeUser();
         this.user.delete().then(function () {
             changeLogButtonState(false, 'Log In', language);
+            removeUser(user);
         }).catch(function (error) {
-            console.log(error)
+              console.log(error)
         });
+    }
+
+    async reauthenticate(passwordContainer: HTMLInputElement) {
+        const password = passwordContainer.value;
+        const user = firebase.auth().currentUser;
+        var credentials = firebase.auth.EmailAuthProvider.credential(user.email, password);
+        await user.reauthenticateWithCredential(credentials);
+        console.log(this.user);
     }
 
     changePassword(passwordContainer: HTMLInputElement) {

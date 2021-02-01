@@ -16,16 +16,19 @@ export default function changeLanguage() {
     const logButton = document.querySelector('#button-open-confirm-form');
     const language = ['EN', 'RU', 'DE'];
     const index = language.indexOf(event.target.value);
-    const accountManager = new AccountManager(index);
-    let name = accountManager.getUserName();
-
-    logButton.textContent = `${languageData.logButton[index]}`;
+    /* const accountManager = new AccountManager(index); */
+    /* let name = accountManager.getUserName(); */
+    if (logButton.textContent === languageData.logButton[0]
+      || logButton.textContent === languageData.logButton[1]
+      || logButton.textContent === languageData.logButton[2]) {
+      logButton.textContent = `${languageData.logButton[index]}`;
+    }
     main.remove();
     footer.remove();
     burgerMenu.remove();
     main = new MainPart(index);
     footer = new FooterPart();
     burgerMenu = new BurgerMenu(index);
-    changeLogButtonState(true, name, index);
+    /* changeLogButtonState(true, name, index); */
   });
 }
