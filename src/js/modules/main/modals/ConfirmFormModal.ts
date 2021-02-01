@@ -23,13 +23,13 @@ export default class ConfirmForm {
     const register = !!(this.submitType === 'registration');
     switch (this.submitType) {
       case 'registration':
-         return create('div', 'container__confirm-form',
-        `<div class="container__confirm-form__error-message hidden"></div>
+        return create('div', 'container__confirm-form',
+          `<div class="container__confirm-form__error-message hidden"></div>
           <div class="container__confirm-form__message">
           </div>
           <form id="confirm-form" class="container__confirm-form__form" novalidate>
             <div class="container__confirm-form__form-field d-flex justify-content-between align-items-center">
-              <label class="container__confirm-form__form-field__label">Name</label>
+              <label class="container__confirm-form__form-field__label">${languageData.confirmFormField.name[this.indexLanguage]}</label>
               <input class="container__confirm-form__form-field__input" name="name" required>
             </div>
             <div class="container__confirm-form__form-field d-flex justify-content-between align-items-center">
@@ -37,87 +37,87 @@ export default class ConfirmForm {
               <input class="container__confirm-form__form-field__input" type="email" name="email">
             </div>
             <div class="container__confirm-form__form-field d-flex justify-content-between align-items-center">
-              <label class="container__confirm-form__form-field__label">Password:</label>
+              <label class="container__confirm-form__form-field__label">${languageData.confirmFormField.password[this.indexLanguage]}:</label>
               <input class="container__confirm-form__form-field__input" type="password" name="password">
             </div>
             <div class="container__confirm-form__form-field d-flex justify-content-between align-items-center">
-              <label class="container__confirm-form__form-field__label">Confirm password:</label>
+              <label class="container__confirm-form__form-field__label">${languageData.confirmFormField.confirmPassword[this.indexLanguage]}:</label>
               <input class="container__confirm-form__form-field__input" type="password" name="password-confirm" data-confirm-password>
             </div>
-             <button class="container__confirm-form__button" type="submit">Submit</button>
+             <button class="container__confirm-form__button" type="submit">${languageData.confirmFormField.button[this.indexLanguage]}</button>
           </form>`,
-        parent);
-        case 'logIn':
-          return create('div', 'container__confirm-form',
-      `<div class="container__confirm-form__error-message hidden"></div>
+          parent);
+      case 'logIn':
+        return create('div', 'container__confirm-form',
+          `<div class="container__confirm-form__error-message hidden"></div>
           <div class="container__confirm-form__message">
                       </div>
           <form id="confirm-form" class="container__confirm-form__form" novalidate>
             <div class="container__confirm-form__form-field d-flex justify-content-between align-items-center">
-              <label class="container__confirm-form__form-field__label">Email</label>
+              <label class="container__confirm-form__form-field__label">${languageData.confirmFormField.Email[this.indexLanguage]}</label>
               <input class="container__confirm-form__form-field__input" type="email" name="email">
             </div>
             <div class="container__confirm-form__form-field d-flex justify-content-between align-items-center">
-              <label class="container__confirm-form__form-field__label">Password:</label>
+              <label class="container__confirm-form__form-field__label">${languageData.confirmFormField.password[this.indexLanguage]}:</label>
               <input class="container__confirm-form__form-field__input" type="password" name="password">
             </div>
-            <button class="container__confirm-form__button" data-object="reset-password">Forgot your password?</button>
-            <button class="container__confirm-form__button" type="submit">Submit</button>
+            <button class="container__confirm-form__button" data-object="reset-password">${languageData.confirmFormField.forgotPassword[this.indexLanguage]}</button>
+            <button class="container__confirm-form__button" type="submit">${languageData.confirmFormField.button[this.indexLanguage]}</button>
             <div class="container__confirm-form__form-field d-flex justify-content-between align-items-center">
-              <label class="container__confirm-form__form-field__label">Are you not registered yet?</label>
-              <button class="container__confirm-form__button" data-object="register">Register</button>
+              <label class="container__confirm-form__form-field__label">${languageData.confirmFormField.notRegister[this.indexLanguage]}</label>
+              <button class="container__confirm-form__button" data-object="register">${languageData.confirmFormField.register[this.indexLanguage]}</button>
             </div>
           </form>`,
-      parent);
+          parent);
       case 'resetPassword':
-    return create('div', 'container__confirm-form',
-      `<div class="container__confirm-form__error-message hidden"></div>
+        return create('div', 'container__confirm-form',
+          `<div class="container__confirm-form__error-message hidden"></div>
           <div class="container__confirm-form__message">
                       </div>
           <form id="confirm-form" class="container__confirm-form__form" novalidate>
             <div class="container__confirm-form__form-field d-flex justify-content-between align-items-center">
-              <label class="container__confirm-form__form-field__label">Email</label>
+              <label class="container__confirm-form__form-field__label">${languageData.confirmFormField.Email[this.indexLanguage]}</label>
               <input class="container__confirm-form__form-field__input" type="email" name="email">
             </div>
-            <button class="container__confirm-form__button" type="submit">Submit</button>
+            <button class="container__confirm-form__button" type="submit">${languageData.confirmFormField.button[this.indexLanguage]}</button>
           </form>`,
-      parent);
+          parent);
       default:
         break;
     }
   }
 
-   validate() {
+  validate() {
     const form = document.getElementById('confirm-form');
     const messageContainer = document.querySelector('.container__confirm-form__message');
     form.addEventListener('click', (e: any) => {
       console.log(e.target.dataset.object === "register")
       if (e.target.tagName === 'BUTTON' && e.target.dataset.object) {
-          form.outerHTML = '';
-          form.remove();
+        form.outerHTML = '';
+        form.remove();
         switch (e.target.dataset.object) {
           case 'register':
             changeModalContent('registration', this.indexLanguage);
-          break;
+            break;
           case 'reset-password':
             // this.accountManager.resetPassword()
             changeModalContent('resetPassword', this.indexLanguage);
-          break;
+            break;
           default:
             break;
         }
-    
+
       }
     });
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      
+
       switch (this.submitType) {
         case 'logIn':
-           await this.accountManager.signInUser(messageContainer);
+          await this.accountManager.signInUser(messageContainer);
           break;
         case 'registration':
-           await this.accountManager.registerUser(messageContainer);
+          await this.accountManager.registerUser(messageContainer);
           break;
         case 'resetPassword':
           await this.accountManager.resetPassword(messageContainer)
@@ -125,11 +125,11 @@ export default class ConfirmForm {
         default:
           break;
       }
-    let name = await this.accountManager.getUserName();
-    changeLogButtonState(true, name, this.indexLanguage);
-    setTimeout(() => {
-      modalClose()
-    }, 2000);
+      let name = await this.accountManager.getUserName();
+      changeLogButtonState(true, name, this.indexLanguage);
+      setTimeout(() => {
+        modalClose()
+      }, 2000);
     }, false);
   }
 }
