@@ -1,5 +1,6 @@
 import { writeUserData, removeUser } from './database';
 import { changeLogButtonState } from '../main/utils/utils';
+import languageData from '../../languageDate/languageDate.json';
 
 // Firebase
 import firebase from "firebase/app";
@@ -77,11 +78,11 @@ export class AccountManager {
     }
 
     async deleteUser(passwordContainer: HTMLInputElement /* , messageContainer: HTMLInputElement */) {
+        const language = languageData.logButton[this.indexLanguage];
         await this.reauthenticate(passwordContainer);
         const user = firebase.auth().currentUser;
-        const language = this.indexLanguage;
         this.user.delete().then(function () {
-            changeLogButtonState(false, 'Log In', language);
+            changeLogButtonState(false, language);
             removeUser(user);
         }).catch(function (error) {
               console.log(error)
@@ -122,8 +123,9 @@ export class AccountManager {
     }
 
     signOut() { 
+        const language = languageData.logButton[this.indexLanguage];
         firebase.auth().signOut().then(() => {
-           changeLogButtonState(false, 'Log In', 0);
+           changeLogButtonState(false, language);
         }).catch((error) => {
            console.log(error);
         });

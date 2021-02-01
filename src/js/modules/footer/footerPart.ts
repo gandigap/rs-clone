@@ -1,9 +1,10 @@
 import create from '../main/utils/create';
 
-export default class FooterBlock {
-  footer: any;
-  textInfo: any;
-  logoInfo: any;
+export default class FooterPart {
+  footer: HTMLElement;
+  textInfo: HTMLElement;
+  logoInfo: HTMLElement;
+
   constructor() {
     const parent = document.querySelector('.container-xl');
     this.footer = create('footer', 'footer col-md-12 d-flex justify-content-around align-items-center', null, parent);

@@ -2,8 +2,9 @@ import create from '../utils/create';
 import languageData from '../../../languageDate/languageDate.json';
 
 export default class HotKeysModal {
-  indexLanguage: any;
-  contentForm: any;
+  indexLanguage: number;
+  contentForm: HTMLElement;
+
   constructor(indexLanguage) {
     this.indexLanguage = indexLanguage;
     const parent = document.querySelector('.main__modal__content__body');

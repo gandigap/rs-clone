@@ -5,19 +5,20 @@ import 'swiper/swiper-bundle.min';
 import 'swiper/swiper-bundle.min.css';
 
 export default class CardRoom {
-  indexLanguage: any;
-  index: any;
-  src: any;
-  title: any;
-  price: any;
-  description: any;
-  facilities: any;
+  indexLanguage: number;
+  index: number;
+  src: string;
+  title: string;
+  price: string;
+  description: string;
+  facilities: Array<string>;
   swiperWrapper: Element;
   swiperWrapper2: Element;
-  swiperSlide: any;
-  swiperSlide2: any;
-  itemFacilities: any;
-  dataRoom: any;
+  swiperSlide: HTMLElement;
+  swiperSlide2: HTMLElement;
+  itemFacilities: HTMLElement;
+  dataRoom: object;
+
   constructor(dataRoom, index, indexLanguage) {
     this.indexLanguage = indexLanguage;
     this.index = index;

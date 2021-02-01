@@ -2,8 +2,9 @@ import create from '../main/utils/create';
 import { setTheme, toggleTheme } from '../main/utils/utils';
 
 export default class SwitcherColor {
-  containerSwitcher: any;
+  containerSwitcher: HTMLElement;
   switcher: HTMLInputElement;
+  
   constructor() {
     const parent = document.querySelector('.header');
     this.containerSwitcher = create('div', 'switcher-theme-container',

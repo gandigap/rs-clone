@@ -56,7 +56,7 @@ export function checkButtonDisable(numberTab) {
   }
 }
 
-export function changeLogButtonState(isLogged: boolean, buttonText: any, indexLanguage: number) {
+export function changeLogButtonState(isLogged: boolean, buttonText: any) {
   if (isLogged) {
     const buttonLog = document.querySelector('.header__container-button-log__button');
     console.log(buttonLog);
@@ -67,7 +67,7 @@ export function changeLogButtonState(isLogged: boolean, buttonText: any, indexLa
     const buttonSet = document.querySelector('.header__container-button-log__setting');
     buttonSet.classList.add('header__container-button-log__button');
     buttonSet.classList.remove('header__container-button-log__setting');
-    buttonSet.textContent = `${languageData.logButton[indexLanguage]}`;
+    buttonSet.textContent = `${buttonText}`;
   }
 }
 

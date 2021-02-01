@@ -22,6 +22,7 @@ export default class Tabs {
     modalDialogTab: ModalDialogTab;
     buttonStepBlock: HTMLElement;
     calendar: Calendar;
+    
     constructor(indexLanguage) {
         this.indexLanguage = indexLanguage;
         const parent = document.querySelector('.main__other-section');

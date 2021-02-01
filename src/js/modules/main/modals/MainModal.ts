@@ -3,13 +3,14 @@ import languageData from '../../../languageDate/languageDate.json';
 import { showAndAddStructureModal, changeModalContent, addListenerForCloseModal } from '../utils/utils';
 
 export default class Modal {
-  modalContent: any;
-  indexLanguage: any;
-  modal: any;
-  audio: any;
-  modalHeaderTitle: any;
-  span: any;
-  confirmForm: any;
+  modalContent: HTMLElement;
+  indexLanguage: number;
+  modal: HTMLElement;
+  audio: HTMLAudioElement;
+  modalHeaderTitle: HTMLElement;
+  span: HTMLSpanElement;
+  confirmForm: HTMLFormElement;
+
   constructor(indexLanguage) {
     this.indexLanguage = indexLanguage;
     const parent = document.querySelector('.main');

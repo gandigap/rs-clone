@@ -2,12 +2,9 @@ import languageData from '../../../languageDate/languageDate.json';
 import MainPart from '../MainPart';
 import FooterPart from '../../footer/FooterPart';
 import BurgerMenu from '../../header/BurgerMenu';
-import { changeLogButtonState } from '../utils/utils';
-import { AccountManager } from '../../firebase/accountManager';
 
 export default function changeLanguage() {
   const selectElement = document.getElementById('select__language');
-
 
   selectElement.addEventListener('change', (event: any) => {
     let main: any = document.querySelector('.main');
@@ -16,8 +13,7 @@ export default function changeLanguage() {
     const logButton = document.querySelector('#button-open-confirm-form');
     const language = ['EN', 'RU', 'DE'];
     const index = language.indexOf(event.target.value);
-    /* const accountManager = new AccountManager(index); */
-    /* let name = accountManager.getUserName(); */
+    localStorage.setItem('indexLanguage', `${index}`);
     if (logButton.textContent === languageData.logButton[0]
       || logButton.textContent === languageData.logButton[1]
       || logButton.textContent === languageData.logButton[2]) {
@@ -29,6 +25,5 @@ export default function changeLanguage() {
     main = new MainPart(index);
     footer = new FooterPart();
     burgerMenu = new BurgerMenu(index);
-    /* changeLogButtonState(true, name, index); */
   });
 }
