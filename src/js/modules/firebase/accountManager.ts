@@ -1,4 +1,4 @@
-import { writeUserData } from './database';
+import { writeUserData, removeUser } from './database';
 import { changeLogButtonState } from '../main/utils/utils';
 
 // Firebase
@@ -36,28 +36,20 @@ export class AccountManager {
                 .then(async (user) => {
                     await user.user.updateProfile({
                     displayName: name,
-                   }).then(function() {
-                    console.log('success!!!!!!!');
-                    }).catch((err)=> {
-                       console.log(err);
-                   });
-                    console.log('registered as ' + user.user);
+                   });                   
                     writeUserData(user.user.uid, name, user.user.email)
                     outputBuff.code = 200;
                     outputBuff.message = 'You are successfully registered!';
-                    console.log(outputBuff);
                     messageContainer.innerHTML = outputBuff.message;
                 })
                 .catch((error) => {
                     outputBuff.code = error.code;
                     outputBuff.message = error.message;
-                    console.log(outputBuff);
                     messageContainer.innerHTML = outputBuff.message;
                 });
         } else {
             outputBuff.code = 400;
             outputBuff.message = "Passwords don't match!";
-            console.log(outputBuff);
             messageContainer.innerHTML = outputBuff.message;
         }
     }
@@ -84,9 +76,9 @@ export class AccountManager {
                 });
     }
 
-    deleteUser() {
+async deleteUser() {
         const language = this.indexLanguage;
-        console.log(this.user)
+        await removeUser();
         this.user.delete().then(function () {
             changeLogButtonState(false, 'Log In', language);
         }).catch(function (error) {
@@ -111,13 +103,11 @@ export class AccountManager {
           outputBuff.code = 400;
           outputBuff.message = 'Mail is sending to ' + email;
           showMessage(messageContainer, outputBuff.message)
-          console.log('check your email')
     })
     .catch(function(error) {
         outputBuff.code = error.code;
         outputBuff.message = error.message;
         showMessage(messageContainer, outputBuff.message)
-        console.log(error)
     });
     }
 
