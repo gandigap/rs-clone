@@ -27,25 +27,29 @@ export async function setRoomsDate(dates) {
 
 async function getUserId() {
     var user = firebase.auth().currentUser;
-    if (user) {
-        console.log(user.uid)
-        return user.uid;
-    } else {
-        console.log('User is not signed in');
-        return null;
-    }
+    return user ? user.uid : null;
 }
 
 async function showBuckedDates(roomType) {
     const datesArray = [];
-   let smth = await firebase.database().ref('users').orderByChild('roomType')
+    await firebase.database().ref('users').orderByChild('roomType')
         .equalTo(roomType)
         .once("value", function (snapshot) {
             snapshot.forEach(function (userObj) {
                 const date = userObj.val().dates;
                 if (date) datesArray.push(date);
             });
-            console.log(datesArray);
         });
     return datesArray;
+}
+
+export async function removeUser() {
+    const UID = await getUserId(); 
+    firebase.database().ref('users/' + UID).remove() 
+        .then(function() {
+            console.log("Remove succeeded.")
+        })
+        .catch(function(error) {
+            console.log("Remove failed: " + error.message)
+        });
 }
