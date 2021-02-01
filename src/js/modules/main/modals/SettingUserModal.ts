@@ -58,7 +58,8 @@ export default class SettingUserModal {
         this.buttonsDialog.forEach((el) => {
             el.addEventListener('click', () => {
                 if (el.classList.contains('button-true-delete')) {
-                    this.accountManager.deleteUser();
+                    const inputPass = <HTMLInputElement>document.querySelector('.container__setting__dialog__buttons__input');
+                    this.accountManager.deleteUser(inputPass);
                     console.log('удаляем пользователя');
                 } else if (el.classList.contains('button-true-pass')) {
                     const inputPass = <HTMLInputElement>document.querySelector('.container__setting__dialog__buttons__input');
@@ -79,12 +80,19 @@ export default class SettingUserModal {
         this.dialogContent.remove();
         if (type === 'pass') {
             create('div', 'container__setting__dialog__buttons',
-                `<input class="container__setting__dialog__buttons__input" type="password" id="userPasswordInput" tabindex="0">
+                `<input class="container__setting__dialog__buttons__input" type="password" tabindex="0">
         <button class="container__setting__dialog__buttons__button button-false" tabindex="0">${this.languageData.dialogButtons[0]}</button>
         <button class="container__setting__dialog__buttons__button button-true-${type}" tabindex="0">${this.languageData.dialogButtons[1]}</button>`,
                 this.dialog);
-        } else {
-            create('div', 'container__setting__dialog__buttons',
+        } else if (type === 'delete') {
+            create('div', 'container__setting__dialog__buttons', 
+                `<input class="container__setting__dialog__buttons__input" type="password" tabindex="0">
+                <button class="container__setting__dialog__buttons__button button-false" tabindex="0">${this.languageData.dialogButtons[0]}</button>
+        <button class="container__setting__dialog__buttons__button button-true-${type}" tabindex="0">${this.languageData.dialogButtons[1]}</button>`,
+                this.dialog);
+        }
+        else {
+              create('div', 'container__setting__dialog__buttons',
                 `<button class="container__setting__dialog__buttons__button button-false" tabindex="0">${this.languageData.dialogButtons[0]}</button>
         <button class="container__setting__dialog__buttons__button button-true-${type}" tabindex="0">${this.languageData.dialogButtons[1]}</button>`,
                 this.dialog);

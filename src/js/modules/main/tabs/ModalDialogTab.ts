@@ -1,5 +1,6 @@
 import create from '../utils/create';
 import languageData from '../../../languageDate/languageDate.json';
+import {setAdditionalInfo} from '../../firebase/database';
 
 export default class ModalDialogTab {
   indexLanguage: number;
@@ -73,8 +74,44 @@ export default class ModalDialogTab {
           create('p', 'dialogs__content__answers__content',
             `${this.languageData[0][2]}: <span class="dialogs__content__answers__content-income">${el.textContent}</span>`, this.blockAnswers);
           create('button', 'dialogs__content__confirm-button', `${this.languageData[6][0]}`, this.blockAnswers, ['id', 'dialog-confirm-button']);
+          this.addListenerForSubmit();
         }
       });
     });
   }
+
+   addListenerForSubmit() {
+     const submitBtn = <HTMLButtonElement>document.querySelector('.dialogs__content__confirm-button');
+     const output = { gender: undefined, age: undefined, income: undefined };
+     submitBtn.addEventListener('click', ()=> {
+        const gender = document.querySelector('.dialogs__content__answers__content-gender').textContent;
+        const age = document.querySelector('.dialogs__content__answers__content-age').textContent;
+        const income = document.querySelector('.dialogs__content__answers__content-income').textContent;
+        switch (gender) {
+          case 'Male':
+          case 'Female':
+          case 'Other':
+            output.gender = gender;
+            break;
+          case 'Мужчина':
+          case 'Der Mann':
+            output.gender = 'Male';
+            break;
+          case 'Женщина':
+          case 'Frau':
+            output.gender = 'Female';
+            break;
+          case 'Другой':
+          case 'Andere':
+            output.gender = 'Other';
+            break;
+          default:
+            break;
+        }
+        output.age = age;
+        output.income = income;
+        
+        setAdditionalInfo(output);
+     })
+   }
 }

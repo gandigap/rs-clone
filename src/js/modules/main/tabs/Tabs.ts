@@ -68,9 +68,8 @@ export default class Tabs {
         inputs.forEach((input, i) => {
             input.addEventListener('click', async () => {
                 if (input.checked) index = i;
-                let roomType = inputs[index].value;
-                let datesArr = await writeHotelRoom(roomType);
-                console.log(datesArr)
+                const roomType = inputs[index].value;
+                const datesArr = await writeHotelRoom(roomType);
                 document.querySelector('.container__date__content').remove();
                 this.calendar = new Calendar(this.indexLanguage, datesArr);
             });
@@ -80,11 +79,8 @@ export default class Tabs {
                 switch (this.numberCurrentTab) {
                     case 1:
                         const dates = (<HTMLInputElement>document.querySelector('#litepicker')).value.split(' - ');
-                        console.log(dates);
                         setRoomsDate(dates);
-
                         break;
-
                     default:
                         break;
                 }
