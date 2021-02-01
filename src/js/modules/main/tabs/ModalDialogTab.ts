@@ -62,16 +62,16 @@ export default class ModalDialogTab {
           this.dialogMale.close();
           this.dialogAge.showModal();
           create('p', 'dialogs__content__answers__content',
-            `${this.languageData[0][0]}<span class="dialogs__content__answers__content-gender">${el.textContent}</span>`, this.blockAnswers);
+            `${this.languageData[0][0]}: <span class="dialogs__content__answers__content-gender">${el.textContent}</span>`, this.blockAnswers);
         } else if (el.classList.contains('age__button')) {
           this.dialogAge.close();
           this.dialogIncome.showModal();
           create('p', 'dialogs__content__answers__content',
-            `${this.languageData[0][1]}<span class="dialogs__content__answers__content-age">${el.textContent}</span>`, this.blockAnswers);
+            `${this.languageData[0][1]}: <span class="dialogs__content__answers__content-age">${el.textContent}</span>`, this.blockAnswers);
         } else if (el.classList.contains('income__button')) {
           this.dialogIncome.close();
           create('p', 'dialogs__content__answers__content',
-            `${this.languageData[0][2]}<span class="dialogs__content__answers__content-income">${el.textContent}</span>`, this.blockAnswers);
+            `${this.languageData[0][2]}: <span class="dialogs__content__answers__content-income">${el.textContent}</span>`, this.blockAnswers);
           create('button', 'dialogs__content__confirm-button', `${this.languageData[6][0]}`, this.blockAnswers, ['id', 'dialog-confirm-button']);
         }
       });

@@ -136,15 +136,15 @@
             "Имя",
             "Name"
         ],
-        "lastName": [
-            "Lastname",
-            "Фамилия",
-            "Familien"
+        "password": [
+            "Password",
+            "Пароль",
+            "Passwort"
         ],
-        "phone": [
-            "Phone",
-            "Телефон",
-            "Telefon"
+        "confirmPassword": [
+            "Confirm password",
+            "Подтвердите пароль",
+            "Bestätige das Passwort"
         ],
         "Email": [
             "Email",
@@ -156,25 +156,20 @@
             "Подтвердить",
             "Einreichen"
         ],
-        "successTitle": [
-            "Form sent",
-            "Форма отправлена",
-            "Formular gesendet"
+        "register": [
+            "Register",
+            "Зарегистрироваться",
+            "Registrieren"
         ],
-        "successMessage": [
-            "All good!",
-            "Все хорошо!",
-            "Alles gut!"
+        "forgotPassword": [
+            "Forgot your password?",
+            "Забыли свой пароль",
+            "Passwort vergessen?"
         ],
-        "invalidRule": [
-            "Invalid rule ",
-            "Проверьте ",
-            "Ungültige кegel"
-        ],
-        "forInput": [
-            " for input ",
-            " для поля ",
-            " zur eingabe "
+        "notRegister": [
+            "Are you not registered yet?",
+            "Вы еще не зарегистрированы",
+            "Bist du noch nicht registriert?"
         ]
     },
     "description": [
@@ -185,9 +180,9 @@
     "dialogInfo": [
         [
             [
-                "Gender: ",
-                "Age: ",
-                "Income: "
+                "Gender",
+                "Age",
+                "Income"
             ],
             [
                 "Which option describes you?",
@@ -218,9 +213,9 @@
         ],
         [
             [
-                "Пол: ",
-                "Возраст: ",
-                "Доход: "
+                "Пол",
+                "Возраст",
+                "Доход"
             ],
             [
                 "Ваш пол?",
@@ -251,9 +246,9 @@
         ],
         [
             [
-                "Paul:",
-                "Alter:",
-                "Einkommen:"
+                "Paul",
+                "Alter",
+                "Einkommen"
             ],
             [
                 "Dein Geschlecht?",
@@ -284,7 +279,8 @@
         ]
     ],
     "dataRooms": [
-        [{
+        [
+            {
                 "srcImg": "assets/images/apartments/quad-room.svg",
                 "name": "Quad Room",
                 "price": "120 $",
@@ -344,7 +340,8 @@
                 ]
             }
         ],
-        [{
+        [
+            {
                 "srcImg": "assets/images/apartments/quad-room.svg",
                 "name": "Номер Квартет",
                 "price": "120 $",
@@ -404,7 +401,8 @@
                 ]
             }
         ],
-        [{
+        [
+            {
                 "srcImg": "assets/images/apartments/quad-room.svg",
                 "name": "Quade zimmer",
                 "price": "120 $",
@@ -479,7 +477,8 @@
             "Über"
         ]
     ],
-    "settingModal": [{
+    "settingModal": [
+        {
             "buttonsContent": [
                 "Change Password",
                 "Delete account",
@@ -516,11 +515,13 @@
             "dialogTitle": "Bist du sicher?"
         }
     ],
-    "staticticsModal": [{
-        "staticticsContent": [
-            "Изменить пароль",
-            "Удалить аккаунт",
-            "Выйти"
-        ]
-    }]
+    "staticticsModal": [
+        {
+            "staticticsContent": [
+                "Изменить пароль",
+                "Удалить аккаунт",
+                "Выйти"
+            ]
+        }
+    ]
 }
