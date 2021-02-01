@@ -1,8 +1,8 @@
 import create from './utils/create';
-
 export default class ModalGallery {
   button: HTMLElement;
   modal: HTMLElement;
+
   constructor() {
     const parent = document.querySelector('.main__other-section__sub-content-block__gallery-modal');
     this.button = create('button', 'main__other-section__sub-content-block__gallery-modal__button', 'ROOMS', parent, ['id', 'myBtn']);
@@ -34,6 +34,4 @@ export default class ModalGallery {
       }
     };
   }
-
-
 }

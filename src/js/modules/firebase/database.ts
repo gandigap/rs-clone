@@ -1,45 +1,12 @@
 import firebase from "firebase/app";
 import 'firebase/database';
 
-
-export function writeUserData(userId:string, name:string, email:string):void {
-    firebase.database().ref('users/' + userId).set({
-        username: name,
-        email: email,
-    });
-}
-
-export async function writeHotelRoom(roomType:string) {
-    let UID = await getUserId();
-    firebase.database().ref('users/' + UID).update({
-        roomType: roomType,
-    });
-    let result = await showBuckedDates(roomType);
-    return result;
-}
-
-export async function setRoomsDate(dates) {
-    let UID = await getUserId();
-    firebase.database().ref('users/' + UID).update({
-        dates: dates,
-    });
-}
-
-export async function setAdditionalInfo(info) {
-    let UID = await getUserId();
-    firebase.database().ref('users/' + UID).update({
-        gender: info.gender,
-        age: info.age,
-        income: info.income,
-    });
-}
-
 async function getUserId() {
-    var user = firebase.auth().currentUser;
+    const user = firebase.auth().currentUser;
     return user ? user.uid : null;
 }
 
-async function showBuckedDates(roomType) {
+async function showBuckedDates(roomType: string) {
     const datesArray = [];
     await firebase.database().ref('users').orderByChild('roomType')
         .equalTo(roomType)
@@ -52,11 +19,43 @@ async function showBuckedDates(roomType) {
     return datesArray;
 }
 
+export function writeUserData(userId : string, name : string, email : string) : void {
+    firebase.database().ref('users/' + userId).set({
+        username: name,
+        email: email,
+    });
+}
+
+export async function writeHotelRoom(roomType : string) {
+    const UID = await getUserId();
+    firebase.database().ref('users/' + UID).update({
+        roomType: roomType,
+    });
+    const result = await showBuckedDates(roomType);
+    return result;
+}
+
+export async function setRoomsDate(dates: string[]) {
+    const UID = await getUserId();
+    firebase.database().ref('users/' + UID).update({
+        dates: dates,
+    });
+}
+
+export async function setAdditionalInfo(info: { gender: string; age: string; income: string; }) {
+    const UID = await getUserId();
+    firebase.database().ref('users/' + UID).update({
+        gender: info.gender,
+        age: info.age,
+        income: info.income,
+    });
+}
+
 export async function removeUser(user: firebase.User) {
     const UID = user.uid; 
     firebase.database().ref('users/' + UID).remove() 
         .then(function() {
-            console.log("Remove succeeded.")
+            console.log("Remove succeeded.");
         })
         .catch(function(error) {
             console.log("Remove failed: " + error.message)

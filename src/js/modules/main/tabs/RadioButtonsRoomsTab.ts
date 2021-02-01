@@ -6,6 +6,7 @@ export default class RadioButtonsRoomsTab {
   radioButtonContainer: HTMLElement;
   arrayTypeRooms: string[];
   elementID: Array<string>;
+  
   constructor(indexLanguage) {
     this.indexLanguage = indexLanguage;
     const parent = document.getElementById('container__rooms');

@@ -8,6 +8,7 @@ export default class Calendar {
     calendar: HTMLElement;
     picker: Litepicker;
     today: string;
+    
     constructor(indexLanguage, lockDays) {
         this.indexLanguage = indexLanguage;
         this.lockDays = lockDays;

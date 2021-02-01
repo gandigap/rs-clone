@@ -7,11 +7,12 @@ export default class SettingUserModal {
     indexLanguage: number;
     accountManager: AccountManager;
     languageData: { buttonsContent: string[]; dialogButtons: string[]; dialogTitle: string; };
-    contentModal: any;
-    dialog: any;
+    contentModal: HTMLElement;
+    dialog: HTMLDialogElement;
     buttonsSetting: NodeListOf<Element>;
     buttonsDialog: NodeListOf<Element>;
-    dialogContent: any;
+    dialogContent: HTMLElement;
+
     constructor(indexLanguage) {
         this.indexLanguage = indexLanguage;
         this.accountManager = new AccountManager(this.indexLanguage);

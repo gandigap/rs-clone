@@ -24,11 +24,6 @@ export default class StaticticModal {
     }
 
     async createStatistics() {
-        // this.addStatisticTable('gender', [20, 30, 50]);
-        // this.addStatisticTable('age', [10, 10, 80]);
-        // this.addStatisticTable('income', [40, 40, 20]);
-       
-
         const genderData = [await showStatisticsData('gender', this.languageData[2][0]), 
                             await showStatisticsData('gender', this.languageData[3][0]),
                             await showStatisticsData('gender', this.languageData[4][0])
@@ -61,7 +56,7 @@ export default class StaticticModal {
             default:
                 break;
         }
-        const statisticTablesContainer = create('table', 'container__statictics__tables__table',
+        create('table', 'container__statictics__tables__table',
             `<thead class="container__statictics__tables__table__thead">
                 <tr class="container__statictics__tables__table__thead__tr">
                     <th class="container__statictics__tables__table__thead__th">${this.languageData[0][typeIndex]}</th>
@@ -83,7 +78,5 @@ export default class StaticticModal {
                 </tr>
             </tbody>`,
             this.contentModal);
-
     }
-
 }

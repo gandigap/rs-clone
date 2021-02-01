@@ -20,6 +20,7 @@ export default class MainPart {
     mainTitle: HTMLElement;
     figureMainImage: HTMLElement;
     buttonSearchGallery: HTMLButtonElement;
+    
     constructor(indexLanguage) {
         this.indexLanguage = indexLanguage;
         const parent = document.querySelector('.container-xl');

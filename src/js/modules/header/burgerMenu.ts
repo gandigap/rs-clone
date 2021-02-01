@@ -9,6 +9,7 @@ export default class BurgerMenu {
   burger: HTMLInputElement;
   overlay: HTMLElement;
   links: NodeListOf<Element>;
+  
   constructor(indexLanguage) {
     this.indexLanguage = indexLanguage;
     this.body = document.querySelector('body');

@@ -1,17 +1,21 @@
 import create from '../main/utils/create';
 import { changeLogButtonState } from '../main/utils/utils';
 import { AccountManager } from '../firebase/accountManager';
+import languageData from '../../languageDate/languageDate.json';
 
 export default class HeaderPart {
-  header: any;
+  header: HTMLElement;
   hiddenTitleBlock: HTMLElement;
-  infoBlock: any;
-  languageBlock: any;
-  containerButtonLog: any;
-  buttonConfirmForm: any;
-  containerButtonHot: any;
+  infoBlock: HTMLElement;
+  languageBlock: HTMLElement;
+  containerButtonLog: HTMLElement;
+  buttonConfirmForm: HTMLElement;
+  containerButtonHot: HTMLElement;
   accountManager: AccountManager;
-  constructor() {
+  indexLanguage: number;
+
+  constructor(indexLanguage) {
+    this.indexLanguage = indexLanguage;
     const parent = document.querySelector('.container-xl');
     this.header = create('header', 'header col-sm-12 d-flex align-items-center justify-content-between flex-wrap', null, parent);
     this.addHiddenTitleH1();
@@ -44,17 +48,19 @@ export default class HeaderPart {
          <option class="header__language-block__list__item" value="DE">DE</option>`,
         this.languageBlock, ['id', 'select__language'], ['tabindex', '0']),
     ], this.header);
+    (<HTMLOptionElement>document.querySelectorAll('.header__language-block__list__item')
+    [this.indexLanguage]).selected = true;
   }
 
   async addButtonOpenConfirmForm() {
     this.containerButtonLog = create('div', 'header__container-button-log', null, this.header);
     this.buttonConfirmForm = create('button', 'button-open-modal header__container-button-log__button',
-      'Log in', this.containerButtonLog, ['id', 'button-open-confirm-form'], ['tabindex', '0']);
-    this.accountManager = new AccountManager(0);
+      languageData.logButton[this.indexLanguage], this.containerButtonLog, ['id', 'button-open-confirm-form'], ['tabindex', '0']);
+    this.accountManager = new AccountManager(this.indexLanguage);
     const state = await this.accountManager.getUserState();
     if (state) {
       let name = await this.accountManager.getUserName();
-      changeLogButtonState(true, name, 0);
+      changeLogButtonState(true, name);
     }
   }
 

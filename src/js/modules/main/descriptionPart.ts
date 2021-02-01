@@ -2,9 +2,9 @@ import create from './utils/create';
 import languageData from '../../languageDate/languageDate.json';
 
 export default class DescriptionPart {
-  indexLanguage: any;
-  parent: any;
-  description: any;
+  indexLanguage: number;
+  parent: HTMLElement;
+  description: HTMLElement;
   constructor(indexLanguage) {
     this.indexLanguage = indexLanguage;
     this.parent = document.querySelector('.main__other-section__sub-content-block__description');

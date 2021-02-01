@@ -8,7 +8,7 @@ import create from './main/utils/create';
 import SwitcherColor from './header/SwitcherColorTheme';
 
 export default class App {
-  // indexLanguage: any;
+  indexLanguage: number;
   header: HeaderPart;
   container: HTMLElement;
   body: HTMLBodyElement;
@@ -18,7 +18,8 @@ export default class App {
   switcherColor: SwitcherColor;
   hotKeysListeners: HotKeysListener;
 
-  constructor() {
+  constructor(indexLanguage) {
+    this.indexLanguage = indexLanguage;
     this.body = document.querySelector('body');
     this.header = null;
   }
@@ -28,16 +29,17 @@ export default class App {
   }
 
   createAppStructure() {
-    this.header = new HeaderPart();
-    this.main = new MainPart(0);
+    this.header = new HeaderPart(this.indexLanguage);
+    this.main = new MainPart(this.indexLanguage);
     this.footer = new FooterPart();
-    this.burgerMenu = new BurgerMenu(0);
+    this.burgerMenu = new BurgerMenu(this.indexLanguage);
     this.switcherColor = new SwitcherColor();
     this.hotKeysListeners = new HotKeysListener();
   }
 }
 
-const app = new App();
+const indexLanguage = +localStorage.getItem('indexLanguage');
+const app = new App(indexLanguage);
 app.createWrapper();
 app.createAppStructure();
 changeLanguage();

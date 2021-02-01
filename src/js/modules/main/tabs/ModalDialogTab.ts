@@ -14,6 +14,7 @@ export default class ModalDialogTab {
   dialogAge: HTMLDialogElement;
   dialogIncome: HTMLDialogElement;
   buttonsDialog: NodeListOf<Element>;
+  
   constructor(indexLanguage) {
     this.indexLanguage = indexLanguage;
     const parent = document.getElementById('container__dialog');
@@ -110,7 +111,6 @@ export default class ModalDialogTab {
         }
         output.age = age;
         output.income = income;
-        
         setAdditionalInfo(output);
      })
    }

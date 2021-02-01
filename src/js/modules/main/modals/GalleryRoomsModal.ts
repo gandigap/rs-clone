@@ -4,14 +4,15 @@ import CardRoom from './CardRoom';
 import languageData from '../../../languageDate/languageDate.json';
 
 export default class SwiperGallery {
-    indexLanguage: any;
-    swiperContainer: any;
-    swiperContainer2: any;
+    indexLanguage: number;
+    swiperContainer: HTMLElement;
+    swiperContainer2: HTMLElement;
     countCard: number;
     galleryThumbs: Swiper;
     galleryTop: Swiper;
-    currentCard: any;
-    data: any;
+    currentCard: CardRoom;
+    roomsData: Array<object>;
+
     constructor(indexLanguage) {
         this.indexLanguage = indexLanguage;
         const parent = document.querySelector('.main__modal__content__body');
@@ -22,7 +23,7 @@ export default class SwiperGallery {
             parent);
         this.swiperContainer2 = create('div', 'swiper-container gallery-thumbs',
             '<div class="swiper-wrapper"></div>', parent);
-        this.data = languageData.dataRooms[this.indexLanguage];
+        this.roomsData = languageData.dataRooms[this.indexLanguage];
         this.countCard = 0;
         this.addCardsWithRooms();
         this.initSwiper();
@@ -49,7 +50,7 @@ export default class SwiperGallery {
     }
 
     addCardsWithRooms() {
-        this.data.forEach((element) => {
+        this.roomsData.forEach((element) => {
             this.currentCard = new CardRoom(element, this.countCard, this.indexLanguage);
             this.countCard += 1;
         });

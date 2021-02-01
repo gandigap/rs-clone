@@ -8,8 +8,9 @@ export default class ConfirmForm {
   submitType: string;
   indexLanguage: number;
   accountManager: AccountManager;
-  contentForm: any;
+  contentForm: HTMLElement;
   modal: MainModal;
+
   constructor(submitType: string, indexLanguage: number) {
     this.submitType = submitType;
     this.indexLanguage = indexLanguage;
@@ -20,7 +21,6 @@ export default class ConfirmForm {
 
   createForm() {
     const parent = document.querySelector('.main__modal__content__body');
-    const register = !!(this.submitType === 'registration');
     switch (this.submitType) {
       case 'registration':
         return create('div', 'container__confirm-form',
@@ -125,7 +125,7 @@ export default class ConfirmForm {
           break;
       }
       let name = await this.accountManager.getUserName();
-      changeLogButtonState(true, name, this.indexLanguage);
+      changeLogButtonState(true, name);
       setTimeout(() => {
         modalClose()
       }, 2000);
