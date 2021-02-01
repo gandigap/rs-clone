@@ -43,8 +43,8 @@ async function showBuckedDates(roomType) {
     return datesArray;
 }
 
-export async function removeUser() {
-    const UID = await getUserId(); 
+export async function removeUser(user) {
+    const UID = user.uid; 
     firebase.database().ref('users/' + UID).remove() 
         .then(function() {
             console.log("Remove succeeded.")

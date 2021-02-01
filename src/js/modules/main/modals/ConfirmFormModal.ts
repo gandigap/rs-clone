@@ -91,7 +91,6 @@ export default class ConfirmForm {
     const form = document.getElementById('confirm-form');
     const messageContainer = document.querySelector('.container__confirm-form__message');
     form.addEventListener('click', (e: any) => {
-      console.log(e.target.dataset.object === "register")
       if (e.target.tagName === 'BUTTON' && e.target.dataset.object) {
         form.outerHTML = '';
         form.remove();
