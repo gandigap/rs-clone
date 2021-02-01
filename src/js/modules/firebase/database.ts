@@ -25,6 +25,15 @@ export async function setRoomsDate(dates) {
     });
 }
 
+export async function setAdditionalInfo(info) {
+    let UID = await getUserId();
+    firebase.database().ref('users/' + UID).update({
+        gender: info.gender,
+        age: info.age,
+        income: info.income,
+    });
+}
+
 async function getUserId() {
     var user = firebase.auth().currentUser;
     return user ? user.uid : null;
@@ -43,7 +52,7 @@ async function showBuckedDates(roomType) {
     return datesArray;
 }
 
-export async function removeUser(user) {
+export async function removeUser(user: firebase.User) {
     const UID = user.uid; 
     firebase.database().ref('users/' + UID).remove() 
         .then(function() {
@@ -52,4 +61,21 @@ export async function removeUser(user) {
         .catch(function(error) {
             console.log("Remove failed: " + error.message)
         });
+}
+
+export async function showStatisticsData(parameter:string, value:string) {
+    const paramArr = [];
+    let counter = 0;
+    await firebase.database().ref('users').orderByChild(parameter)
+        .equalTo(value)
+        .once("value", function (snapshot) {
+            snapshot.forEach(function (userObj) {
+                const data = userObj.val()[parameter];
+                if (data)  {
+                    paramArr.push(data);
+                    counter += 1;
+                }
+            });
+        });
+    return counter;
 }

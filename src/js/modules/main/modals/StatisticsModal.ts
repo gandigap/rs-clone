@@ -2,6 +2,7 @@ import create from '../utils/create';
 import languageData from '../../../languageDate/languageDate.json';
 import { addListenerForCloseModal } from '../utils/utils';
 import { AccountManager } from '../../firebase/accountManager';
+import { showStatisticsData } from '../../firebase/database';
 
 export default class StaticticModal {
     indexLanguage: number;
@@ -19,10 +20,30 @@ export default class StaticticModal {
             `<div class="container__statictics__tables"></div>`,
             parent);
         addListenerForCloseModal();
-        this.addStatisticTable('gender', [20, 30, 50]);
-        this.addStatisticTable('age', [10, 10, 80]);
-        this.addStatisticTable('income', [40, 40, 20]);
+        this.createStatistics()
+    }
 
+    async createStatistics() {
+        // this.addStatisticTable('gender', [20, 30, 50]);
+        // this.addStatisticTable('age', [10, 10, 80]);
+        // this.addStatisticTable('income', [40, 40, 20]);
+       
+
+        const genderData = [await showStatisticsData('gender', this.languageData[2][0]), 
+                            await showStatisticsData('gender', this.languageData[3][0]),
+                            await showStatisticsData('gender', this.languageData[4][0])
+                        ];
+        const ageData = [   await showStatisticsData('age', this.languageData[2][1]), 
+                            await showStatisticsData('age', this.languageData[3][1]),
+                            await showStatisticsData('age', this.languageData[4][1])
+                        ];
+        const incomeData = [await showStatisticsData('income', this.languageData[2][2]), 
+                            await showStatisticsData('income', this.languageData[3][2]),
+                            await showStatisticsData('income', this.languageData[4][2])
+                        ];
+        this.addStatisticTable('gender', genderData);
+        this.addStatisticTable('age', ageData);
+        this.addStatisticTable('income', incomeData);
     }
 
     addStatisticTable(type: string, date: number[]) {
