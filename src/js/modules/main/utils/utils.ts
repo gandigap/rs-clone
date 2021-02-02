@@ -98,7 +98,10 @@ export function showAndAddStructureModal() {
   const audio = <HTMLAudioElement>document.querySelector('.audio');
   mainModal.innerHTML = `<div class="main__modal__content">
                                     <div class="main__modal__content__header d-flex justify-content-between">
-                                      <span class="main__modal__content__close">&times;</span>
+                                      <button class="main__modal__content__close">
+                                        <span>&times;</span>
+			                                  <span>close</span>
+                                      </button>
                                       <h2 class="main__modal__content__header-title"></h2>
                                     </div>
                                     <div class="main__modal__content__body">
