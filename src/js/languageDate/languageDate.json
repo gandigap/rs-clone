@@ -1,7 +1,7 @@
 {
     "titleForLog": [
         "Please sign in",
-        "Пожалуйста зарегистрируйтесь",
+        "Пожалуйста, зарегистрируйтесь",
         "Bitte einloggen"
     ],
     "placeholderPassword": [
@@ -289,8 +289,7 @@
         ]
     ],
     "dataRooms": [
-        [
-            {
+        [{
                 "srcImg": "assets/images/apartments/quad-room.svg",
                 "name": "Quad Room",
                 "price": "120 $",
@@ -350,8 +349,7 @@
                 ]
             }
         ],
-        [
-            {
+        [{
                 "srcImg": "assets/images/apartments/quad-room.svg",
                 "name": "Номер Квартет",
                 "price": "120 $",
@@ -411,8 +409,7 @@
                 ]
             }
         ],
-        [
-            {
+        [{
                 "srcImg": "assets/images/apartments/quad-room.svg",
                 "name": "Quade zimmer",
                 "price": "120 $",
@@ -487,8 +484,7 @@
             "Über"
         ]
     ],
-    "settingModal": [
-        {
+    "settingModal": [{
             "buttonsContent": [
                 "Change Password",
                 "Delete account",
@@ -525,13 +521,11 @@
             "dialogTitle": "Bist du sicher?"
         }
     ],
-    "staticticsModal": [
-        {
-            "staticticsContent": [
-                "Изменить пароль",
-                "Удалить аккаунт",
-                "Выйти"
-            ]
-        }
-    ]
+    "staticticsModal": [{
+        "staticticsContent": [
+            "Изменить пароль",
+            "Удалить аккаунт",
+            "Выйти"
+        ]
+    }]
 }

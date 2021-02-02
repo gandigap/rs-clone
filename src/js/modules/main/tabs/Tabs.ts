@@ -36,6 +36,7 @@ export default class Tabs {
     addTabContent() {
         this.test = create('div', 'main__other-section__test', null, this.tabs);
         this.tab = create('div', 'main__other-section__tabs__tab d-flex', [
+create('div', 'main__other-section__tabs__tab progress', '', undefined),
             create('button', 'main__other-section__tabs__tab__button flex-grow-1 tab__button-active', `${languageData.tabHeader[this.indexLanguage]} 1`, undefined),
             create('button', 'main__other-section__tabs__tab__button flex-grow-1', `${languageData.tabHeader[this.indexLanguage]} 2`, undefined),
             create('button', 'main__other-section__tabs__tab__button flex-grow-1', `${languageData.tabHeader[this.indexLanguage]} 3`, undefined),

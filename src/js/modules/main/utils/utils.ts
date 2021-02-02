@@ -152,20 +152,21 @@ export function showTitleForPleaseRegister(state) {
   const tab = <HTMLElement>document.querySelector('.main__other-section__tabs__tab');
   const tabOpen = <HTMLElement>document.querySelector('.tab__open');
   const stepButton = <HTMLElement>document.querySelector('.main__other-section__tabs__button-step-block');
-  const titleLog = <HTMLElement>document.querySelector('.main__other-section__test');
+  const logInBlocker = <HTMLElement>document.querySelector('.main__other-section__test');
+  const blockerText = <HTMLElement>document.querySelector('.main__other-section__blocker-text');
   const indexLanguage = localStorage.getItem('indexLanguage');
   if (!state) {
     tab.classList.add('d-none');
     tabOpen.classList.add('d-none');
     stepButton.classList.add('d-none');
-    titleLog.style.display = 'block';
-    titleLog.textContent = `${languageData.titleForLog[indexLanguage]}`;
+    logInBlocker.style.display = 'flex';
+    blockerText.innerText = `${languageData.titleForLog[indexLanguage]}`;
     console.log('yes');
   } else {
     tab.classList.remove('d-none');
     tabOpen.classList.remove('d-none');
     stepButton.classList.remove('d-none');
-    titleLog.style.display = 'none';
+    logInBlocker.style.display = 'none';
     console.log('no');
   }
 

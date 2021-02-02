@@ -10,6 +10,9 @@ $font-color-primary: #101010;
 $font-size-primary: 10px;
 $font-weight-regular: 400;
 $font-height-normal: 1.4;
+// Footer and header heights
+$header-height: 55px;
+$footer-height: 50px;
 // Screens
 $desktopWidth: 1280px;
 $smDesktopWidth: 1024px;
@@ -20,7 +23,7 @@ $smPhoneWidth: 320px;
 // Main color
 $default-color: #ffffff;
 $primary-color: #636871;
-$success-color: #FC633A;
+$success-color: #d5b06d;
 $danger-color: #990000;
 $warning-color: #fed330;
 $light-color: #eeeeee;
@@ -37,41 +40,3 @@ $border-base: #DCDFE6;
 $border-light: #E4E7ED;
 $border-lighter: #EBEEF5;
 $border-lightex: #F2F6FC;
-
-/* @font-face {
-        font-family: "Ubuntu";
-        src: url("../../fonts/Ubuntu-Regular.ttf");
-        src: local('☺'),       
-        url("../../fonts/Ubuntu-Regular.ttf") format("truetype");    
-        font-weight: normal;
-        font-style: normal;
-    }
-    
-    @font-face {
-        font-family: "Ubuntu";
-        src: url("../../fonts/Ubuntu-Bold.ttf");
-        src: local('☺'),       
-        url("../../fonts/Ubuntu-Bold.ttf") format("truetype");    
-        font-weight: bold;
-        font-style: normal;
-    }
-      
-    
-    @font-face {
-        font-family: "Ubuntu";
-        src: url("../../fonts/Ubuntu-Italic.ttf");
-        src: local('☺'),       
-        url("../../fonts/Ubuntu-Italic.ttf") format("truetype");    
-        font-weight: normal;
-        font-style: italic;
-    }
-      
-    
-    @font-face {
-        font-family: "Ubuntu";
-        src: url("../../fonts/Ubuntu-BoldItalic.ttf");
-        src: local('☺'),       
-        url("../../fonts/Ubuntu-BoldItalic.ttf") format("truetype");    
-        font-weight: bold;
-        font-style: italic;
-    } */
