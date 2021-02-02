@@ -38,8 +38,10 @@ export default class App {
   }
 }
 
-const indexLanguage = +localStorage.getItem('indexLanguage');
+const indexLanguage = +localStorage.getItem('indexLanguage') || 0;
 const app = new App(indexLanguage);
 app.createWrapper();
 app.createAppStructure();
 changeLanguage();
+
+

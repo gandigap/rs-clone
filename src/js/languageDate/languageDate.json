@@ -1,4 +1,14 @@
 {
+    "titleForLog": [
+        "Please sign in",
+        "Пожалуйста зарегистрируйтесь",
+        "Bitte einloggen"
+    ],
+    "placeholderPassword": [
+        "new password",
+        "новый пароль",
+        "Neues Passwort"
+    ],
     "languages": [
         "EN",
         "RU",
