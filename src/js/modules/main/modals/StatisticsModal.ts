@@ -45,7 +45,7 @@ export default class StaticticModal {
         }, 0);
         let percentArray = [];
         array.forEach(element => {
-            percentArray.push(Math.floor(element * 100 / sum));
+            percentArray.push((element * 100 / sum).toFixed(2));
         });
 
         return percentArray;

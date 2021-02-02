@@ -37,7 +37,6 @@ export default class SettingUserModal {
             el.addEventListener('click', () => {
                 if (el.classList.contains('button-get-stats')) {
                     modalClose();
-                    console.log('открываем статистику');
                     showAndAddStructureModal();
                     changeModalContent('stats', this.indexLanguage);
                 } else {
@@ -61,14 +60,11 @@ export default class SettingUserModal {
                 if (el.classList.contains('button-true-delete')) {
                     const inputPass = <HTMLInputElement>document.querySelector('.container__setting__dialog__buttons__input');
                     this.accountManager.deleteUser(inputPass);
-                    console.log('удаляем пользователя');
                 } else if (el.classList.contains('button-true-pass')) {
                     const inputPass = <HTMLInputElement>document.querySelector('.container__setting__dialog__buttons__input');
                     this.accountManager.changePassword(inputPass);
-                    console.log('меняем пароль');
                 } else if (el.classList.contains('button-true-out')) {
                     this.accountManager.signOut();
-                    console.log('выходим');
                 }
                 this.dialog.close();
                 modalClose();
@@ -81,21 +77,20 @@ export default class SettingUserModal {
         this.dialogContent.remove();
         if (type === 'pass') {
             create('div', 'container__setting__dialog__buttons',
-                `<input class="container__setting__dialog__buttons__input" type="password" tabindex="0">
-        <button class="container__setting__dialog__buttons__button button-false" tabindex="0">${this.languageData.dialogButtons[0]}</button>
-        <button class="container__setting__dialog__buttons__button button-true-${type}" tabindex="0">${this.languageData.dialogButtons[1]}</button>`,
+                `<input class="container__setting__dialog__buttons__input" type="password" tabindex="0" placeholder="${languageData.placeholderPassword[this.indexLanguage]}">
+                <button class="container__setting__dialog__buttons__button button-false" tabindex="0">${this.languageData.dialogButtons[0]}</button>
+                <button class="container__setting__dialog__buttons__button button-true-${type}" tabindex="0">${this.languageData.dialogButtons[1]}</button>`,
                 this.dialog);
         } else if (type === 'delete') {
-            create('div', 'container__setting__dialog__buttons', 
-                `<input class="container__setting__dialog__buttons__input" type="password" tabindex="0">
-                <button class="container__setting__dialog__buttons__button button-false" tabindex="0">${this.languageData.dialogButtons[0]}</button>
-        <button class="container__setting__dialog__buttons__button button-true-${type}" tabindex="0">${this.languageData.dialogButtons[1]}</button>`,
+            create('div', 'container__setting__dialog__buttons',
+                `<button class="container__setting__dialog__buttons__button button-false" tabindex="0">${this.languageData.dialogButtons[0]}</button>
+                <button class="container__setting__dialog__buttons__button button-true-${type}" tabindex="0">${this.languageData.dialogButtons[1]}</button>`,
                 this.dialog);
         }
         else {
-              create('div', 'container__setting__dialog__buttons',
+            create('div', 'container__setting__dialog__buttons',
                 `<button class="container__setting__dialog__buttons__button button-false" tabindex="0">${this.languageData.dialogButtons[0]}</button>
-        <button class="container__setting__dialog__buttons__button button-true-${type}" tabindex="0">${this.languageData.dialogButtons[1]}</button>`,
+                <button class="container__setting__dialog__buttons__button button-true-${type}" tabindex="0">${this.languageData.dialogButtons[1]}</button>`,
                 this.dialog);
         }
         this.addListenersForButtonSettingDialog();
