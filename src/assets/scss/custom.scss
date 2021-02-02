@@ -376,7 +376,7 @@ body {
                 .dialogs__content {
                     text-align: center;
                     &__answers {
-                        font-size: 18px;
+                        font-size: 1.8rem;
                         &__content {
                             font-weight: bold;
                             margin: 5px;
@@ -400,7 +400,7 @@ body {
                         /*  width: 500px;   */
                         /*  min-width: 500px;  */
                         &__title {
-                            font-size: 24px;
+                            font-size: 2.4rem;
                         }
                         &__buttons {
                             display: flex;
@@ -653,7 +653,7 @@ body {
                     border-radius: 10px;
                     color: var(--primary-color);
                     &__title {
-                        font-size: 20px;
+                        font-size: 2rem;
                     }
                     &__buttons {
                         display: flex;
@@ -663,7 +663,7 @@ body {
                             ;
                             border: 1px solid var(--primary-color);
                             ;
-                            font-size: 18px;
+                            font-size: 1.8rem;
                             margin: 5px;
                         }
                         &__button {
@@ -743,6 +743,7 @@ body {
                     letter-spacing: 1px;
                 }
             }
+
             .container__hotkeys {
                 &__text {
                     margin: 5px;
@@ -751,6 +752,48 @@ body {
                     margin: 0 auto;
                     font-weight: bold;
                     font-size: 2.4rem;
+                }
+            }
+
+            .container__statictics{
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                
+                &__table{
+                    margin: 5px;
+                    border-collapse: collapse;
+                    
+                    
+                    &__thead{
+                        font-size: 2rem;
+                        color: var(--light-color);
+                        background-color: var(--primary-color);
+                        
+                        &__th{
+                            padding: 5px;
+                            min-width: 80px;
+                            text-align: center;
+                        }
+                    }
+
+                    &__tbody{
+                        font-size: 1.8rem;
+                        color: var(--primary-color);
+                        background-color: var(--success-color);
+                        
+                        &__tr:hover{
+                            color: var(--light-color);
+                            background-color: var(--primary-color);                            
+                        }
+
+                        &__td{
+                            padding: 5px;
+                            min-width: 80px;
+                            text-align: center;
+                        }
+                        
+                    }
                 }
             }
         }
@@ -963,7 +1006,7 @@ body {
     }
     .swiper-button-prev:after,
     .swiper-button-next:after {
-        font-size: 26px;
+        font-size: 2.6rem;
     }
 }
 
