@@ -229,6 +229,9 @@ body {
         }
     }
     &__other-section {
+        display: flex;
+        flex-direction: column;
+        padding: 0;
         &__tabs {
             flex-grow: 1;
             &__tab {
@@ -419,6 +422,15 @@ body {
                 }
             }
         }
+
+        &__test {
+            font-size:2rem;
+            color: var(--light-color);
+            background-color: var(--success-color);
+            width: 100%;
+            flex-grow:1;
+        }
+
         &__sub-content-block {
             background-color: var(--success-color);
             &__description {
@@ -899,6 +911,7 @@ body {
                 padding-top: 90px;
                 margin-top: -90px;
             }
+
             &__sub-content-block__description__content {
                 // padding-top: 90px;
                 // margin-top: -90px;

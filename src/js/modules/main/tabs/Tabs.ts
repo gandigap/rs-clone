@@ -3,6 +3,7 @@ import {
     findNumberOpenTab,
     openTabAndChangeStep,
     checkButtonDisable,
+    showTitleForPleaseRegister
 } from '../utils/utils';
 import Calendar from './CalendarTab';
 import RadioButtonsForm from './RadioButtonsRoomsTab';
@@ -15,6 +16,7 @@ export default class Tabs {
     tabs: HTMLElement;
     numberCurrentTab: number;
     tab: HTMLElement;
+    test: HTMLElement;
     tabcontent1: HTMLElement;
     tabcontent2: HTMLElement;
     tabcontent3: HTMLElement;
@@ -22,7 +24,7 @@ export default class Tabs {
     modalDialogTab: ModalDialogTab;
     buttonStepBlock: HTMLElement;
     calendar: Calendar;
-    
+
     constructor(indexLanguage) {
         this.indexLanguage = indexLanguage;
         const parent = document.querySelector('.main__other-section');
@@ -32,6 +34,7 @@ export default class Tabs {
     }
 
     addTabContent() {
+        this.test = create('div', 'main__other-section__test', null, this.tabs);
         this.tab = create('div', 'main__other-section__tabs__tab d-flex', [
             create('button', 'main__other-section__tabs__tab__button flex-grow-1 tab__button-active', `${languageData.tabHeader[this.indexLanguage]} 1`, undefined),
             create('button', 'main__other-section__tabs__tab__button flex-grow-1', `${languageData.tabHeader[this.indexLanguage]} 2`, undefined),
@@ -50,6 +53,7 @@ export default class Tabs {
         this.addBlockWithButtonsWhichChangeTabs();
         this.calendar = new Calendar(this.indexLanguage, '');
         this.modalDialogTab = new ModalDialogTab(this.indexLanguage);
+        showTitleForPleaseRegister(false);
     }
 
     addBlockWithButtonsWhichChangeTabs() {
