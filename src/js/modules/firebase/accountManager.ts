@@ -100,7 +100,6 @@ export class AccountManager {
         const user = firebase.auth().currentUser;
         var credentials = firebase.auth.EmailAuthProvider.credential(user.email, password);
         await user.reauthenticateWithCredential(credentials);
-        console.log(this.user);
     }
 
     changePassword(passwordContainer: HTMLInputElement) {

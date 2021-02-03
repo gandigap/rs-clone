@@ -154,7 +154,7 @@ export function showTitleForPleaseRegister(state) {
   const stepButton = <HTMLElement>document.querySelector('.main__other-section__tabs__button-step-block');
   const logInBlocker = <HTMLElement>document.querySelector('.main__other-section__test');
   const blockerText = <HTMLElement>document.querySelector('.main__other-section__blocker-text');
-  const indexLanguage = localStorage.getItem('indexLanguage');
+  const indexLanguage = localStorage.getItem('indexLanguage') || 0;
   if (!state) {
     tab.classList.add('d-none');
     tabOpen.classList.add('d-none');
