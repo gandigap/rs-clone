@@ -59,7 +59,6 @@ export function checkButtonDisable(numberTab) {
 export function changeLogButtonState(isLogged: boolean, buttonText: any) {
   if (isLogged) {
     const buttonLog = document.querySelector('.header__container-button-log__button');
-    console.log(buttonLog);
     buttonLog.classList.add('header__container-button-log__setting');
     buttonLog.textContent = `${buttonText}`;
     buttonLog.classList.remove('header__container-button-log__button');
@@ -161,13 +160,11 @@ export function showTitleForPleaseRegister(state) {
     stepButton.classList.add('d-none');
     logInBlocker.style.display = 'flex';
     blockerText.innerText = `${languageData.titleForLog[indexLanguage]}`;
-    console.log('yes');
   } else {
     tab.classList.remove('d-none');
     tabOpen.classList.remove('d-none');
     stepButton.classList.remove('d-none');
     logInBlocker.style.display = 'none';
-    console.log('no');
   }
 
 }
