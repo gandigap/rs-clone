@@ -120,9 +120,9 @@ export default class ModalDialogTab {
 
   setDefaultField() {
     this.blockAnswers.innerHTML = '';
-    create('p', 'dialogs__content__answers__content__result', `thanks`, this.blockAnswers);
     const inputsRadioButton = document.querySelectorAll('.radio-buttons-form__radiobtn__input');
     const inputCalendar = <HTMLInputElement>document.querySelector('#litepicker');
+    create('p', 'dialogs__content__answers__content__result', `${languageData.BookingSuccessAnswer[this.indexLanguage]} ${inputCalendar.value}`, this.blockAnswers);
     inputsRadioButton.forEach(<HTMLInputElement>(element) => {
       element.checked = false;
     });

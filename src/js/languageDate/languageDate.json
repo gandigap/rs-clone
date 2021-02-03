@@ -4,6 +4,11 @@
         "Пожалуйста, войдите в систему или зарегистрируйтесь",
         "Bitte melden Sie sich an oder registrieren Sie sich"
     ],
+    "BookingSuccessAnswer": [
+        "Thanks. You have booked a room forr",
+        "Спасибо. Вы забронировали номер на",
+        "Vielen Dank. Sie haben ein Zimmer für gebucht"
+    ],
     "placeholderChangePassword": [
         "New password",
         "Новый пароль",
@@ -217,7 +222,7 @@
             [
                 "Other",
                 "50+",
-                "$30,000 or more"
+                "$30,000 +"
             ],
             [
                 "Test"
@@ -250,7 +255,7 @@
             [
                 "Другой",
                 "50+",
-                "$30,000 и более"
+                "$30,000 +"
             ],
             [
                 "Тест"
@@ -283,7 +288,7 @@
             [
                 "Andere",
                 "50+",
-                "$30,000 oder mehr"
+                "$30,000 +"
             ],
             [
                 "Prüfung"
@@ -294,7 +299,8 @@
         ]
     ],
     "dataRooms": [
-        [{
+        [
+            {
                 "srcImg": "assets/images/apartments/quad-room.svg",
                 "name": "Quad Room",
                 "price": "120 $",
@@ -354,7 +360,8 @@
                 ]
             }
         ],
-        [{
+        [
+            {
                 "srcImg": "assets/images/apartments/quad-room.svg",
                 "name": "Номер Квартет",
                 "price": "120 $",
@@ -414,7 +421,8 @@
                 ]
             }
         ],
-        [{
+        [
+            {
                 "srcImg": "assets/images/apartments/quad-room.svg",
                 "name": "Quade zimmer",
                 "price": "120 $",
@@ -489,7 +497,8 @@
             "Über"
         ]
     ],
-    "settingModal": [{
+    "settingModal": [
+        {
             "buttonsContent": [
                 "Change Password",
                 "Delete account",
@@ -526,11 +535,13 @@
             "dialogTitle": "Bist du sicher?"
         }
     ],
-    "staticticsModal": [{
-        "staticticsContent": [
-            "Изменить пароль",
-            "Удалить аккаунт",
-            "Выйти"
-        ]
-    }]
+    "staticticsModal": [
+        {
+            "staticticsContent": [
+                "Изменить пароль",
+                "Удалить аккаунт",
+                "Выйти"
+            ]
+        }
+    ]
 }
