@@ -1,13 +1,18 @@
 {
     "titleForLog": [
-        "Please sign in",
-        "Пожалуйста, зарегистрируйтесь",
-        "Bitte einloggen"
+        "Please log in or register",
+        "Пожалуйста, войдите в систему или зарегистрируйтесь",
+        "Bitte melden Sie sich an oder registrieren Sie sich"
     ],
-    "placeholderPassword": [
-        "new password",
-        "новый пароль",
+    "placeholderChangePassword": [
+        "New password",
+        "Новый пароль",
         "Neues Passwort"
+    ],
+    "placeholderConfirmPassword": [
+        "Confirm password",
+        "Подтвердите пароль",
+        "Passwort bestätigen"
     ],
     "languages": [
         "EN",

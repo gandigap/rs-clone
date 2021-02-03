@@ -8,9 +8,15 @@ import "firebase/auth";
 import "firebase/firestore";
 
 var firebaseConfig = {
-    apiKey: "AIzaSyCtS882jl4p5maCkoEO-J7qSpCJ3gdK44s",
-    projectId: "backjack123",
-};
+    apiKey: "AIzaSyDW6mFdH8dkuPJfWG1B6tQf-68Qtush7Fw",
+    authDomain: "rs-clonewars.firebaseapp.com",
+    projectId: "rs-clonewars",
+    storageBucket: "rs-clonewars.appspot.com",
+    messagingSenderId: "945090946179",
+    appId: "1:945090946179:web:7bc2d7c83ecdc881a867b6",
+    measurementId: "G-HGLQ11F77V"
+  };
+
 // Initialize Firebase
 if (firebase.apps.length === 0) {
     firebase.initializeApp(firebaseConfig);
