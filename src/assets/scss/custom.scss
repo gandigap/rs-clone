@@ -3,25 +3,24 @@
 @import "utils/_reset";
 @import "utils/vars";
 @import "utils/mixins";
-
-/* @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,400;0,700;1,400&display=swap'); */
-
 .theme-light {
+    --bg-color: #fff;
     --default-color: #ffffff;
     --primary-color: #636871;
-    --success-color: #FC633A;
+    --success-color: #d5b06d;
     --light-color: #eeeeee;
     --disabled-color: #63687169;
     --overlay-color: #27282be6;
 }
 
 .theme-dark {
+    --bg-color: #27282be6;
     --default-color: #eeeeee;
-    --primary-color: #FC633A;
+    --primary-color: #d5b06d;
     --success-color: #ffffff;
     --light-color: #636871;
     --disabled-color: #ffffff69;
-    --overlay-color: #eeeeeee6;
+    --overlay-color: #000000d8;
 }
 
 .switcher-theme-container {
@@ -113,14 +112,20 @@ input:checked+.slider:before {
 
 html {
     height: 100%;
-    font-size: $mainFontSize;
+    font-size: $font-size-primary;
 }
 
 body {
-    background-color: var(--light-color);
     height: 100%;
     color: var(--primary-color);
-    font-family: $mainFont;
+    font-family: $paragraphFont;
+    // --------
+    opacity: 0.93;
+    background-image: url('../images/gold+gray60.png');
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: cover;
+    background-color: var(--bg-color);
 }
 
 .container-xl {
@@ -131,6 +136,11 @@ body {
     z-index: 10;
     background-color: var(--light-color);
     padding: 5px 0px;
+    height: $header-height;
+    // opacity: 0.7;
+    // &:hover {
+    //     opacity: 1;
+    // }
     &__hidden-title {
         position: absolute;
         clip: rect(1px, 1px, 1px, 1px);
@@ -172,26 +182,13 @@ body {
             @include button-light-active;
         }
         &__setting {
-            @include button-other;
-        }
-        &__setting:hover,
-        &__setting:focus {
-            @include button-other-hover;
-        }
-        &__setting:active {
-            @include button-other-active;
+            @include button-form;
         }
     }
     &__container-button-hotkeys {
         margin: 0 5px;
         &__button {
             @include button-hotkeys;
-        }
-        &__button:hover {
-            @include button-hotkeys-hover;
-        }
-        &__button:active {
-            @include button-hotkeys-active;
         }
     }
     &__info-part {
@@ -206,18 +203,20 @@ body {
             }
             &__text {
                 margin: 5px 10px;
+                font-family: $mainFont;
                 font-style: italic;
                 font-size: 1.6rem;
             }
         }
         &__content:hover,
-        :focus {
+         :focus {
             color: var(--success-color);
         }
     }
 }
 
 .main {
+    height: calc(100vh - #{$footer-height} - #{$header-height});
     &__total-section {
         background-color: var(--primary-color);
         &__image-container {
@@ -234,6 +233,7 @@ body {
             animation-play-state: paused;
         }
         &__title {
+            font-family: $mainFont;
             padding: 40px 0;
             font-size: 5rem;
             color: var(--success-color);
@@ -258,13 +258,6 @@ body {
                     background-color: var(--light-color);
                     color: var(--primary-color);
                 }
-                &__button:hover {
-                    background-color: var(--primary-color);
-                    color: var(--success-color);
-                }
-                &__button:active {
-                    background-color: var(--success-color);
-                }
                 .tab__button-active {
                     background-color: var(--success-color);
                     color: var(--primary-color);
@@ -284,6 +277,8 @@ body {
                     text-align: center;
                     margin: 5px;
                     font-size: 2rem;
+                    text-shadow: 0px 0px 3px white;
+                    font-weight: 600;
                 }
                 #litepicker {
                     margin: 0 auto;
@@ -389,15 +384,8 @@ body {
                         }
                     }
                     &__confirm-button {
-                        @include button-other;
+                        @include button-form;
                         margin: 0 auto;
-                    }
-                    &__confirm-button:hover,
-                    &__confirm-button:focus {
-                        @include button-other-hover;
-                    }
-                    &__confirm-button:active {
-                        @include button-other-active;
                     }
                     &__dialog {
                         /*  width: 500px;   */
@@ -409,14 +397,7 @@ body {
                             display: flex;
                             flex-direction: column;
                             &__button {
-                                @include button-other;
-                            }
-                            &__button:hover,
-                            &__button:focus {
-                                @include button-other-hover;
-                            }
-                            &__button:active {
-                                @include button-other-active;
+                                @include button-form;
                             }
                         }
                     }
@@ -431,7 +412,6 @@ body {
             .tab__open {
                 display: block;
                 flex-grow: 1;
-                min-height: 240px;
             }
             &__button-step-block {
                 padding: 10px;
@@ -439,7 +419,7 @@ body {
                     @include button-dark;
                 }
                 &__button:focus,
-                :hover {
+                 :hover {
                     @include button-dark-hover;
                 }
                 &__button:active {
@@ -450,15 +430,18 @@ body {
                 }
             }
         }
-
         &__test {
-            font-size:2rem;
+            font-size: 2rem;
             color: var(--light-color);
             background-color: var(--success-color);
             width: 100%;
-            flex-grow:1;
+            flex-grow: 1;
+            justify-content: center;
+            align-items: center;
         }
-
+        &__blocker-text {
+            font-size: 3rem;
+        }
         &__sub-content-block {
             background-color: var(--success-color);
             &__description {
@@ -467,20 +450,22 @@ body {
                         &__info {
                             color: var(--light-color);
                             text-indent: 20px;
-                            text-align: justify;
+                            text-align: center;
+                            line-height: 2.5rem;
                             padding: 5px 15px;
                             font-size: 1.6rem;
                         }
                     }
                     .description__content__facilities {
                         &__facility {
-                            fill: var(--primary-color);
+                            background-color: var(--primary-color);
+                            fill: var(--light-color);
+                            border-radius: 50%;
                             margin: 5px;
                             padding: 5px;
                         }
                         &__facility:hover {
                             animation: backgroundIcon 2s infinite;
-                            border-radius: 50%;
                             transition: 0.3s;
                         }
                     }
@@ -503,7 +488,7 @@ body {
                     cursor: pointer;
                 }
                 &__button:focus,
-                :hover {
+                 :hover {
                     color: var(--default-color);
                 }
                 &__button:active {
@@ -517,6 +502,7 @@ body {
 }
 
 .footer {
+    height: $footer-height;
     font-size: 2rem;
     font-weight: bold;
     color: var(--success-color);
@@ -535,6 +521,9 @@ body {
 
 .main__modal {
     position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     z-index: 20;
     left: 0;
     bottom: -100%;
@@ -544,13 +533,14 @@ body {
     background-color: var(--overlay-color);
     transition: 0.3s;
     &__content {
-        margin: 10px 10%;
+        margin: 10%;
         border: 1px solid var(--success-color);
         width: 80%;
         background-color: var(--light-color);
         &__header {
             padding: 4px 16px;
             font-size: 2rem;
+            position: relative;
             background-color: var(--light-color);
             color: var(--success-color);
         }
@@ -649,16 +639,9 @@ body {
                 display: table;
                 margin: 0 auto;
                 &__button {
-                    @include button-other;
-                    min-width: 180px;
+                    @include button-form;
+                    min-width: 200px;
                     margin: 5px;
-                }
-                &__button:hover,
-                &__button:focus {
-                    @include button-other-hover;
-                }
-                &__button:active {
-                    @include button-other-active;
                 }
                 &__dialog {
                     border: 3px solid var(--primary-color);
@@ -679,16 +662,9 @@ body {
                             margin: 5px;
                         }
                         &__button {
-                            @include button-other;
+                            @include button-form;
                             min-width: 180px;
                             margin: 5px;
-                        }
-                        &__button:hover,
-                        &__button:focus {
-                            @include button-other-hover;
-                        }
-                        &__button:active {
-                            @include button-other-active;
                         }
                     }
                 }
@@ -755,7 +731,6 @@ body {
                     letter-spacing: 1px;
                 }
             }
-
             .container__hotkeys {
                 &__text {
                     margin: 5px;
@@ -766,60 +741,43 @@ body {
                     font-size: 2.4rem;
                 }
             }
-
-            .container__statictics{
+            .container__statictics {
                 display: flex;
                 justify-content: center;
                 flex-wrap: wrap;
-                
-                &__table{
+                &__table {
                     margin: 5px;
                     border-collapse: collapse;
-                    
-                    
-                    &__thead{
+                    &__thead {
                         font-size: 2rem;
                         color: var(--light-color);
                         background-color: var(--primary-color);
-                        
-                        &__th{
+                        &__th {
                             padding: 5px;
                             min-width: 80px;
                             text-align: center;
                         }
                     }
-
-                    &__tbody{
+                    &__tbody {
                         font-size: 1.8rem;
                         color: var(--primary-color);
                         background-color: var(--success-color);
-                        
-                        &__tr:hover{
+                        &__tr:hover {
                             color: var(--light-color);
-                            background-color: var(--primary-color);                            
+                            background-color: var(--primary-color);
                         }
-
-                        &__td{
+                        &__td {
                             padding: 5px;
                             min-width: 80px;
                             text-align: center;
                         }
-                        
                     }
                 }
             }
         }
         &__close {
             color: var(--primary-color);
-            order: 1;
-            font-size: 2.8rem;
-            font-weight: bold;
-        }
-        &__close:hover,
-        &__close:focus {
-            color: var(--light-color);
-            text-decoration: none;
-            cursor: pointer;
+            @include button-close;
         }
     }
 }
@@ -928,7 +886,7 @@ body {
     background-color: var(--success-color);
 }
 
-@media (max-width: 767px) {
+@media (max-width: 1023px) {
     .menu__btn {
         display: flex;
     }
@@ -959,6 +917,7 @@ body {
         display: flex;
     }
     .main {
+        height: auto;
         flex-direction: column;
         &__total-section {
             width: 100%;
@@ -970,11 +929,9 @@ body {
                 padding-top: 90px;
                 margin-top: -90px;
             }
-
-            &__sub-content-block__description__content {
-                // padding-top: 90px;
-                // margin-top: -90px;
-            }
+        }
+        .tab__open {
+            min-height: 250px;
         }
         &__modal__content {
             margin: 5px auto;
@@ -1045,22 +1002,25 @@ body {
     from {
         text-shadow: var(--light-color) 1px 1px 0, var(--light-color) -1px -1px 0, var(--light-color) -1px 1px 0, var(--light-color) 1px -1px 0;
     }
+    50% {
+        text-shadow: var(--light-color) 1px 1px 5px, var(--light-color) -1px -1px 3px, var(--light-color) -1px 1px 2px, var(--light-color) 1px -1px 2px;
+    }
     to {
-        text-shadow: var(--default-color) 2px 2px 0, var(--default-color) -2px -2px 0, var(--default-color) -2px 2px 0, var(--default-color) 2px -2px 0;
+        text-shadow: var(--light-color) 1px 1px 0, var(--light-color) -1px -1px 0, var(--light-color) -1px 1px 0, var(--light-color) 1px -1px 0;
     }
 }
 
 @keyframes backgroundIcon {
     0% {
-        background-color: var(--primary-color);
-        fill: var(--light-color);
+        background-color: var(--success-color);
+        fill: var(--primary-color);
     }
     50% {
-        background-color: var(--success-color);
+        background-color: var(--primary-color);
         fill: var(--light-color);
     }
     100% {
-        background-color: var(--primary-color);
-        fill: var(--light-color);
+        background-color: var(--success-color);
+        fill: var(--primary-color)
     }
 }

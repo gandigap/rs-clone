@@ -41,7 +41,7 @@ export default class CardRoom {
            <h3 class="swiper-slide__content__info__title">${this.title}</h3>
            <p class="swiper-slide__content__info__description">${this.description}</p>
            <ul class="swiper-slide__content__info__facilities"></ul>
-           <p class="swiper-slide__content__info__price">Price: ${this.price}</p>
+           <p class="swiper-slide__content__info__price">${this.price}</p>
          </div>
          <img class="swiper-slide__gallery-top__img" src="${this.src}" alt="${this.title}">
        </div>`,
