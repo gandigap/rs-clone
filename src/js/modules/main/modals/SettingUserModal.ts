@@ -77,13 +77,14 @@ export default class SettingUserModal {
         this.dialogContent.remove();
         if (type === 'pass') {
             create('div', 'container__setting__dialog__buttons',
-                `<input class="container__setting__dialog__buttons__input" type="password" tabindex="0" placeholder="${languageData.placeholderPassword[this.indexLanguage]}">
+                `<input class="container__setting__dialog__buttons__input" type="password" tabindex="0" placeholder="${languageData.placeholderChangePassword[this.indexLanguage]}">
                 <button class="container__setting__dialog__buttons__button button-false" tabindex="0">${this.languageData.dialogButtons[0]}</button>
                 <button class="container__setting__dialog__buttons__button button-true-${type}" tabindex="0">${this.languageData.dialogButtons[1]}</button>`,
                 this.dialog);
         } else if (type === 'delete') {
             create('div', 'container__setting__dialog__buttons',
-                `<button class="container__setting__dialog__buttons__button button-false" tabindex="0">${this.languageData.dialogButtons[0]}</button>
+                `<input class="container__setting__dialog__buttons__input" type="password" tabindex="0" placeholder="${languageData.placeholderConfirmPassword[this.indexLanguage]}">
+                <button class="container__setting__dialog__buttons__button button-false" tabindex="0">${this.languageData.dialogButtons[0]}</button>
                 <button class="container__setting__dialog__buttons__button button-true-${type}" tabindex="0">${this.languageData.dialogButtons[1]}</button>`,
                 this.dialog);
         }
