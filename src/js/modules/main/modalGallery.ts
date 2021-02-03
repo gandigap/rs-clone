@@ -24,13 +24,16 @@ export default class ModalGallery {
     const span = <HTMLElement>document.getElementsByClassName('main__other-section__sub-content-block__gallery-modal__modal__content__close')[0];
     this.button.onclick = () => {
       modal.style.bottom = '0px';
+      modal.style.opacity = '1';
     };
     span.onclick = () => {
       modal.style.bottom = '-100%';
+      modal.style.opacity = '0';
     };
     window.onclick = (event) => {
       if (event.target === modal) {
         modal.style.bottom = '-100%';
+        modal.style.opacity = '0';
       }
     };
   }

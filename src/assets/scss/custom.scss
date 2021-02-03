@@ -4,6 +4,7 @@
 @import "utils/vars";
 @import "utils/mixins";
 .theme-light {
+    --bg-color: #fff;
     --default-color: #ffffff;
     --primary-color: #636871;
     --success-color: #d5b06d;
@@ -13,12 +14,13 @@
 }
 
 .theme-dark {
+    --bg-color: #27282be6;
     --default-color: #eeeeee;
     --primary-color: #d5b06d;
     --success-color: #ffffff;
     --light-color: #636871;
     --disabled-color: #ffffff69;
-    --overlay-color: #eeeeeee6;
+    --overlay-color: #000000d8;
 }
 
 .switcher-theme-container {
@@ -123,6 +125,7 @@ body {
     background-repeat: no-repeat;
     background-position: top;
     background-size: cover;
+    background-color: var(--bg-color);
 }
 
 .container-xl {
@@ -245,59 +248,22 @@ body {
         padding: 0;
         &__tabs {
             flex-grow: 1;
-            content: '';
-            position: absolute;
-            background-color: #e0e0e0;
-            top: 50%;
-            left: 0;
-            height: 4px;
-            width: 100%;
-            z-index: -1;
-            transform: translateY(-50%);
             &__tab {
-                .progress {
-                    position: absolute;
-                    background-color: #e0e0e0;
-                    top: 50%;
-                    left: 0;
-                    height: 4px;
-                    width: 0%;
-                    z-index: -1;
-                    transform: translateY(-50%);
-                    transition: .4s ease;
-                }
                 &__button {
-                    // padding: 14px 16px;
-                    // font-size: 2rem;
-                    // font-weight: bold;
-                    // transition: 0.3s;
-                    // cursor: default;
-                    // background-color: var(--light-color);
-                    // color: var(--primary-color);
-                    background-color: #fff;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    border-radius: 50%;
-                    color: #999;
-                    width: 30px;
-                    border: 3px solid var(--line-border-empty);
-                    transition: .4s ease;
-                }
-                &__button:hover {
-                    background-color: var(--primary-color);
-                    color: var(--success-color);
-                }
-                &__button:active {
-                    background-color: var(--success-color);
+                    padding: 14px 16px;
+                    font-size: 2rem;
+                    font-weight: bold;
+                    transition: 0.3s;
+                    cursor: default;
+                    background-color: var(--light-color);
+                    color: var(--primary-color);
                 }
                 .tab__button-active {
-                    // background-color: var(--success-color);
-                    // color: var(--primary-color);
-                    // -webkit-box-shadow: 0px 0px 7px 1px var(--overlay-color) inset;
-                    // -moz-box-shadow: 0px 0px 7px 1px var(--overlay-color) inset;
-                    // box-shadow: 0px 0px 7px 1px var(--overlay-color) inset;
-                    border-color: #3498db;
+                    background-color: var(--success-color);
+                    color: var(--primary-color);
+                    -webkit-box-shadow: 0px 0px 7px 1px var(--overlay-color) inset;
+                    -moz-box-shadow: 0px 0px 7px 1px var(--overlay-color) inset;
+                    box-shadow: 0px 0px 7px 1px var(--overlay-color) inset;
                 }
             }
             &__tabcontent {
@@ -446,7 +412,6 @@ body {
             .tab__open {
                 display: block;
                 flex-grow: 1;
-                min-height: 240px;
             }
             &__button-step-block {
                 padding: 10px;
@@ -556,6 +521,9 @@ body {
 
 .main__modal {
     position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     z-index: 20;
     left: 0;
     bottom: -100%;
@@ -918,7 +886,7 @@ body {
     background-color: var(--success-color);
 }
 
-@media (max-width: 767px) {
+@media (max-width: 1023px) {
     .menu__btn {
         display: flex;
     }
@@ -961,6 +929,9 @@ body {
                 padding-top: 90px;
                 margin-top: -90px;
             }
+        }
+        .tab__open {
+            min-height: 250px;
         }
         &__modal__content {
             margin: 5px auto;

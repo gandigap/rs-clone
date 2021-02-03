@@ -97,7 +97,7 @@
     border: 3px solid var(--success-color);
     transition: .1s;
     transform: scale(1);
-    cursor: auto;
+    cursor: not-allowed;
     color: var(--default-color);
     background-color: var(--disabled-color);
 }
