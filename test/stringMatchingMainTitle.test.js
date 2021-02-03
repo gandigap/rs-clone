@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import data from '../src/js/languageDate/languageDate.json';
 
 const expected = [

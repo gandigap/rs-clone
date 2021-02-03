@@ -20,7 +20,7 @@ export default class FooterPart {
       `<a class="footer__logo__link" href="https://rs.school/">
         <img class="footer__logo__link__img" src="assets/images/rs_school_js.svg" alt="rs_school_js" tabindex="0">
       </a>
-      <figcaption class="footer__logo__link__figcaption">2020</figcaption>`,
+      <figcaption class="footer__logo__link__figcaption">2021</figcaption>`,
       this.footer);
   }
 }
